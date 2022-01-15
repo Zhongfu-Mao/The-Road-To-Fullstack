@@ -252,11 +252,30 @@ pip install mkdocs-mermaid2-plugin
 plugins:
     - search
     - mermaid2
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
 ```
+
+!!! example
+
+    ```mermaid
+    graph TD
+    A[Client] --> B[Load Balancer]
+    B --> C[Server01]
+    B --> D[Server02]
+    ```
 
 ### Tooltip
 
 [🔗Homepage](https://roipoussiere.frama.io/mkdocs-tooltips/)
+
+!!! example
+
+    [[Options](https://roipoussiere.frama.io/mkdocs-tooltips/options/)]{example|success}
 
 ### mkdocstring
 

@@ -203,9 +203,14 @@ doctoc demo.md
 
 ## 代码块
 
+<div class="termy">
+
 ```python
-print("hello world")
+$ python3 --version
+Python 3.10.1
 ```
+
+</div>
 
 ## 流程图
 

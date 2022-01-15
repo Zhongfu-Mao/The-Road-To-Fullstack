@@ -1,4 +1,5 @@
 site_name: The Road to Fullstack
+edit_uri: ''
 nav:
   - Automation:
     - Office:
@@ -167,11 +168,13 @@ theme:
   - navigation.indexes
   - navigation.top
 plugins:
+  - mermaid2
   - mkdocs-jupyter
   - search:
       lang:
         - ja
         - en
+  - tooltips
 markdown_extensions:
   - admonition
   - attr_list
@@ -186,10 +189,23 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.mark
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
   - pymdownx.tabbed:
       alternate_style: true 
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
   - tables
+extra_css:
+  - css/hint.min.css
+  - css/termynal.css
+  - css/custom.css
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+  - javascripts/tablesort.js
+  - javascripts/termynal.js
+  - javascripts/custom.js
