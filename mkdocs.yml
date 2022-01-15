@@ -1,0 +1,195 @@
+site_name: Zero to Hero
+nav:
+  - Automation:
+    - Office:
+      - Automation/OFFICE/Excel.ipynb
+    - Test:
+      - Automation/Test/pytest.ipynb
+      - Automation/Test/Selenium.md
+      - Automation/Test/UnitTest.md
+  - AWS:
+    - Certification:
+      - AWS/Certification/Certified Cloud Practitioner.md
+      - AWS/Certification/Certified Developer Associate.md
+    - Services:
+      - AWS/Services/Cloud9.md
+      - AWS/Services/EC2.md
+      - AWS/Services/IAM.md
+  - C# & .NET:
+    - C# & .NET/C#.md
+    - C# & .NET/dotNET.md
+  - DataBase:
+    - MongoDB:
+      - MongoDB University:
+        - DataBase/MongoDB/MongoDB University/Administration.md
+        - DataBase/MongoDB/MongoDB University/Aggregation.md
+        - DataBase/MongoDB/MongoDB University/Basics.md
+        - DataBase/MongoDB/MongoDB University/M320-Data Modeling.md
+        - DataBase/MongoDB/MongoDB University/MongoDB VS SQL.md
+      - DataBase/MongoDB/pymongo & motor.md
+    - MySQL:
+      - DataBase/MySQL/基础.md
+  - DataScience:
+    - Jupyter:
+      - DataScience/Jupyter/Anaconda.ipynb
+      - DataScience/Jupyter/IPython＆Notebook.ipynb
+      - DataScience/Jupyter/MagicCommands.ipynb
+  - Dev Tools:
+    - Git:
+      - Dev Tools/Git/参考资料.md
+      - Dev Tools/Git/基础知识.md
+      - Dev Tools/Git/设置.md
+      - Dev Tools/Git/深入理解.md
+      - Dev Tools/Git/CLI.md
+      - Dev Tools/Git/gitattribute.md
+      - Dev Tools/Git/gitignore.md
+    - VSCode:
+      - Dev Tools/VSCode/ESLint & Prettier.md
+      - Dev Tools/VSCode/Jest.md
+      - Dev Tools/VSCode/launch.json.md
+      - Dev Tools/VSCode/setting.md
+      - Dev Tools/VSCode/snippets.md
+    - Dev Tools/Chrome & Edge.md
+    - Dev Tools/cURL.md
+    - Dev Tools/Docker.md
+    - Dev Tools/GitHub.md
+    - Dev Tools/Homebrew.md
+    - Dev Tools/macOS.md
+    - Dev Tools/Markdown.md
+    - Dev Tools/MkDocs.md
+    - Dev Tools/Nginx.md
+    - Dev Tools/Oh My Posh.md
+    - Dev Tools/zsh.md
+  - FrontEnd:
+    - HTML:
+      - FrontEnd/HTML/HTML.md
+    - CSS:
+      - FrontEnd/CSS/Bootstrap.md
+      - FrontEnd/CSS/CSS.md
+      - FrontEnd/CSS/SCSS.md
+    - Javascript:
+      - ECMAScript:
+        - FrontEnd/JavaScript/ECMAScript/ECMA2015.md
+        - FrontEnd/JavaScript/ECMAScript/ECMA2016.md
+        - FrontEnd/JavaScript/ECMAScript/ECMA2017.md
+        - FrontEnd/JavaScript/ECMAScript/ECMA2018.md
+        - FrontEnd/JavaScript/ECMAScript/ECMA2019.md
+        - FrontEnd/JavaScript/ECMAScript/ECMA2020.md
+        - FrontEnd/JavaScript/ECMAScript/ECMA2021.md
+    - TypeScript:
+      - FrontEnd/TypeScript/TypeScript中的函数.ipynb
+      - FrontEnd/TypeScript/TypeScript中的类.ipynb
+      - FrontEnd/TypeScript/TypeScript中的类型.ipynb
+      - FrontEnd/TypeScript/TypeScript中的泛型.ipynb
+    - Node.js:
+      - FrontEnd/Node.js/基础.md
+      - FrontEnd/Node.js/模块.md
+      - FrontEnd/Node.js/apiDoc.md
+      - FrontEnd/Node.js/Express.md
+      - FrontEnd/Node.js/JSDoc.md
+      - FrontEnd/Node.js/nodemon.md
+      - FrontEnd/Node.js/NodeRED.md
+      - FrontEnd/Node.js/npm&yarn.md
+    - React:
+      - FrontEnd/React/JSX.md
+    - Vue:
+      - FrontEnd/Vue/基础语法.md
+      - FrontEnd/Vue/组件化开发.md
+    - FrontEnd/参考サイト.md
+    - FrontEnd/Angular.md
+    - FrontEnd/axios.md
+    - FrontEnd/Emmet.md
+  - Linux & C:
+    - Linux & C/Command Cheatsheet.md
+    - Linux & C/Linux.md
+    - Linux & C/Shell.md
+  - Network:
+    - Network/HTTP.md
+    - Network/MQTT.md
+    - Network/TCP IP.md
+  - PowerShell:
+    - PowerShell/Basic&New Features.md
+    - PowerShell/Shell.md
+    - PowerShell/Script.md
+    - PowerShell/Windows Forms.md
+  - Python:
+    - 并发:
+      - Python/并发/并发编程.md
+      - Python/并发/subprocess.md
+    - 代码检查与美化:
+      - Python/代码检查与美化/flake8.md
+    - 函数式编程:
+      - Python/函数式编程/itertools.md
+    - 时间 日期 日历:
+      - Python/时间 日期 日历/calendar.ipynb
+      - Python/时间 日期 日历/datetime.ipynb
+      - Python/时间 日期 日历/dateutil.ipynb
+      - Python/时间 日期 日历/time.ipynb
+    - 文件与路径:
+      - Python/文件与路径/os.path&pathlib.ipynb
+      - Python/文件与路径/shutil.ipynb
+      - Python/文件与路径/命令行相关.ipynb
+      - Python/文件与路径/tarfile & zipfile.md
+    - 虚拟环境和包管理:
+      - Python/虚拟环境和包管理/conda.md
+      - Python/虚拟环境和包管理/pip-tools.md
+      - Python/虚拟环境和包管理/pip.ipynb
+      - Python/虚拟环境和包管理/pipenv.md
+      - Python/虚拟环境和包管理/poetry.md
+    - 运行时:
+      - Python/运行时/os.ipynb
+      - Python/运行时/sys.ipynb
+    - 字符串处理:
+      - Python/字符串处理/manipulating strings.ipynb
+      - Python/字符串处理/re.ipynb
+      - Python/字符串处理/string.ipynb
+      - Python/字符串处理/textwrap.ipynb
+    - Python/豆知识.ipynb
+    - Python/YAML vs JSON.md
+theme:
+  name: material
+  palette:
+  - scheme: default
+    primary: teal
+    accent: amber
+    toggle:
+      icon: material/lightbulb
+      name: Switch to light mode
+  - scheme: slate
+    primary: teal
+    accent: amber
+    toggle:
+      icon: material/lightbulb-outline
+      name: Switch to dark mode
+  features:
+  - search.suggest
+  - search.highlight
+  - navigation.indexes
+  - navigation.top
+plugins:
+  - mkdocs-jupyter
+  - search:
+      lang:
+        - ja
+        - en
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - tables
