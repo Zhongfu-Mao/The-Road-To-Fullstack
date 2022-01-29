@@ -13,6 +13,7 @@ nav:
       - AWS/Certification/Certified Cloud Practitioner.md
       - AWS/Certification/Certified Developer Associate.md
     - Services:
+      - CDK: AWS/Services/CDK.md
       - AWS/Services/Cloud9.md
       - AWS/Services/EC2.md
       - AWS/Services/IAM.md
