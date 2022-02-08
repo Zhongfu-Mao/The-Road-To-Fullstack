@@ -164,8 +164,8 @@ git branch --merged # 查看哪些分支已经合并到当前分支
 git branch --no-merged # 查看所有包含未合并工作的分支
 
 git branch <分支名> # 创建分支
-git branch -d <分支名> # 删除分支
-git branch -D <分支名> # 强制删除
+git branch -d <分支名>[ <分支名2> ..] # 删除分支
+git branch -D <分支名>[ <分支名2> ..] # 强制删除
 
 git branch -u origin/<分支名> <本地分支名> # --set-upstream-to
 # 设置已有的本地分支跟踪一个刚刚拉取下来的远程分支，或者想要修改正在跟踪的上游分支
@@ -256,7 +256,7 @@ git log -1 --dirstat=lines
 ### `merge`
 
 ```bash
-git merge <分支名> # 合并分支
+git merge <分支名> [<分支名2> ..] # 合并分支
 
 git merge --squash
 # 将待合并分支上的 commit 合并成一个新的 commit 放入当前分支
@@ -546,7 +546,9 @@ git pull --prune
 git push
 git push <remote> <place>
 git push origin <source>:<destination>
-git push origin :<分支名> # 删除远程仓库中的分支
+# 删除远程仓库中的分支
+git push origin :<分支名>
+git push origin --delete <分支名> [<分支名2> ..]
 
 git branch --move master main # 重命名远程仓库的主分支名
 git push --set-upstream origin main
