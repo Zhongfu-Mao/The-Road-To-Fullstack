@@ -164,6 +164,11 @@ docker rmi [选项] <镜像1> [<镜像2> ...]
 docker image rm $(docker image ls -q -f before=mongo:3.2) # 配合ls
 ```
 
+!!!info
+
+    `DIGEST`通过`docker image inspect`里面的`RepoDigests`字段获取
+    在Docker Hub查找镜像的时候,详情页里面会有`DIGEST: sha256:<DIGEST>`
+
 ### 保存容器为镜像(慎用)
 
 ```shell
@@ -843,7 +848,7 @@ tty: true # TeleTYpewriter
 
 ### 从容器访问宿主机
 
-* **`localhost` and `127.0.0.1`** – These resolve to the _container_.
+* **`localhost` and `127.0.0.1`** – These resolve to the *container*.
 * **`host.docker.internal`** – This resolves to the outside host.
 
 参考链接： <https://www.cloudsavvyit.com/14114/how-to-connect-to-localhost-within-a-docker-container/>
