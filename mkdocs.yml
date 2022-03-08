@@ -84,6 +84,7 @@ nav:
       - FrontEnd/TypeScript/TypeScript中的类.ipynb
       - FrontEnd/TypeScript/TypeScript中的类型.ipynb
       - FrontEnd/TypeScript/TypeScript中的泛型.ipynb
+      - FrontEnd/TypeScript/TypeScript基础.md
     - Node.js:
       - FrontEnd/Node.js/基础.md
       - FrontEnd/Node.js/模块.md
