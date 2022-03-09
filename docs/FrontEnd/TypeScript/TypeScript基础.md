@@ -241,3 +241,91 @@ tupleType = ["naruto", true];
 ```shell
 tsc --init
 ```
+
+## 断言
+
+### as语法
+
+```ts
+function foo(arg: boolean): string | number {
+    return arg ? "hello" : 1;
+}
+
+let res = foo(true) as string;
+```
+
+### as const语法
+
+```ts
+let foo: string = "foo";
+
+let bar: "bar" = "bar";
+
+const foobar = "foobar";
+
+let baz = true as const; // 类似 let baz: true = true;
+
+const arr = [foo, bar, baz] as const // 变为readonly
+const arr2 = <const>[foo, bar, baz]
+
+const obj = {
+    foo,
+    bar,
+    baz
+} as const;
+```
+
+### 解构中使用as const语法
+
+```ts
+function foo() {
+    let a = "a";
+    let b = (x: number, y: number, z: number) => x + y + z;
+
+    return [a, b]
+    // return [a, b] as [typeof a, typeof b];
+}
+
+// const [n, m] = foo();
+const [n, m] = [...foo()] as const;
+// const [n, m] = foo() as [string, Function];
+// const [n, m] = foo() as [string, (x: number, y: number, z: number) => number];
+console.log((m as Function)(1, 2, 3));
+```
+
+### 非空断言
+
+```ts
+let foo: string | null | undefined = "foo";
+```
+
+### DOM类型推断与断言处理
+
+```ts
+const el: HTMLElement = document.getElementById("foo") as HTMLElement;
+const el2: HTMLDivElement = document.getElementById(".bar")!;
+```
+
+### class构造函数需要的强制断言
+
+```ts
+class Foo {
+    constructor(el: HTMLDivElement) {
+        this.el = el;
+    }
+
+    html() {
+        return this.el.innerHTML;
+    }
+}
+```
+
+### DOM事件处理
+
+```ts
+const btn = document.getElementById("btn") as HTMLButtonElement;
+
+btn.addEventListener("click", (e: Event) => {
+    e.preventDefault();
+});
+```
