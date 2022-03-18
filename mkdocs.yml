@@ -3,7 +3,7 @@ edit_uri: ''
 nav:
   - Automation:
     - Office:
-      - Automation/OFFICE/Excel.ipynb
+      - Automation/OFFICE/Python+Excel.md
     - Test:
       - Automation/Test/pytest.ipynb
       - Automation/Test/Selenium.md
