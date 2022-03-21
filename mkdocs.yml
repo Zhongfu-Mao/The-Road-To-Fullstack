@@ -5,7 +5,7 @@ nav:
     - Office:
       - Automation/OFFICE/Python+Excel.md
     - Test:
-      - Automation/Test/pytest.ipynb
+      - Automation/Test/pytest.md
       - Automation/Test/Selenium.md
       - Automation/Test/UnitTest.md
   - AWS:
