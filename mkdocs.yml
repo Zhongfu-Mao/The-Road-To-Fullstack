@@ -33,9 +33,9 @@ nav:
       - DataBase/MySQL/基础.md
   - DataScience:
     - Jupyter:
-      - DataScience/Jupyter/Anaconda.ipynb
-      - DataScience/Jupyter/IPython＆Notebook.ipynb
-      - DataScience/Jupyter/MagicCommands.ipynb
+      - DataScience/Jupyter/Anaconda.md
+      - DataScience/Jupyter/IPython＆Notebook.md
+      - DataScience/Jupyter/MagicCommands.md
   - Dev Tools:
     - Git:
       - Dev Tools/Git/参考资料.md
@@ -80,10 +80,10 @@ nav:
         - FrontEnd/JavaScript/ECMAScript/ECMA2020.md
         - FrontEnd/JavaScript/ECMAScript/ECMA2021.md
     - TypeScript:
-      - FrontEnd/TypeScript/TypeScript中的函数.ipynb
-      - FrontEnd/TypeScript/TypeScript中的类.ipynb
-      - FrontEnd/TypeScript/TypeScript中的类型.ipynb
-      - FrontEnd/TypeScript/TypeScript中的泛型.ipynb
+      - FrontEnd/TypeScript/TypeScript中的函数.md
+      - FrontEnd/TypeScript/TypeScript中的类.md
+      - FrontEnd/TypeScript/TypeScript中的类型.md
+      - FrontEnd/TypeScript/TypeScript中的泛型.md
       - FrontEnd/TypeScript/TypeScript基础.md
     - Node.js:
       - FrontEnd/Node.js/基础.md
@@ -125,29 +125,29 @@ nav:
     - 函数式编程:
       - Python/函数式编程/itertools.md
     - 时间 日期 日历:
-      - Python/时间 日期 日历/calendar.ipynb
-      - Python/时间 日期 日历/datetime.ipynb
-      - Python/时间 日期 日历/dateutil.ipynb
-      - Python/时间 日期 日历/time.ipynb
+      - Python/时间 日期 日历/calendar.md
+      - Python/时间 日期 日历/datetime.md
+      - Python/时间 日期 日历/dateutil.md
+      - Python/时间 日期 日历/time.md
     - 文件与路径:
-      - Python/文件与路径/os.path&pathlib.ipynb
-      - Python/文件与路径/shutil.ipynb
-      - Python/文件与路径/命令行相关.ipynb
+      - Python/文件与路径/os.path&pathlib.md
+      - Python/文件与路径/shutil.md
+      - Python/文件与路径/命令行相关.md
       - Python/文件与路径/tarfile & zipfile.md
     - 虚拟环境和包管理:
       - Python/虚拟环境和包管理/conda.md
       - Python/虚拟环境和包管理/pip-tools.md
-      - Python/虚拟环境和包管理/pip.ipynb
+      - Python/虚拟环境和包管理/pip.md
       - Python/虚拟环境和包管理/pipenv.md
       - Python/虚拟环境和包管理/poetry.md
     - 运行时:
-      - Python/运行时/os.ipynb
-      - Python/运行时/sys.ipynb
+      - Python/运行时/os.md
+      - Python/运行时/sys.md
     - 字符串处理:
-      - Python/字符串处理/manipulating strings.ipynb
-      - Python/字符串处理/re.ipynb
-      - Python/字符串处理/string.ipynb
-      - Python/字符串处理/textwrap.ipynb
+      - Python/字符串处理/manipulating strings.md
+      - Python/字符串处理/re.md
+      - Python/字符串处理/string.md
+      - Python/字符串处理/textwrap.md
     - Python/豆知识.ipynb
     - Python/YAML vs JSON.md
 theme:
@@ -172,7 +172,6 @@ theme:
   - navigation.top
 plugins:
   - mermaid2
-  - mkdocs-jupyter
   - search:
       lang:
         - ja
