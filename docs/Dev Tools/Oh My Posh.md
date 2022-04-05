@@ -19,11 +19,21 @@
           "style": "diamond",
           "powerline_symbol": "\uE0B0",
           "foreground": "#fff",
-          "trailing_diamond": " ",
           "background": "#003543",
           "properties": {
             "windows": "\uF179",
-            "postfix": ""
+            "postfix": " "
+          }
+        },
+        {
+          "type": "session",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#d2ff5e",
+          "background": "#003543",
+          "properties": {
+            "prefix": "",
+            "template": "{{ .UserName }}"
           }
         },
         {
@@ -75,6 +85,7 @@
           "powerline_symbol": "\uE0B0",
           "foreground": "#ffffff",
           "background": "#8800dd",
+          "template": " <#fefefe>\ufbab</> ",
           "properties": {
             "threshold": 200,
             "style": "austin",
@@ -123,9 +134,7 @@
           "powerline_symbol": "\uE0B0",
           "foreground": "#ffffff",
           "background": "#6CA35E",
-          "properties": {
-            "prefix": " \uE718 "
-          }
+          "template": " \uE718 {{ .Full }} "
         },
         {
           "type": "time",
