@@ -17,7 +17,7 @@ git init --bare <repo>
 ### `clone`
 
 ```bash
-git clone <远程仓库地址> [<本地仓库名>]
+git clone <远程仓库地址> [<本地仓库名>] [-c http.sslVerify=false]
 
 git clone -b <Tag名> <地址> # 指定Tag下载代码
 ```
