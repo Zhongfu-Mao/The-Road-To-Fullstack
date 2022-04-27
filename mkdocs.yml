@@ -81,11 +81,11 @@ nav:
         - FrontEnd/JavaScript/ECMAScript/ECMA2021.md
       - FrontEnd/JavaScript/DOM&BOM.md
     - TypeScript:
+      - FrontEnd/TypeScript/TypeScript基础.md
       - FrontEnd/TypeScript/TypeScript中的函数.md
       - FrontEnd/TypeScript/TypeScript中的类.md
       - FrontEnd/TypeScript/TypeScript中的类型.md
       - FrontEnd/TypeScript/TypeScript中的泛型.md
-      - FrontEnd/TypeScript/TypeScript基础.md
     - Node.js:
       - FrontEnd/Node.js/基础.md
       - FrontEnd/Node.js/模块.md
