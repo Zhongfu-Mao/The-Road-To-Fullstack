@@ -82,6 +82,7 @@ nav:
       - FrontEnd/JavaScript/DOM&BOM.md
     - TypeScript:
       - FrontEnd/TypeScript/TypeScript基础.md
+      - FrontEnd/TypeScript/TypeScript类型声明文件.md
       - FrontEnd/TypeScript/TypeScript中的函数.md
       - FrontEnd/TypeScript/TypeScript中的类.md
       - FrontEnd/TypeScript/TypeScript中的类型.md
