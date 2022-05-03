@@ -1,5 +1,6 @@
-## 可选成员
+# TypeScript中的类
 
+## 可选成员
 
 ```typescript
 class Calculator {
@@ -27,7 +28,6 @@ class Calculator {
 ```
 
 ## 静态成员
-
 
 ```typescript
 // 计时器类
@@ -151,7 +151,6 @@ class Calculator {
 
 ## 继承
 
-
 ```typescript
 class Car {
     color: string;
@@ -227,7 +226,6 @@ let isElectroCarQualified: boolean = checkCar(electroCar);
 
 ## 索引
 
-
 ```typescript
 // 使用下标访问背包对象的颜色属性
 let knapsack = { color: 'orange', material: 'canvas', capacity: 10 };
@@ -257,7 +255,6 @@ class Rucksack {
 ```
 
 ## 访问性修饰符
-
 
 ```typescript
 class Calculator {
@@ -293,7 +290,6 @@ class Calculator {
 
 ## 抽象类
 
-
 ```typescript
 abstract class Discount {
     // 折扣描述
@@ -325,6 +321,4 @@ class RichDiscount extends Discount {
         return this.totalAmount < 100 ? this.totalAmount : this.totalAmount * 0.8;
     }
 }
-
-
 ```

@@ -1,3 +1,5 @@
+# TypeScript中的类型
+
 ```typescript
 class Plane {
     fly() {
@@ -30,7 +32,6 @@ seaplane.fly();
 seaplane.sail();
 ```
 
-
 ```typescript
 interface Hero {
     name: string;
@@ -42,7 +43,6 @@ const hero: Partial<Hero> = { // Partial
 }
 ```
 
-
 ```typescript
 
 let someValue: any = "this is a string";
@@ -53,14 +53,12 @@ const a: number | undefined = undefined;
 const b: number = a!; // nullとundefinedを排除する
 ```
 
-
 ```typescript
 // 所有类型的父类型
 let n: {} = 1;
 let s: {} = "2";
 let f: {} = () => { console.log(123) };
 ```
-
 
 ```typescript
 /** タイプをガイド */
@@ -126,7 +124,6 @@ function isString(x: any): x is string {
     return typeof x === "string";
 }
 ```
-
 
 ```typescript
 /** タイプの結合と別名 */
@@ -221,7 +218,6 @@ let abc: ABC = {
 }
 ```
 
-
 ```typescript
 // 函数类型接口
 interface functionType {
@@ -237,7 +233,6 @@ let add: functionType = (x: number, y: number): number => {
 let sum: number = add(1, 2); // 得到3
 
 ```
-
 
 ```typescript
 class Calculator {
@@ -272,7 +267,6 @@ type calculatorType = Calculator;
 let calculator2: calculatorType = new calculatorClass(2);
 
 ```
-
 
 ```typescript
 // 接口VS抽象类

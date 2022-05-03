@@ -1,3 +1,5 @@
+# TypeScript中的泛型
+
 ```typescript
 function add<T>(x: T, y: T): T {
     let result: T = (x as any) + (y as any);
@@ -13,7 +15,6 @@ let result1 = add<boolean>(true, true); // 得到数字2
 
 泛型函数（Generic Function），其名字后面的一对尖括号及尖括号内的字母T是其作为泛型函数的标志。  
 其中，字母T称为类型参数（Type Parameter），代表一个（定义时未知的）类型，在整个函数的定义过程中都可以当作类型使用
-
 
 ```typescript
 // 使用类型约束
@@ -40,7 +41,6 @@ class ObjectFactory<T extends Biology> {
 ## 接口
 
 ### 对象接口
-
 
 ```typescript
 // 计算器对象接口
@@ -79,7 +79,6 @@ class Calculator1<T> implements ICalculator<T> {
 
 ### 函数接口
 
-
 ```typescript
 // 泛型函数add()的类型接口
 interface TypeOfAdd<T> {
@@ -96,7 +95,6 @@ add2<string>('1', '2'); // 得到字符串12
 ```
 
 ### 类接口
-
 
 ```typescript
 // 泛型计算器类
