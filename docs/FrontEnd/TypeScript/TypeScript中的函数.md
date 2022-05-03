@@ -1,7 +1,8 @@
+# TypeScript中的函数
+
 ## 参数
 
 ### 默认参数
-
 
 ```typescript
 function getBiggerHeight(height: number, unit: string = 'px') {
@@ -14,7 +15,6 @@ getBiggerHeight(30, 'em'); // 获得60em
 
 ### 可选参数
 
-
 ```typescript
 // 用户注册函数
 function register(name: string, password: string, age?: number) {
@@ -26,7 +26,6 @@ register('Lcng', '1', 3); // 输出“记录注册信息-用户名：Lcng，密�
 ```
 
 ### 剩余参数
-
 
 ```typescript
 // 添加联系方式
@@ -51,7 +50,6 @@ addContact('13111111111', ...['Baker Street 221B', 'Calle Bleeckrr 177A'])
 
 ## 函数类型
 
-
 ```typescript
 // 加法函数
 function add(x: number, y: number): number {
@@ -64,7 +62,6 @@ let myAdd: (x: number, y: number) => number = add;
 ```
 
 ### 类型别名
-
 
 ```typescript
 type containingType = (x: string, y: string) => boolean;
@@ -87,7 +84,6 @@ let typeOfGreaterThan: string = typeof greaterThan; // 获取运行时类型
 ```
 
 ### 类型兼容
-
 
 ```typescript
 /**
@@ -160,7 +156,6 @@ let func4: baseType = function (): never {
 ```
 
 ## 函数重载
-
 
 ```typescript
 function add(x: number, y: number): number; // 加法运算函数
