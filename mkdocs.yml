@@ -85,6 +85,7 @@ nav:
       - FrontEnd/TypeScript/TypeScript类型声明文件.md
       - FrontEnd/TypeScript/TypeScript中的函数.md
       - FrontEnd/TypeScript/TypeScript中的类.md
+      - FrontEnd/TypeScript/TypeScript中的装饰器.md
       - FrontEnd/TypeScript/TypeScript中的类型.md
       - FrontEnd/TypeScript/TypeScript中的泛型.md
     - Node.js:
