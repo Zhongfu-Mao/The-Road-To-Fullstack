@@ -151,6 +151,14 @@ tsc <file> [-w] # 编译文件, -w 可以监视文件变化
 
 ## 类型声明
 
+!!! tip
+
+    When to use type annotations?
+
+    * When a function that returns the `any` type and we need to clarify the return type
+    * When we declare a variable on one line and initialize it later
+    * When we want a variable to have a type that can't be inferred from the initializer correctly
+
 ### 基础类型
 
 ```ts
