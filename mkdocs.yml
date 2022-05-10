@@ -108,6 +108,8 @@ nav:
     - FrontEnd/Angular.md
     - FrontEnd/axios.md
     - FrontEnd/Emmet.md
+  - IBM Cloud:
+    - IBM Cloud/Introduction to Cloud.md
   - Linux & C:
     - Linux & C/Command Cheatsheet.md
     - Linux & C/Linux.md
