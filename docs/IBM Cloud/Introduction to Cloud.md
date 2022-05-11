@@ -457,3 +457,126 @@ The tiers are based on how frequently the data is accessed:
 * Cold Vault Tier: Rarely accessed data like once or twice a year
 
 ## Emergent Trend, Cloud Native, DevOps and Application Modernization
+
+### Microservices
+
+> Microservices architecture is an approach in which a single application is composed of many loosely coupled and indenpently deployable smaller componentsor services.  
+> These services typically have their own stack running on their own containers.  
+> They communicate with one another over a combination of APIs, Event streaming, and Message brokers.
+
+What this means of business is:
+
+* Multiple developers working independently
+* Different stacks and runtime environments
+* Independent scaling
+
+### Serverless Computing Services
+
+> Serverless computing is an approach to building applications that are built to run on the cloud without the need for a server.  
+> Offloads responsibility for common infrastructure management tasks such as Scaling, Scheduling, Patching and Provisioning to the cloud.
+
+!!! tip
+
+    Serverless doesn't mean there are no servers; only that the management of the underlying physical or virtual servers is removed from their users.  
+    The serverless computing environment allcates resources as needed for the applications.
+
+#### Key attributes
+
+Attributes that distinguish serverless computing from other compute models:
+
+* No provisioning of servers and runtimes
+* Runs code on-demand, scaling as needed
+* Pay only when invoked and used
+
+#### Serverless Computing services
+
+* IBM Cloud Functions
+* AWS Lambda
+* Microsoft Azure Functions
+
+#### Determing Fit with Serverless
+
+Applications that qualify for a serverless architecture include:
+
+* Short-running stateless functions
+* Seasonal workloads
+* Production volumetric data
+* Event-based processing
+* Stateless microservices
+
+#### Serverless Use Cases
+
+Serverless architectures are well-suited for use cases around:
+
+* Data and event processing
+* IoT
+* Microservices
+* Mobile backends
+
+Serverless is well-suited to working with Text, Audio, Images, Video, and other data types.
+
+Tasks:
+
+* Data enrichment
+* Transformation
+* Validation and cleansing
+* PDF processing
+* Audio normalization
+* Thumbnail generation
+* Video transcoding
+* Data search and processing
+* Genome processing
+
+Data Streams:
+
+* Business
+* IoT sensor data
+* Log data
+* Financial market data
+
+### Cloud Native Applications
+
+> Cloud native application is an application developed from the outset to work only in the cloud environment or an existing app that has been refactored and reconfigured with cloud native principles.
+
+### DevOps on the Cloud
+
+#### What is DevOps?
+
+Dev Teams:
+
+* Design Software
+* Develop Software
+* Deliver Software
+* Run Software
+
+Ops Teams:
+
+* Monitoring
+* Predicting Failure
+* Managing Environment
+* Fixing Issues
+
+DevOps is a collaborative approach that allows multiple stakeholders to collaborate:
+
+* Business owners
+* Development
+* Operations
+* Quality assurance
+
+#### DevOps Process
+
+* Continuous Delivery
+* Continuous Integration
+* Continuous Deployment
+* Continuous Monitoring
+* Delivery Pipeline
+
+#### DevOps and Cloud
+
+DevOps provides the following solutions to Cloud's complexities:
+
+* Automated provisioning and installation
+* Continuous integration and deployment pipelines
+* Define how people work together and collaborate
+* Test in low-cost, production-like environments
+* Recover from disasters by rebuilding systems quickly and reliably
