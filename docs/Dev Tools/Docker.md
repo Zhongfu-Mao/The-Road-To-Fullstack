@@ -43,6 +43,17 @@ Docker的用处包括了软件原型、软件打包、减少测试和调试环�
 * 与直接在宿主执行的进程不同，容器进程运行于属于自己的独立的 命名空间。因此容器可以拥有自己的 root 文件系统、自己的网络配置、自己的进程空间，甚至自己的用户 ID 空间
 * 每一个容器运行时，是以镜像为基础层，在其上创建一个当前容器的存储层
 
+* A group of processes run in isolation
+  * All processes MUST be able to run on the shared kernel
+* Each container has its own set of namespaces(isolated view)
+  * PID: process IDs
+  * USER: user and group IDs  
+  * UTS: hostname and domainname
+  * NS: mount points
+  * NET: Network devices, stacks, ports
+  * IPC: Inter-process communications, message queues
+* cgroups: control limits and monitoring of resources
+
 ### Registry
 
 #### Docker Registry
