@@ -5,6 +5,7 @@ nav:
     - Office:
       - Automation/OFFICE/Python+Excel.md
     - Test:
+      - Automation/Test/Playwright.md
       - Automation/Test/pytest.md
       - Automation/Test/Selenium.md
       - Automation/Test/UnitTest.md
