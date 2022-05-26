@@ -37,6 +37,8 @@ nav:
       - DataScience/Jupyter/Anaconda.md
       - DataScience/Jupyter/IPython＆Notebook.md
       - DataScience/Jupyter/MagicCommands.md
+    - Fundamental:
+      - DataScience/Fundamental/Data Science Tools.md
   - Dev Tools:
     - Git:
       - Dev Tools/Git/参考资料.md
