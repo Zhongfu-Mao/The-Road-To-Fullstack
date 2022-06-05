@@ -30,3 +30,7 @@
 | 属性带尺寸 | `h100`=>`height:100px`<br />`w100p`=>`width:100%`<br />`h2e`=>`height:2em` |
 | 带属性值   | `tac`=>`text-align: center`                                                |
 | 重复变异   | `fs`=>`font-style`<br />`fz`=>`font-size`                                  |
+
+## 参考链接
+
+[🔗Emmet CheatSheet](https://docs.emmet.io/cheat-sheet/)
