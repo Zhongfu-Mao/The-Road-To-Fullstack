@@ -1,5 +1,7 @@
-|処理内容| os及びos.path | pathlib | 
-| :-- | :-- | :-- | 
+# os.path & pathlib
+
+|処理内容| os及びos.path | pathlib |
+| :-- | :-- | :-- |
 |絶対パスへ変換| os.path.abspath() | Path.resolve() |
 |絶対パスか判定| os.path.isabs() | PurePath.is_absolute() |
 |権限を変えkる| os.chmod() | Path.chmod() |
@@ -21,15 +23,14 @@
 |同じファイルか判定| os.path.samefile() | Path.samefile() |
 |拡張子を取得| os.path.splitext() | PurePath.suffix |
 
-# os.path
+## os.path
 
 パスの解析は以下の変数に依存する
+
 * `os.sep`: パスの各部分を分離する記号
 * `os.extsep`: ファイル名と拡張子を結合する記号
 * `os.pardir`: 上の階層を表す記号
 * `os.curdir`: 現在の階層を表す記号
-
-
 
 ```python
 import os
@@ -44,9 +45,7 @@ print(f"{os.curdir=}")
     os.pardir='..'
     os.curdir='.'
 
-
-## split()
-
+### split()
 
 ```python
 import os.path
@@ -69,11 +68,9 @@ for path in PATHS:
                   '.' : ('', '.')
                    '' : ('', '')
 
-
 戻り値はtuple, 二番目の要素はパスの最後の部分、そして一番目の要素は残りの部分
 
-## basename()
-
+### basename()
 
 ```python
 import os.path
@@ -96,11 +93,9 @@ for path in PATHS:
                   '.' : '.'
                    '' : ''
 
-
 `split()[1]`に相当
 
-## dirname()
-
+### dirname()
 
 ```python
 import os.path
@@ -123,11 +118,9 @@ for path in PATHS:
                   '.' : ''
                    '' : ''
 
-
 `split()[0]`に相当
 
-## splittext()
-
+### splittext()
 
 ```python
 import os.path
@@ -154,11 +147,9 @@ for path in PATHS:
           'my-archive.tar.gz' : ('my-archive.tar', '.gz')
               'no-extension.' : ('no-extension', '.')
 
-
 `split`は`os.sep`で分離する、`splitext`は`os.extsep`を利用する
 
-## commonprefix()
-
+### commonprefix()
 
 ```python
 import os.path
@@ -180,11 +171,9 @@ print('PREFIX:', os.path.commonprefix(paths))
     
     PREFIX: /one/two/three
 
-
 パス分離記号を考慮していないので実際存在しない結果になるかもしれない
 
-## commonpath()
-
+### commonpath()
 
 ```python
 import os.path
@@ -206,11 +195,9 @@ print('PREFIX:', os.path.commonpath(paths))
     
     PREFIX: /one/two
 
-
 この関数は考慮している
 
-## join()
-
+### join()
 
 ```python
 import os.path
@@ -229,11 +216,9 @@ for parts in PATHS:
     ('/', 'one', 'two', 'three') : '/one/two/three'
     ('/one', '/two', '/three') : '/three'
 
-
 頭文字は`os.sep`のパラメータがあったら、その前のパラメータは捨てられる
 
-## expanduser()
-
+### expanduser()
 
 ```python
 import os.path
@@ -247,11 +232,9 @@ for user in ['', 'maozhongfu', 'nosuchuser']:
       '~maozhongfu' : '/Users/maozhongfu'
       '~nosuchuser' : '~nosuchuser'
 
-
 `~`はユーザのディレクトリに変換される、見つからない場合はそのまま戻る
 
-## expandvars()
-
+### expandvars()
 
 ```python
 import os.path
@@ -264,11 +247,9 @@ print(os.path.expandvars('/path/to/$MYVAR'))
 
     /path/to/VALUE
 
-
 shellの中の環境変数を解析する
 
-## normpath()
-
+### normpath()
 
 ```python
 import os.path
@@ -287,11 +268,9 @@ for path in PATHS:
        'one/./two/./three' : 'one/two/three'
     'one/../alt/two/three' : 'alt/two/three'
 
-
 `os.curdir`,`os.pardir`は解析され展開する
 
-## normcase()
-
+### normcase()
 
 ```python
 import os.path 
@@ -313,9 +292,7 @@ print(f"{path_3!r:20} -> {os.path.normcase(path_3)}")
     '/hoMe/UseR/'        -> \home\user\
     'C:\\Users/Desktop'  -> c:\users\desktop
 
-
-## abspath()
-
+### abspath()
 
 ```python
 import os
@@ -339,9 +316,7 @@ for path in PATHS:
         './one/two/three' : '/usr/one/two/three'
        '../one/two/three' : '/one/two/three'
 
-
-## getatime(), getmtime(), getctime(), getsize()
-
+### getatime(), getmtime(), getctime(), getsize()
 
 ```python
 %%writefile foo.py
@@ -358,8 +333,6 @@ print('Size         :', os.path.getsize(__file__))
 
     Writing foo.py
 
-
-
 ```python
 %run foo.py
 ```
@@ -370,8 +343,6 @@ print('Size         :', os.path.getsize(__file__))
     Change time  : Thu Nov  5 02:07:31 2020
     Size         : 306
 
-
-
 ```python
 !rm foo.py
 ```
@@ -381,8 +352,7 @@ print('Size         :', os.path.getsize(__file__))
 * `os.path.getctime()`: ファイルの作られる時間(create)
 * `os.path.getsize()`: ファイルの大きさ(Bytes)
 
-## isX(), exists(), lexists()
-
+### isX(), exists(), lexists()
 
 ```python
 %%writefile foo.py
@@ -410,9 +380,7 @@ for file in FILENAMES:
 
     Writing foo.py
 
-
 [mount point](https://en.wikipedia.org/wiki/Mount_(computing))
-
 
 ```python
 %run foo.py
@@ -453,15 +421,12 @@ for file in FILENAMES:
     Mountpoint? : False
     Exists?     : False
     Link Exists?: False
-    
-
-
 
 ```python
 !rm foo.py
 ```
 
-# pathlib
+## pathlib
 
 参考文档：[pathlib cookbook](https://miguendes.me/python-pathlib)
 
@@ -471,11 +436,9 @@ for file in FILENAMES:
 
 **OOP**の考え方でAPIを構築、解析; 文字列の処理よりレベル高い
 
-
 ```python
 import pathlib
 ```
-
 
 ```python
 pathlib.*Path?
@@ -492,11 +455,10 @@ pathlib.*Path?
 一方、実際のファイルシステムを操作する際、`Path`を利用すべき  
 基本OSによって`PosixPath`や`WindowsPath`のインスタンスを作成する
 
-## 汎用プロパティ
+### 汎用プロパティ
 
 > パスは変更不可(immutable)でハッシュ可能(hashable)  
 > 基本OS同じの場合は比較などできる
-
 
 ```python
 from pathlib import PurePosixPath, PureWindowsPath
@@ -515,9 +477,7 @@ print(PureWindowsPath('foo') == PurePosixPath('foo'))
     True
     False
 
-
-## "/"演算子
-
+### "/"演算子
 
 ```python
 import pathlib
@@ -547,9 +507,7 @@ print(pathlib.PureWindowsPath('c:/Windows') / '/Program Files')
     /usr/..
     /etc
 
-
-## resolve()
-
+### resolve()
 
 ```python
 import pathlib
@@ -561,9 +519,7 @@ print(share.resolve())  # 解析される
 
     /usr/share
 
-
-## joinpath()
-
+### joinpath()
 
 ```python
 import pathlib
@@ -576,9 +532,7 @@ print(usr_local)
 
     /usr/local
 
-
-## with_name(), with_suffix()
-
+### with_name(), with_suffix()
 
 ```python
 import pathlib
@@ -599,9 +553,7 @@ print(pyc)
     source/pathlib/pathlib_from_existing.py
     source/pathlib/pathlib_from_existing.pyc
 
-
-## parts
-
+### parts
 
 ```python
 import pathlib
@@ -612,9 +564,7 @@ print(p.parts)
 
     ('/', 'usr', 'local')
 
-
-## parent, parents
-
+### parent, parents
 
 ```python
 import pathlib
@@ -635,9 +585,7 @@ for up in p.parents:
     /usr
     /
 
-
-## name, suffix, suffixes, stem
-
+### name, suffix, suffixes, stem
 
 ```python
 import pathlib
@@ -656,9 +604,7 @@ print(f'stem  : {p.stem}')
     suffixs: ['.tar', '.gz']
     stem  : pathlib_name.tar
 
-
-## home(), cwd()
-
+### home(), cwd()
 
 ```python
 import pathlib
@@ -673,9 +619,7 @@ print('cwd : ', cwd)
     home:  /Users/maozhongfu
     cwd :  /Users/maozhongfu/GitHub/Python/ファイルとディレクトリ
 
-
-## iterdir()
-
+### iterdir()
 
 ```python
 import pathlib
@@ -692,11 +636,9 @@ for f in p.iterdir():
     glob.ipynb
     shutil.ipynb
 
-
-## glob()
+### glob()
 
 如果要递归的检索所有子目录,使用`rglob()`方法
-
 
 ```python
 import pathlib
@@ -711,9 +653,7 @@ for f in p.glob('*.ipynb'):
     ../pip.ipynb
     ../typing.ipynb
 
-
-## read_bytes(), read_text(), write_bytes(), write_text()
-
+### read_bytes(), read_text(), write_bytes(), write_text()
 
 ```python
 import pathlib
@@ -731,14 +671,11 @@ print(f'read_text(): {f.read_text("utf-8")!r}')
     read from open(): 'This is the content'
     read_text(): 'This is the content'
 
-
-
 ```python
 !rm example.txt
 ```
 
-## mkdir(), rmdir()
-
+### mkdir(), rmdir()
 
 ```python
 import pathlib
@@ -754,9 +691,7 @@ p.rmdir()
 
     Creating example_dir
 
-
-## symlink_to()
-
+### symlink_to()
 
 ```python
 import pathlib
@@ -772,14 +707,11 @@ print(p.resolve().name)
     example_link
     glob.ipynb
 
-
-
 ```python
 !rm example_link
 ```
 
-## as_posix(), as_uri()
-
+### as_posix(), as_uri()
 
 ```python
 from pathlib import PurePosixPath, PureWindowsPath
@@ -798,9 +730,7 @@ print(f"{p!r:25} -> {p.as_uri()}")
     PurePosixPath('/etc/passwd') -> file:///etc/passwd
     PureWindowsPath('c:/Windows') -> file:///c:/Windows
 
-
-## isX()
-
+### isX()
 
 ```python
 import itertools
@@ -852,14 +782,11 @@ for f in to_scan:
     /dev/disk0            False  False  False  False   True  False  
     /dev/console          False  False  False  False  False   True  
 
-
-
 ```python
 !rm -rf test_files
 ```
 
-## stat(), lstat()
-
+### stat(), lstat()
 
 ```python
 %%writefile foo.py
@@ -888,8 +815,6 @@ print('  Last accessed:', time.ctime(stat_info.st_atime))
 
     Writing foo.py
 
-
-
 ```python
 %run foo.py
 ```
@@ -903,14 +828,11 @@ print('  Last accessed:', time.ctime(stat_info.st_atime))
       Last modified: Thu Nov  5 03:23:05 2020
       Last accessed: Thu Nov  5 03:23:07 2020
 
-
-
 ```python
 !rm foo.py
 ```
 
-## owner(), group()
-
+### owner(), group()
 
 ```python
 %%writefile bar.py
@@ -924,22 +846,17 @@ print(f'{p} is owned by {p.owner()}/{p.group()}')
 
     Writing bar.py
 
-
-
 ```python
 %run bar.py
 ```
 
     /Users/maozhongfu/GitHub/Python/ファイルとディレクトリ/bar.py is owned by maozhongfu/staff
 
-
-
 ```python
 !rm bar.py
 ```
 
-## touch()
-
+### touch()
 
 ```python
 import pathlib
@@ -967,14 +884,11 @@ print('End  :', time.ctime(end.st_mtime))
     Start: Thu Nov  5 03:27:34 2020
     End  : Thu Nov  5 03:27:35 2020
 
-
-
 ```python
 !rm touched
 ```
 
-## chmod()
-
+### chmod()
 
 ```python
 import os
@@ -1008,8 +922,6 @@ print('After: {:o}'.format(after_permissions))
     Before: 644
     Adding execute permission
     After: 744
-
-
 
 ```python
 !rm pathlib_chmod_example.txt
