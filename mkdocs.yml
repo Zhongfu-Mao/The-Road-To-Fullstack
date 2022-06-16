@@ -9,15 +9,15 @@ nav:
       - Automation/Test/pytest.md
       - Automation/Test/Selenium.md
       - Automation/Test/UnitTest.md
-  - AWS:
-    - Certification:
-      - AWS/Certification/Certified Cloud Practitioner.md
-      - AWS/Certification/Certified Developer Associate.md
-    - Services:
-      - CDK: AWS/Services/CDK.md
-      - AWS/Services/Cloud9.md
-      - AWS/Services/EC2.md
-      - AWS/Services/IAM.md
+  - Cloud:
+    - AWS:
+      - Certification:
+        - Cloud/AWS/Certification/Certified Cloud Practitioner.md
+      - Services:
+        - CDK: Cloud/AWS/Services/CDK.md
+    - IBM Cloud:
+      - Cloud/IBM Cloud/IBM Cloud Essentials.md
+    - Cloud/Introduction to Cloud.md
   - C# & .NET:
     - C# & .NET/C#.md
     - C# & .NET/dotNET.md
@@ -112,9 +112,6 @@ nav:
     - FrontEnd/Angular.md
     - FrontEnd/axios.md
     - FrontEnd/Emmet.md
-  - IBM Cloud:
-    - IBM Cloud/Introduction to Cloud.md
-    - IBM Cloud/IBM Cloud Essentials.md
   - Linux & C:
     - Linux & C/Command Cheatsheet.md
     - Linux & C/Linux.md
