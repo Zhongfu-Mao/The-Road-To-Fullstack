@@ -17,6 +17,7 @@ nav:
         - CDK: Cloud/AWS/Services/CDK.md
     - Azure:
       - Cloud/Azure/AZ-900.md
+      - Cloud/Azure/DP-900.md
     - IBM Cloud:
       - Cloud/IBM Cloud/IBM Cloud Essentials.md
     - Cloud/Introduction to Cloud.md
