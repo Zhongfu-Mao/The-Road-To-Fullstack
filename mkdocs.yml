@@ -22,6 +22,7 @@ nav:
       - Cloud/Azure/MS-900.md
     - IBM Cloud:
       - Cloud/IBM Cloud/IBM Cloud Essentials.md
+      - Cloud/IBM Cloud/IBM Cloud Technical Advocate.md
     - Cloud/Introduction to Cloud.md
   - C# & .NET:
     - C# & .NET/C#.md
