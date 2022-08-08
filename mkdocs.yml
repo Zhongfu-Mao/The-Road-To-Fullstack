@@ -20,6 +20,8 @@ nav:
       - Cloud/Azure/DP-900.md
       - Cloud/Azure/AI-900.md
       - Cloud/Azure/MS-900.md
+    - GCP:
+      - Cloud/GCP/Cloud Digital Leader.md
     - IBM Cloud:
       - Cloud/IBM Cloud/IBM Cloud Essentials.md
       - Cloud/IBM Cloud/IBM Cloud Technical Advocate.md
