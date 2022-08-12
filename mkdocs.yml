@@ -11,10 +11,7 @@ nav:
       - Automation/Test/UnitTest.md
   - Cloud:
     - AWS:
-      - Certification:
-        - Cloud/AWS/Certification/Certified Cloud Practitioner.md
-      - Services:
-        - CDK: Cloud/AWS/Services/CDK.md
+      - Cloud/AWS/Certified Cloud Practitioner.md
     - Azure:
       - Cloud/Azure/AZ-900.md
       - Cloud/Azure/DP-900.md
