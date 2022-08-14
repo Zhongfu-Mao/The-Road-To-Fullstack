@@ -13,12 +13,12 @@ nav:
     - AWS:
       - Cloud/AWS/Certified Cloud Practitioner.md
     - Azure:
-      - Cloud/Azure/AZ-900.md
       - Cloud/Azure/DP-900.md
       - Cloud/Azure/AI-900.md
       - Cloud/Azure/MS-900.md
+      - Cloud/Azure/AZ-204.md
     - GCP:
-      - Cloud/GCP/Cloud Digital Leader.md
+      - Cloud/GCP/Associate Cloud Engineer.md
     - IBM Cloud:
       - Cloud/IBM Cloud/IBM Cloud Essentials.md
       - Cloud/IBM Cloud/IBM Cloud Technical Advocate.md
