@@ -162,7 +162,7 @@ nav:
       - Python/字符串处理/re.md
       - Python/字符串处理/string.md
       - Python/字符串处理/textwrap.md
-    - Python/豆知识.ipynb
+    - Python/豆知识.md
     - Python/YAML vs JSON.md
 theme:
   name: material
