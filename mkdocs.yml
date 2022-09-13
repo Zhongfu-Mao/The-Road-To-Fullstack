@@ -18,7 +18,7 @@ nav:
       - Cloud/Azure/MS-900.md
       - Cloud/Azure/AZ-204.md
     - GCP:
-      - Cloud/GCP/Associate Cloud Engineer.md
+      - Cloud/GCP/Professional Cloud Developer.md
     - IBM Cloud:
       - Cloud/IBM Cloud/IBM Cloud Essentials.md
       - Cloud/IBM Cloud/IBM Cloud Technical Advocate.md
@@ -152,7 +152,7 @@ nav:
       - Python/虚拟环境和包管理/conda.md
       - Python/虚拟环境和包管理/pip-tools.md
       - Python/虚拟环境和包管理/pip.md
-      - Python/虚拟环境和包管理/pipenv.md
+      - Python/虚拟环境和包管理/pyenv.md
       - Python/虚拟环境和包管理/poetry.md
     - 运行时:
       - Python/运行时/os.md
