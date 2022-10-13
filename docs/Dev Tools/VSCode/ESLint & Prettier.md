@@ -4,8 +4,6 @@
 
 * [ESLint 官网](https://eslint.org/)
 * [ESLint - Pluggable JavaScript linter - ESLint中文](https://cn.eslint.org/)
-* [Airbnb Style Github](https://github.com/airbnb/javascript/)
-* [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
 * [Prettier](https://prettier.io/)
 
 ## Prettier
@@ -50,7 +48,7 @@ test/*.*
 
 ## VSCode中配置
 
-1. 安装`ESLint`和`Prettier ESLint`插件
+1. 安装`ESLint`和`Prettier`插件
 2. 初始化
 
    ```bash
@@ -59,16 +57,11 @@ test/*.*
    npx eslint --init
    ```
 
-3. 安装`eslint-config-airbnb-base`依赖
+3. 安装剩余的依赖
 
    ```bash
-   npx install-peerdeps --dev eslint-config-airbnb-base
-   ```
-
-4. 安装剩余的依赖
-
-   ```bash
-   npm install eslint-config-airbnb-typescript \
+   npm install eslint-plugin-import \
+               eslint-import-resolver-typescript \
                @typescript-eslint/eslint-plugin \
                @typescript-eslint/parser \
                prettier prettier-eslint \
@@ -77,28 +70,78 @@ test/*.*
                --save-dev
    ```
 
-5. 编辑.eslintrc.(js|json|yaml)`文件
+4. 编辑.eslintrc.(js|json|yaml)`文件
 
    ```yaml
-   env:
-     es2021: true
-     node: true
-   extends:
-     - 'eslint:recommended'
-     - 'airbnb-base'
-     - 'airbnb-typescript/base'
-     - 'prettier'
-     - 'plugin:@typescript-eslint/recommended'
-     - 'plugin:node/recommended'
-   parser: '@typescript-eslint/parser'
-   parserOptions:
-     ecmaVersion: 12
-     sourceType: module
-     project: './tsconfig.json'
-   plugins:
-     - '@typescript-eslint'
-   rules: {}
+    env:
+      browser: true
+      es2021: true
+    extends:
+      - eslint:recommended
+      - prettier
+      - plugin:react/recommended
+      - plugin:@typescript-eslint/recommended
+      - plugin:import/recommended
+      - plugin:import/typescript
+    overrides: []
+    parser: "@typescript-eslint/parser"
+    parserOptions:
+      ecmaVersion: latest
+      sourceType: module
+      ecmaFeatures:
+        jsx: true
+    plugins:
+      - react
+      - "@typescript-eslint"
+      - prettier
+      - import
+    rules:
+      react/react-in-jsx-scope: off
+      sort-imports:
+        - error
+        - ignoreCase: false
+          ignoreDeclarationSort: true
+          ignoreMemberSort: false
+          memberSyntaxSortOrder:
+            - none
+            - all
+            - multiple
+            - single
+          allowSeparatedGroups: true
+      import/order:
+        - error
+        - groups:
+            - builtin
+            - external
+            - internal
+            - - sibling
+              - parent
+            - index
+            - unknown
+          newlines-between: always
+          alphabetize:
+            order: asc
+            caseInsensitive: true
 
+    settings:
+      import/resolver:
+        typescript:
+          projects: "./tsconfig.json"
+
+   ```
+
+5. 编辑`.vscode/settings.json`
+
+   ```json
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+    },
    ```
 
 ## `extends`支持的配置类型
