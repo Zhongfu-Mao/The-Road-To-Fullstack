@@ -33,6 +33,19 @@
   * `Resource`: list of resources to which the actions applied to
   * `Condition`: conditions for when this policy is ineffect (optional)
 
+### Inline vs Managed Policies
+
+* AWS Managed Policy
+  * Maintained by AWS
+  * Good for power users and administrators
+  * Updated in case of new services / new APIs
+* Customer Managed Policy
+  * Best Practice, re-usable, can be applied to many principals
+  * Version Controlled + rollback, central change management
+* Inline
+  * Strict one-to-one relationship between policy and principal
+  * Policy is deleted if you delete the IAM principa
+
 ### IAM Security Tools
 
 * IAM Credentials Report (account-level)
@@ -62,6 +75,33 @@ Common roles:
 * Use Access Keys for Programmatic Access (CLI / SDK)
 * Audit permissions of your account with the IAM Credentials Report
 * Never share IAM users & Access Keys
+* Never ever ever store IAM key credentials on any machine but a personal computer or on-premise server
+* On premise server best practice is to call STS to obtain temporary security credentials
+
+### AWS STS – Security Token Service
+
+* Allows to grant limited and temporary access to AWS resources (up to 1 hour).
+* `AssumeRole`: Assume roles within your account or cross account
+* `AssumeRoleWithSAML`: return credentials for users logged with SAML
+* `AssumeRoleWithWebIdentity`
+  * return creds for users logged with an IdP (Facebook Login, Google Login, OIDC compatible…)
+  * AWS recommends against using this, and using Cognito Identity Pools instead
+* `GetSessionToken`: for MFA, from a user or AWS account root user
+* `GetFederationToken`: obtain temporary creds for a federated user
+* `GetCallerIdentity`: return details about the IAM user or role used in the API call
+* `DecodeAuthorizationMessage`: decode error message when an AWS API is denied
+
+### AWS Directory Services
+
+* AWS Managed Microsoft AD
+  * Create your own AD in AWS, manage users locally, supports MFA
+  * Establish “trust” connections with your on-premise AD
+* AD Connector
+  * Directory Gateway (proxy) to redirect to on-premise AD, supports MFA
+  * Users are managed on the on-premise AD
+* Simple AD
+  * AD-compatible managed directory on AWS
+  * Cannot be joined with on-premise AD
 
 ### IAM Summary
 
@@ -108,6 +148,7 @@ Common roles:
 
 * General Purpose:
   * Great for a diversity of workloads such as web servers or code repositories
+  * Balance between Compute, Memory and Networking
 * Compute Optimized:
   * Great for compute-intensive tasks that require high performance processors
   * Use cases:
@@ -169,8 +210,8 @@ Common roles:
   * Pay for what you use:
     * Linux & Windows: billing per second, after the first minute
     * MacOS: billing per hour
-  * highest cost but no upfront payment
-  * no long-term commitment
+  * Highest cost but no upfront payment
+  * No long-term commitment
   * Recommended for **short-term and un-interrupted** workloads, where you can't predict how the application will behave
 * `Reserved Instance` (1 or 3 years)
   * You reserve a specific instance attributes (Instance Type, Region,Tenancy, OS)
@@ -182,12 +223,12 @@ Common roles:
     * Long workloads with flexible instances
     * Can change the EC2 instance type, instance family, OS, scope and tenancy
 * `Savings Plans` (1 or 3 years)
-  * commit to a certain type of usage, long workload
-  * usage beyond EC2 Savings Plans is billed at the On-Demand price
-  * locked to a specific instance family & AWS region
+  * Commit to a certain type of usage, long workload
+  * Usage beyond EC2 Savings Plans is billed at the On-Demand price
+  * Locked to a specific instance family & AWS region
   * Flexible across Instance Size, OS and Tenancy(Host, Dedicated, Default)
 * `Spot Instances`
-  * the **most cost-efficient** instances in AWS
+  * The **most cost-efficient** instances in AWS
   * Instances that you can “lose” at any point of time if your max price is less than the current spot price
   * Not suitable for critical jobs or databases
   * Useful for workloads that are resilient to failure
@@ -198,7 +239,7 @@ Common roles:
     * Workloads with a flexible start and end time
 * `Dedicated Hosts`
   * A physical server with EC2 instance capacity fully dedicated to your use
-  * Allows you address compliance requirements and use your existing server- bound software licenses (per-socket, per-core, pe—VM software licenses)
+  * Allows you address **compliance requirements** and **use your existing server-bound software licenses** (per-socket, per-core, pe—VM software licenses)
   * The **most expensive** option
   * Purchasing Options:
     * On-demand – pay per second for active Dedicated Host
@@ -209,7 +250,7 @@ Common roles:
   * May share hardware with other instances in same account
   * No control over instance placement (can move hardware after Stop / Start)
 * `Capacity Reservations`
-  * Reserve On-Demand instances capacity in a specific AZ for any duration
+  * Reserve **On-Demand** instances capacity in a specific AZ for any duration
   * You always have access to EC2 capacity when you need it
   * **no time commitment** (create/cancel anytime), **no billing discounts**
   * Combine with Regional Reserved Instances and Savings Plans to benefit from billing discounts
@@ -233,7 +274,7 @@ Common roles:
 
 > AMI: Amazon Machine Image
 
-* AMI are a customization of an EC2 instance
+* AMI are a **customization** of an EC2 instance
   * You add your own software, configuration, operating system, monitoring...
   * Faster boot / configuration time because all your software is pre-packaged
 * AMI are built for a **specific region** (and can be copied across regions)
@@ -350,7 +391,7 @@ Common roles:
 * It’s a network drive (i.e. not a physical drive)
   * It uses the network to communicate the instance, which means there might be a bit of latency
   * It can be detached from an EC2 instance and attached to another one quickly
-* It’s locked to an Availability Zone (AZ)
+* **It’s locked to an Availability Zone (AZ)**
   * To move a volume across, you first need to snapshot it
 * Have a provisioned capacity (size in GBs, and IOPS)
   * You get billed for all the provisioned capacity
@@ -365,31 +406,26 @@ Common roles:
 
 * Make a backup (snapshot) of your EBS volume at a point in time
 * Not necessary to detach volume to do snapshot, but recommended
-* Can copy snapshots across AZ or Region
+* **Can copy snapshots across AZ or Region**
 * EBS Snapshot Archive:
   * Move a snapshot to an "archive tier" which is cheaper
   * Takes within 24 to 72 hours for restoring the archive
-* Recycle Bin for EBS Snapshots
-  * Setup rules to retain deleted snapshots so you can recover them after an accidental deletion
-  * Specify retention (from 1 day to 1 year)
-
-#### EBS Snapshots Features
-
-* EBS Snapshot Archive
-  * Move a Snapshot to an 'archive tier' that is 75% cheaper
-  * Takes within 24 to 72 hours for restoring the archive
-* Recycle Bin for EBS Snapshots
-  * Setup rules to retain deleted snapshots so you can recover them after an accidental deletion
-  * Specify retention(from 1 day to 1 year)
-* Fast Snapshot Restore(FSR)
-  * Force full initialization of snapshot to have no latency on the first use($$$)
+* EBS Snapshots Features:
+  * EBS Snapshot Archive
+    * Move a Snapshot to an 'archive tier' that is much cheaper
+    * Takes within 24 to 72 hours for restoring the archive
+  * Recycle Bin for EBS Snapshots
+    * Setup rules to retain deleted snapshots so you can recover them after an accidental deletion
+    * Specify retention(from 1 day to 1 year)
+  * Fast Snapshot Restore(FSR)
+    * Force full initialization of snapshot to have no latency on the first use($$$)
 
 #### EBS Volume Types
 
 * EBS Volumes come in 6 types
   * gp2 / gp3 (SSD): General purpose SSD volume that balances price and performance for a wide variety of workloads
   * io1 / io2 (SSD): **Highest-performance** SSD volume for mission-critical low-latency or high-throughput workloads
-  * st1 (HDD): Low cost HDD volume designed for frequently accessed, throughput- intensive workloads
+  * st1 (HDD): Low cost HDD volume designed for frequently accessed, throughput-intensive workloads
   * sc1 (HDD): **Lowest cost** HDD volume designed for less frequently accessed workloads
 * EBS Volumes are characterized in Size | Throughput | IOPS (I/O Ops Per Sec)
 * *Only gp2/gp3 and io1/io2 can be used as boot volumes*
@@ -424,6 +460,7 @@ Common roles:
 * EFS works with **Linux** EC2 instances in multi-AZ
   * POSIX file system that has a standard file API
 * Encryption at rest using KMS
+* Encryption during transit can be enabled when mounting the file system using the `Amazon EFS mount helper`. The mount helper uses TLS version 1.2 to communicate with the file system.
 * Highly available, scalable, expensive (3x gp2), pay per use, no capacity planning
 * EFS Infrequent Access (EFS-IA): Storage class that is cost-optimized for files not accessed every day
 * Use cases:
@@ -477,10 +514,13 @@ Common roles:
 * Vertical Scaling: Increase instance size (scale up / down)
 * Horizontal Scaling: Increase number of instances (scale out / in)
 * High Availability:
-  * usually goes hand in hand with horizontal scaling
+  * Usually goes hand in hand with horizontal scaling
   * Run instances for the same application across multi AZ
     * Auto Scaling Group multi AZ
     * Load Balancer multi AZ
+  * The goal of high availability is to survive a data center loss
+  * The high availability can be passive(exp. RDS Multi AZ)
+  * The high availability can be active(for horizontal scaling)
 
 ### Scalability vs Elasticity vs Agility
 
@@ -524,7 +564,7 @@ Common roles:
 
 #### Network Load Balancer
 
-* ultra-high performance, allows for TCP(Layer 4):
+* Ultra-high performance, allows for TCP(Layer 4):
   * Forward TCP & UDP traffic to your instances
   * Handle millions of request per seconds
   * Less latency ~100 ms (vs 400 ms for ALB)
@@ -552,7 +592,7 @@ Common roles:
 
 #### Classic Load Balancer
 
-* slowly retiring
+* Retired on 2022/8/15
 * Support TCP(Layer 4), HTTP & HTTPS(Layer 7)
 * Health checks are TCP or HTTP based
 * Fixed hostname(XXX.region.elb.amazonaws.com)
@@ -570,7 +610,7 @@ Common roles:
     * SSL certificates have an expiration date (you set) and must be renewed
 
 * The load balancer uses an X.509 certificate (SSL/TLS server certificate)
-* You can manage certificates using ACM (AWS Certificate Manager)
+* You can manage certificates using `ACM` (AWS Certificate Manager)
 * You can create upload your own certificates alternatively
 * HTTPS listener:
   * You must specify a default certificate
@@ -920,15 +960,15 @@ Common roles:
 * Caches are in-memory databases with high performance, low latency
 * Helps reduce load off databases for read intensive workloads
 * AWS takes care of OS maintenance / patching, optimizations, setup, configuration, monitoring, failure recovery and backups
-* Using ElastiCache involves heavy application code changes
+* **Using ElastiCache involves heavy application code changes**
 
 #### Redis vs Memcached
 
 * Redis
-  * Multi AZ with Auto-Failover
-  * Read Replicas to scale reads and have high availability
+  * *Multi AZ* with Auto-Failover
+  * *Read Replicas* to scale reads and have high availability
   * Data Durability using AOF persistence
-  * Backup and restore features
+  * *Backup and restore features*
 * Memcached
   * Multi-node for partitioning of data (sharding)
   * No high availability (replication)
@@ -986,22 +1026,24 @@ Common roles:
 * Top Level Domain (TLD): .com, .us, .in, .gov, .org, ...
 * Second Level Domain (SLD): amazon.com, google.com, ...
 
+![URL](https://moz-static.moz.com/youmoz_uploads/solving-the-subdomain-equation/5215862a840e17.67339757.jpg)
+
 #### Amazon Route 53
 
 * A highly available, scalable, fully managed and Authoritative DNS
-* Authoritative = the customer (you) can update the DNS records
+  * Authoritative = the customer (you) can update the DNS records
 * Route 53 is also a Domain Registrar
 * Ability to check the health of your resources
-* The only AWS service which provides 100% availability SLA
+* **The only AWS service which provides 100% availability SLA**
 * **53** is a reference to the traditional DNS port
 
 #### Route 53 – Records
 
 * How you want to route traffic for a domain
 * Each record contains:
-  * Domain/subdomain Name – e.g., example.com
-  * Record Type – e.g., A or AAAA
-  * Value – e.g., 12.34.56.78
+  * Domain/subdomain Name
+  * Record Type
+  * Value
   * Routing Policy – how Route 53 responds to queries
   * TTL – amount of time the record cached at DNS Resolvers
 * Route 53 supports the following DNS record types:
@@ -1010,7 +1052,7 @@ Common roles:
     * AAAA – maps a hostname to IPv6
     * CNAME – maps a hostname to another hostname
       * The target is a domain name which must have an A or AAAA record
-      * Can’t create a CNAME record for the top node of a DNS namespace
+      * Can’t create a CNAME record for the top node of a DNS namespace(Zone Apex)
       * Example: you can’t create for example.com, but you can create for www.example.com
     * NS – Name Servers for the Hosted Zone
       * Control how traffic is routed for a domain
@@ -1021,10 +1063,10 @@ Common roles:
 * A container for records that define how to route traffic to a domain and its subdomains
 * Public Hosted Zones
   * contains records that specify how to route traffic on the Internet (public domain names)
-  * application1.mypublicdomain.com
+  * Exp. application1.`mypublicdomain.com`
 * Private Hosted Zones
   * contain records that specify how you route traffic within one or more VPCs (private domain names)
-  * application1.company.internal
+  * Exp. application1.`company.internal`
 * You pay $0.50 per month per hosted zone
 
 #### Records TTL(Time To Live)
@@ -1046,15 +1088,32 @@ Common roles:
 * Alias:
   * Points a hostname to an AWS Resource (app.mydomain.com => blabla.amazonaws.com)
   * Works for ROOT DOMAIN and NON ROOT DOMAIN (aka mydomain.com)
+  * An extension to DNS functionality
+  * Automatically recognizes changes in the resource's IP addresses
+  * Alias Record is always of type A/AAAA for AWS resources
+  * You can't set the TTL
   * Free of charge
   * Native health check
+  * Records Targets:
+    * Elastic Load Balancers
+    * CloudFront Distributions
+    * API Gateway
+    * Elastic Beanstalk environments
+    * S3 Websites
+    * VPC Interface Endpoints
+    * Global Accelerator accelerator
+    * Route 53 record in the same hosted zone
+  * You can't set an ALIAS record for an EC2 DNS name
 
 #### Route 53 – Routing Policies
 
-* Define how Route 53 responds to DNS queries
-* Routing:
-  * It’s not the same as Load balancer routing which routes the traffic
-  * DNS does not route any traffic, it only responds to the DNS queries
+!!! note
+
+    * Define how Route 53 responds to DNS queries
+    * Routing:
+      * It’s not the same as Load balancer routing which routes the traffic
+      * DNS does not route any traffic, it only responds to the DNS queries
+
 * Route 53 Supports the following Routing Policies
   * Simple
     * Typically, route traffic to a single resource
@@ -1064,11 +1123,11 @@ Common roles:
     * Can’t be associated with Health Checks
   * Weighted
     * Control the % of the requests that go to each specific resource
-    * Assign each record a relative weight
+    * Assign each record a relative weight(weights don't need to sum up to 100)
     * DNS records must have the same name and type
     * Can be associated with Health Checks
     * Use cases: load balancing between regions, testing new application versions...
-    * Assign a weight of 0 to a record to stop sending traffic to a resource
+    * *Assign a weight of 0 to a record to stop sending traffic to a resource*
     * If all records have weight of 0, then all records will be returned equally
   * Failover(Active-Passive)
   * Latency based
@@ -1125,7 +1184,8 @@ Common roles:
 
 * S3 bucket
   * For distributing files and caching them at the edge
-  * Enhanced security with CloudFront Origin Access Identity (OAI)
+  * Enhanced security with CloudFront **Origin Access Control (OAC)**
+  * OAC is replacing Origin Access Identity(OAI)
   * CloudFront can be used as an ingress (to upload files to S3)
 * Custom Origin (HTTP)
   * Application Load Balancer
@@ -1328,7 +1388,7 @@ Common roles:
 ### Network Access Control List(NACL)
 
 * NACL are like a firewall which control traffic from and to **subnets**
-* One NACL per subnet, new subnets are assigned the Default NACL
+* **One NACL per subnet, new subnets are assigned the Default NACL**
 * You define NACL Rules:
   * Rules have a number (1-32766), higher precedence with a lower number
   * First rule match will drive the decision
@@ -1353,7 +1413,7 @@ Common roles:
 ### Network ACL VS Security Groups
 
 * Security Groups
-  * A firewall that controls traffic to and from an ENI / an EC2 Instance
+  * A firewall that controls traffic to and from an ENI(Elastic Network Interface) / an EC2 Instance
   * **Can have only ALLOW rules**
   * Is **stateful**: Return traffic is automatically allowed, regradless of any rules
   * All rules evaluated before deciding whether to allow traffic
@@ -1366,6 +1426,8 @@ Common roles:
   * Rules processed in number order when deciding whether to allow traffic
   * Are attached at the Subnet level
   * Rules only include IP addresses
+
+![Network ACL VS Security Groups](https://td-mainsite-cdn.tutorialsdojo.com/wp-content/uploads/2019/01/SGNCL-latest.jpg)
 
 ### VPC Flow Logs
 
@@ -1396,7 +1458,7 @@ Common roles:
 
 ### VPC Endpoints
 
-* VPC Endpoints (powered by AWS PrivateLink)  allow you to connect to AWS Services using a private network instead of the public www network
+* VPC Endpoints (powered by AWS PrivateLink)  allow you to connect to AWS Services **using a private network** instead of the public www network
 * This gives you enhanced security and lower latency to access AWS services
 * They’re redundant and scale horizontally
 * They remove the need of IGW, NATGW, ... to access AWS Services
@@ -1420,13 +1482,13 @@ Common roles:
 * Site to Site VPN
   * Connect an on-premises VPN to AWS
   * The connection is automatically encrypted
-  * Goes over the public internet
+  * Goes over the **public** internet
   * On-premises: must use a Customer Gateway (`CGW`)
   * AWS: must use a Virtual Private Gateway (`VGW`)
 * Direct Connect (DX)
   * Establish a physical connection between on-premises and AWS
   * The connection is private, secure and fast
-  * Goes over a private network
+  * Goes over a **private** network
   * Takes at least a month to establish
 
 !!! note
@@ -1470,7 +1532,7 @@ Common roles:
 ### Buckets
 
 * Amazon S3 allows people to store objects (files) in “buckets” (directories)
-* Buckets must have a globally unique name (across all regions all accounts)
+* Buckets must have a **globally unique name (across all regions all accounts)**
 * Buckets are **defined at the region level**
 * S3 looks like a global service but buckets are **created in a region**
 * Naming convention
@@ -1478,8 +1540,8 @@ Common roles:
   * 3-63 characters long
   * Not an IP
   * Must start with lowercase letter or number
-  * Must NOT start with the prefix xn--
-  * Must NOT end with the suffix -s3alias
+  * Must NOT start with the prefix `xn--`
+  * Must NOT end with the suffix `-s3alias`
 
 ### Objects
 
@@ -1506,44 +1568,6 @@ Common roles:
 * Notes:
   * Any file that is not versioned prior to enabling versioning will have version “null”
   * Suspending versioning does not delete the previous versions
-
-### Objects Encryption
-
-There are 4 methods of encrypting objects in S3
-
-* Server Side Encryption(SSE)
-  * Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3)
-    * encrypts S3 objects using keys handled & managed by AWS
-    * Object is encrypted server side
-    * AES-256 encryption type
-    * Must set header: “x-amz-server-side-encryption": "AES256"
-  * Server-Side Encryption with KMS Keys stored in AWS KMS (SSE-KMS)
-    * leverage AWS Key Management Service to manage encryption keys
-    * KMS Advantages: user control + audit key usage using CloudTrail
-    * Object is encrypted server side
-    * Must set header: “x-amz-server-side-encryption": ”aws:kms"
-  * Server-Side Encryption with Customer-Provided Keys (SSE-C)
-    * server-side encryption using data keys fully managed by the customer outside of AWS
-    * Amazon S3 does not store the encryption key you provide
-    * HTTPS must be used
-    * Encryption key must provided in HTTP headers, for every HTTP request made
-* Client Side Encryption
-  * Use Client library such as the Amazon S3 Client-Side Encryption Library
-  * Clients must encrypt data themselves before sending to S3
-  * Clients must decrypt data themselves when retrieving from S3
-  * Customer fully manages the keys and encryption cycle
-
-### Encryption in transit (SSL/TLS)
-
-> Encryption in flight is also called SSL/TLS
-
-* Amazon S3 exposes:
-  * HTTP endpoint: non encrypted
-  * HTTPS endpoint: encryption in flight
-* You’re free to use the endpoint you want, but HTTPS is recommended
-* Most clients would use the HTTPS endpoint by default
-* HTTPS is mandatory for SSE-C
-* Encryption in flight is also called SSL /TLS
 
 ### Security
 
@@ -1577,6 +1601,44 @@ There are 4 methods of encrypting objects in S3
   * Grant public access to the bucket
   * Force objects to be encrypted at upload
   * Grant access to another account (Cross Account)
+
+#### Objects Encryption
+
+There are 4 methods of encrypting objects in S3
+
+* Server Side Encryption(SSE)
+  * Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3)
+    * Encrypts S3 objects using keys handled & managed by AWS
+    * Object is encrypted server side
+    * AES-256 encryption type
+    * Must set header: “x-amz-server-side-encryption": "AES256"
+  * Server-Side Encryption with KMS Keys stored in AWS KMS (SSE-KMS)
+    * Leverage AWS Key Management Service to manage encryption keys
+    * KMS Advantages: user control + audit key usage using CloudTrail
+    * Object is encrypted server side
+    * Must set header: “x-amz-server-side-encryption": ”aws:kms"
+  * Server-Side Encryption with Customer-Provided Keys (SSE-C)
+    * Server-side encryption using data keys fully managed by the customer outside of AWS
+    * Amazon S3 **does not** store the encryption key you provide
+    * **HTTPS must be used**
+    * Encryption key must provided in HTTP headers, for every HTTP request made
+* Client Side Encryption
+  * Use Client library such as the *Amazon S3 Client-Side Encryption Library*
+  * Clients must encrypt data themselves before sending to S3
+  * Clients must decrypt data themselves when retrieving from S3
+  * Customer fully manages the keys and encryption cycle
+
+#### Encryption in transit (SSL/TLS)
+
+> Encryption in flight is also called SSL/TLS
+
+* Amazon S3 exposes:
+  * HTTP endpoint: non encrypted
+  * HTTPS endpoint: encryption in flight
+* You’re free to use the endpoint you want, but HTTPS is recommended
+* Most clients would use the HTTPS endpoint by default
+* **HTTPS is mandatory for SSE-C**
+* Encryption in flight is also called SSL /TLS
 
 ### Static Websites Hosting
 
@@ -1622,7 +1684,12 @@ There are 4 methods of encrypting objects in S3
 * General Purpose
 * Infrequent Access
   * Standard-Infrequent Access (IA)
+    * 99.9% Availability
+    * Use cases: Disaster Recovery, backups
   * One Zone-Infrequent Access
+    * High durability (99.999999999%) in a single AZ; data lost when AZ is destroyed
+    * 99.5% Availability
+    * Use Cases: Storing secondary backup copies of on-premises data, or data you can recreate
 * Glacier Storage Classes
   * Glacier Instant Retrieval
     * Minimum storage duration of 90 days
@@ -1802,7 +1869,7 @@ There are 4 methods of encrypting objects in S3
 #### EC2 Launch Type
 
 * Launch Docker containers on AWS = Launch ECS Tasks on ECS Clusters
-* EC2 Launch Type: you must provision & maintain the infrastructure (the EC2 instances)
+* **EC2 Launch Type: you must provision & maintain the infrastructure (the EC2 instances)**
 * Each EC2 Instance must run the ECS Agent to register in the ECS Cluster
 * AWS takes care of starting / stopping containers
 * Has integrations with the Application Load Balancer
@@ -2023,76 +2090,6 @@ Questions to choose the right database based on your architecture:
 * Time series: Amazon Timestream
 * Note: some databases are being discussed in the Data & Analytics section
 
-### DynamoDB
-
-* Fully Managed Highly available with replication across 3 AZ
-* **NoSQL** database(key/value) with transaction support
-* Scales to massive workloads, distributed “serverless” database
-* Millions of requests per seconds, trillions of row, 100s of TB of storage
-* Fast and consistent in performance
-* Single-digit millisecond latency – low latency retrieval
-* Integrated with IAM for security, authorization and administration
-* Low cost and auto scaling capabilities
-* Standard & Infrequent Access (IA) Table Class
-
-#### Basics
-
-* DynamoDB is made of **Tables**
-* Each table has a **Primary Key** (must be decided at creation time)
-* Each table can have an infinite number of items (= rows)
-* Each item has **attributes** (can be added over time – can be null)
-* Maximum size of an item is 400KB
-* Data types supported are:
-  * Scalar Types – String, Number, Binary, Boolean, Null
-  * Document Types – List, Map
-  * Set Types – String Set, Number Set, Binary Set
-* Therefore, in DynamoDB you can rapidly evolve schemas
-
-#### Read/Write Capacity Modes
-
-* Control how you manage your table’s capacity (read/write throughput)
-* Provisioned Mode (default)
-  * You specify the number of reads/writes per second
-  * You need to plan capacity beforehand
-  * Pay for provisioned Read Capacity Units (RCU) & Write Capacity Units (WCU)
-  * Possibility to add auto-scaling mode for RCU & WCU
-* On-Demand Mode
-  * Read/writes automatically scale up/down with your workloads
-  * No capacity planning needed
-  * Pay for what you use, more expensive ($$$)
-  * Great for unpredictable workloads, steep sudden spikes
-
-#### DynamoDB Accelerator - DAX
-
-* Fully Managed in-memory cache for DynamoDB
-* 10x performance improvement – single- digit millisecond latency to microseconds latency – when accessing your DynamoDB tables
-* Secure, highly scalable & highly available
-* Difference with ElastiCache at the CCP level:
-  * DAX is **only** used for and is integrated with DynamoDB
-  * ElastiCache **can** be used for other databases
-
-#### Global Tables
-
-* Make a DynamoDB table accessible with low latency in multiple-regions
-* Active-Active replication (read/write to any AWS Region)
-* Applications can READ and WRITE to the table in any region
-* Must enable DynamoDB Streams as a pre-requisite
-
-#### Integration with Amazon S3
-
-* Export to S3 (must enable PITR)
-  * Works for any point of time in the last 35 days
-  * Doesn’t affect the read capacity of your table
-  * Perform data analysis on top of DynamoDB
-  * Retain snapshots for auditing
-  * ETL on top of S3 data before importing back into DynamoDB
-  * Export in DynamoDB JSON or ION format
-* Import to S3
-  * Import CSV,DynamoDB JSON or ION format
-  * Doesn’t consume any write capacity
-  * Creates a new table
-  * Import errors are logged in CloudWatch Logs
-
 ### DocumentDB
 
 * MongoDB is used to store, query, and index JSON data • Similar “deployment concepts” as Aurora
@@ -2170,9 +2167,22 @@ analytics, ...
   * Homogeneous migrations: ex Oracle to Oracle
   * Heterogeneous migrations: ex Microsoft SQL Server to Aurora
 
-## Other Compute Services
+## Serverless
+
+* AWS Lambda
+* DynamoDB
+* AWS Cognito
+* AWS API Gateway
+* Amazon S3
+* AWS SNS & SQS
+* AWS Kinesis Data Firehose
+* Aurora Serverless
+* Step Functions
+* Fargate
 
 ### AWS Lambda
+
+#### Benefits
 
 * Easy Pricing:
   * Pay per request and compute time
@@ -2193,10 +2203,217 @@ analytics, ...
   * Disk capacity in the “function container” (in /tmp): 512 MB to 10GB
   * Concurrency executions: 1000 (can be increased)
 * Deployment:
-  * Lambda function deployment size (compressed .zip): 50 MB
+  * Lambda function deployment size (`compressed.zip`): 50 MB
   * Size of uncompressed deployment (code + dependencies): 250 MB
-  * Can use the /tmp directory to load other files at startup
+  * Can use the `/tmp` directory to load other files at startup
   * Size of environment variables: 4 KB
+
+#### Synchronous Invocations
+
+* Results is returned right away
+* Error handling must happen client side (retries, exponential backoff, etc…)
+* User Invoked:
+  * Elastic Load Balancing (Application Load Balancer)
+  * Amazon API Gateway
+  * Amazon CloudFront (Lambda@Edge)
+  * Amazon S3 Batch
+* Service Invoked:
+  * Amazon Cognito
+  * AWS Step Functions
+* Other Services:
+  * Amazon Lex
+  * Amazon Alexa
+  * Amazon Kinesis Data Firehose
+
+#### Asynchronous Invocations
+
+* The events are placed in an `Event Queue`
+* Lambda attempts to retry on errors
+  * 3 tries total
+  * 1 minute wait after 1st, then 2 minutes wait
+* Make sure the processing is idempotent (in case of retries)
+* If the function is retried, you will see duplicate logs entries in CloudWatch Logs
+* Can define a DLQ (dead-letter queue) – SNS or SQS – for failed processing (need correct IAM permissions)
+* Asynchronous invocations allow you to speed up the processing if you don’t need to wait for the result (ex: you need 1000 files processed)
+
+#### Lambda Integration with ALB
+
+* To expose a Lambda function as an HTTP(S) endpoint, You can use the Application Load Balancer (or an API Gateway)
+* The Lambda function must be registered in a **target group**
+
+* ALB can support multi-header values (ALB setting)
+* When you enable multi-value headers, HTTP headers and query string parameters that are sent with multiple values are shown as arrays within the AWS Lambda event and response objects.
+
+#### Lambda@Edge
+
+* Lambda functions written in NodeJS or Python
+* Scales to 1000s of requests/second
+* Used to change CloudFront requests and responses:
+  * Viewer Request – after CloudFront receives a request from a viewer
+  * Origin Request – before CloudFront forwards the request to the origin
+  * Origin Response – after CloudFront receives the response from the origin
+  * Viewer Response – before CloudFront forwards the response to the viewer
+* Use Cases:
+  * Website Security and Privacy
+  * Dynamic Web Application at the Edge
+  * Search Engine Optimization (SEO)
+  * Intelligently Route Across Origins and Data Centers
+  * Bot Mitigation at the Edge
+  * Real-time Image Transformation
+  * A/B Testing
+  * User Authentication and Authorization
+  * User Prioritization
+  * User Tracking and Analytics
+
+#### Lambda in VPC
+
+> By default, your Lambda function is launched outside your own VPC (in an AWS-owned VPC)  
+> Therefore it cannot access resources in your VPC (RDS, ElastiCache, internal ELB…)
+
+* You must define the VPC ID, the Subnets and the Security Groups
+* Lambda will create an ENI (Elastic Network Interface) in your subnets
+* *AWSLambdaVPCAccessExecutionRole*
+* A Lambda function in your VPC does not have internet access
+* **Deploying a Lambda function in a public subnet does not give it internet access or a public IP**
+* Deploying a Lambda function in a private subnet gives it internet access if you have a NAT Gateway / Instance
+* You can use VPC endpoints to privately access AWS services without a NAT
+
+#### Lambda Function Configuration
+
+* RAM:
+  * From 128MB to 10GB in 1MB increments
+  * The more RAM you add, the more vCPU credits you get
+  * At 1,792 MB, a function has the equivalent of one full vCPU
+  * After 1,792 MB, you get more than one CPU, and need to use multi-threading in your code to benefit from it (up to 6 vCPU)
+* If your application is CPU-bound (computation heavy), increase RAM
+* Timeout: default 3 seconds, maximum is 900 seconds (15 minutes)
+
+### DynamoDB
+
+* Fully Managed Highly available with replication across 3 AZ
+* **NoSQL** database(key/value) with transaction support
+* Scales to massive workloads, distributed “serverless” database
+* Millions of requests per seconds, trillions of row, 100s of TB of storage
+* Fast and consistent in performance
+* Single-digit millisecond latency – low latency retrieval
+* Integrated with IAM for security, authorization and administration
+* Enables event driven programming with DynamoDB Streams
+* Low cost and auto scaling capabilities
+* Standard & Infrequent Access (IA) Table Class
+
+#### Basics
+
+* DynamoDB is made of **Tables**
+* Each table has a **Primary Key** (must be decided at creation time)
+* Each table can have an infinite number of items (= rows)
+* Each item has **attributes** (can be added over time – can be null)
+* *Maximum size of an item is 400KB*
+* Data types supported are:
+  * Scalar Types – String, Number, Binary, Boolean, Null
+  * Document Types – List, Map
+  * Set Types – String Set, Number Set, Binary Set
+
+#### Primary Keys
+
+* Option 1: Partition Key (HASH)
+  * Partition key must be unique for each item
+  * Partition key must be “diverse” so that the data is distributed
+* Option 2: Partition Key + Sort Key (HASH + RANGE)
+  * The combination must be unique for each item
+  * Data is grouped by partition key
+
+#### Read/Write Capacity Modes
+
+> Control how you manage your table’s capacity (read/write throughput)
+
+* Provisioned Mode (default)
+  * You specify the number of reads/writes per second
+  * You need to plan capacity beforehand
+  * Pay for provisioned Read Capacity Units (RCU) & Write Capacity Units (WCU)
+  * Possibility to add auto-scaling mode for RCU & WCU
+* On-Demand Mode
+  * Read/writes automatically scale up/down with your workloads
+  * No capacity planning needed
+  * Pay for what you use, more expensive ($$$)
+  * Great for unpredictable workloads, steep sudden spikes
+
+!!! note
+
+    * One Write Capacity Unit (WCU) represents **one write per second for an item up to 1 KB in size**
+    * If the items are larger than **1 KB**, more WCUs are consumed
+    * One Read Capacity Unit (RCU) represents **one Strongly Consistent Read per second**, or **two Eventually Consistent Reads per second**, for an item up to **4 KB** in size
+    * If the items are larger than 4 KB, more RCUs are consumed
+
+#### Throttling
+
+* If we exceed provisioned RCUs or WCUs, we get “ProvisionedThroughputExceededException”
+* Reasons:
+  * Hot Keys – one partition key is being read too many times
+  * Hot Partitions
+  * Very large items(RCU and WCU depends on size of items)
+* Solutions:
+  * Exponential backoff when exception is encountered (already in SDK)
+  * Distribute partition keys as much as possible
+  * If RCU issue, we can use DynamoDB Accelerator (DAX)
+
+#### DynamoDB Accelerator - DAX
+
+* Fully Managed in-memory cache for DynamoDB
+* 10x performance improvement – single- digit millisecond latency to microseconds latency – when accessing your DynamoDB tables
+* Secure, highly scalable & highly available
+* Difference with ElastiCache at the CCP level:
+  * DAX is **only** used for and is integrated with DynamoDB
+  * ElastiCache **can** be used for other databases
+
+#### Global Tables
+
+* Make a DynamoDB table accessible with low latency in multiple-regions
+* Active-Active replication (read/write to any AWS Region)
+* Applications can READ and WRITE to the table in any region
+* Must enable DynamoDB Streams as a pre-requisite
+
+#### Integration with Amazon S3
+
+* Export to S3 (must enable PITR)
+  * Works for any point of time in the last 35 days
+  * Doesn’t affect the read capacity of your table
+  * Perform data analysis on top of DynamoDB
+  * Retain snapshots for auditing
+  * ETL on top of S3 data before importing back into DynamoDB
+  * Export in DynamoDB JSON or ION format
+* Import to S3
+  * Import CSV,DynamoDB JSON or ION format
+  * Doesn’t consume any write capacity
+  * Creates a new table
+  * Import errors are logged in CloudWatch Logs
+
+#### Local Secondary Index (LSI)
+
+* Alternative Sort Key for your table (same Partition Key as that of base table)
+* The Sort Key consists of one scalar attribute (String, Number, or Binary)
+* Up to 5 Local Secondary Indexes per table
+* Must be defined at table creation time
+* Attribute Projections – can contain some or all the attributes of the base table (KEYS_ONLY, INCLUDE, ALL)
+
+#### Global Secondary Index (GSI)
+
+* Alternative Primary Key (HASH or HASH+RANGE) from the base table
+* Speed up queries on non-key attributes
+* The Index Key consists of scalar attributes (String, Number, or Binary)
+* Attribute Projections – some or all the attributes of the base table (KEYS_ONLY, INCLUDE, ALL)
+* **Must provision RCUs & WCUs for the index**
+* Can be added/modified after table creation
+
+#### Indexes and Throttling
+
+* Global Secondary Index (GSI):
+  * If the writes are throttled on the GSI, then the main table will be throttled!
+  * Even if the WCU on the main tables are fine
+  * Choose your GSI partition key carefully!
+  * Assign your WCU capacity carefully!
+* Local Secondary Index (LSI):
+  * Uses the WCUs and RCUs of the main table
+  * No special throttling considerations
 
 ### CloudFront Functions
 
@@ -2208,17 +2425,6 @@ analytics, ...
   *iewer
   * Viewer Response: before CloudFront forwards the response to the viewer
 * Native feature of CloudFront (manage code entirely within CloudFront)
-
-### Lambda@Edge
-
-* Lambda functions written in NodeJS or Python
-* Scales to 1000s of requests/second
-* Used to change CloudFront requests and responses:
-  * Viewer Request – after CloudFront receives a request from a
-  viewer
-  * Origin Request – before CloudFront forwards the request to the origin
-  * Origin Response – after CloudFront receives the response from the origin
-  * Viewer Response – before CloudFront forwards the response to the viewer
 
 ### Amazon API Gateway
 
@@ -2258,13 +2464,173 @@ analytics, ...
   * If using Regional endpoint, the certificate must be in the API Gateway region
   * Must setup CNAME or A-alias record in Route 53
 
+#### Deployment Stages
+
+* Making changes in the API Gateway does not mean they’re effective
+* You need to make a “deployment” for them to be in effect
+* It’s a common source of confusion
+* Changes are deployed to “Stages” (as many as you want)
+* Use the naming you like for stages (dev, test, prod)
+* Each stage has its own configuration parameters
+* Stages can be rolled back as a history of deployments is kept
+
+#### Stage Variables
+
+* Stage variables are like environment variables for API Gateway
+* Use them to change often changing configuration values
+* They can be used in:
+  * Lambda function ARN
+  * HTTP Endpoint
+  * Parameter mapping templates
+* Use cases:
+  * Configure HTTP endpoints your stages talk to (dev, test, prod…)
+  * Pass configuration parameters to AWS Lambda through mapping templates
+* Stage variables are passed to the ”context” object in AWS Lambda
+
+#### Integration Types
+
+* Integration Type MOCK
+  * API Gateway returns a response without sending the request to the backend
+* Integration Type HTTP / AWS (Lambda & AWS Services)
+  * you must configure both the integration request and integration response
+  * Setup data mapping using mapping templates for the request & response
+* Integration Type AWS_PROXY (Lambda Proxy):
+  * incoming request from the client is the input to Lambda
+  * The function is responsible for the logic of request / response
+  * No mapping template, headers, query string parameters… are passed as arguments
+* Integration Type HTTP_PROXY
+  * No mapping template
+  * The HTTP request is passed to the backend
+  * The HTTP response from the backend is forwarded by API Gateway
+
+#### Mapping Templates (AWS & HTTP Integration)
+
+* Mapping templates can be used to modify request / responses
+* Rename / Modify query string parameters
+* Modify body content
+* Add headers
+* Uses Velocity Template Language (VTL): for loop, if etc…
+* Filter output results (remove unnecessary data)
+
+#### Usage Plan & API Keys
+
+* Usage Plan:
+  * who can access one or more deployed API stages and methods
+  * how much and how fast they can access them
+  * uses API keys to identify API clients and meter access
+  * configure throttling limits and quota limits that are enforced on individual client
+* API Keys:
+  * alphanumeric string values to distribute to your customers
+  * Ex: WBjHxNtoAb4WPKBC7cGm64CBibIb24b4jt8jJHo9
+  * Can use with usage plans to control access
+  * Throttling limits are applied to the API keys
+  * Quotas limits is the overall number of maximum requests
+
+### Amazon Cognito
+
+> AWS Service that offers Authentication and Authorization features
+
+* Give users an identity to interact with our web or mobile application
+* Allows you to add user registration, sign in, and access control
+* Scalable and Highly available supporting millions of users
+* Supports standards based Identity Providers(OAuth 2.0, OIDC, SAML)
+* Useful in a variety of contexts:
+  * Keeping an active directory of Users
+  * Security APIs
+  * Providing temporary access to AWS resources
+
+#### Cognito User Pools
+
+> Create a serverless database of user for your web & mobile apps
+
+* Features:
+  * Simple login: Username (or email) / password combination
+  * Password reset
+  * Email & Phone Number Verification
+  * Multi-factor authentication (MFA)
+  * Federated Identities: users from Facebook, Google, SAML…
+  * Feature: block users if their credentials are compromised elsewhere
+  * Login sends back a JSON Web Token (JWT)
+* Hosted Authentication UI
+  * Cognito has a hosted authentication UI that you can add to your app to handle sign up and sign-in workflows
+  * Using the hosted UI, you have a foundation for integration with social logins, OIDC or SAML
+  * Can customize with a custom logo, custom CSS, and the URL(not the underlying JavaScript)
+
+#### Cognito Identity Pools (Federated Identity)
+
+* Get identities for “users” so they obtain temporary AWS credentials
+* Your identity pool (e.g identity source) can include:
+  * Public Providers (Login with Amazon, Facebook, Google, Apple)
+  * Users in an Amazon Cognito user pool
+  * OpenID Connect Providers & SAML Identity Providers
+  * Developer Authenticated Identities (custom login server)
+  * Cognito Identity Pools allow for unauthenticated (guest) access
+* Users can then access AWS services directly or through API Gateway
+  * The IAM policies applied to the credentials are defined in Cognito
+  * They can be customized based on the user_id for fine grained control
+
 ### AWS Step Functions
 
 * Build serverless visual workflow to orchestrate your Lambda functions
+* Written in JSON
 * Features: sequence, parallel, conditions, timeouts, error handling, ...
 * Can integrate with EC2, ECS, On-premises servers, API Gateway, SQS queues, etc...
 * Possibility of implementing human approval feature
 * Use cases: order fulfillment, data processing, web applications, any workflow
+
+#### Task States
+
+* Do some work in your state machine
+* Invoke one AWS service
+  * Can invoke a Lambda function
+  * Run an AWS Batch job
+  * Run an ECS task and wait for it to complete
+  * Insert an item from DynamoDB
+  * Publish message to SNS, SQS
+  * Launch another Step Function workflow…
+* Run an one Activity
+  * EC2, Amazon ECS, on-premises
+  * Activities poll the Step functions for work
+  * Activities send results back to Step Functions
+
+#### States
+
+* Choice State -Test for a condition to send to a branch (or default branch)
+* Fail or Succeed State - Stop execution with failure or success
+* Pass State - Simply pass its input to its output or inject some fixed data, without performing work.
+* Wait State - Provide a delay for a certain amount of time or until a specified time/date.
+* Map State - Dynamically iterate steps.
+* Parallel State - Begin parallel branches of execution.
+
+#### Error Handling in Step Functions
+
+* Any state can encounter runtime errors for various reasons:
+  * State machine definition issues (for example, no matching rule in a Choice state)
+  * Task failures (for example, an exception in a Lambda function)
+  * Transient issues (for example, network partition events)
+* Use **Retry** (to retry failed state) and **Catch** (transition to failure path) in the State Machine to handle the errors instead of inside the Application Code
+* Predefined error codes:
+  * States.ALL : matches any error name
+  * States.Timeout: Task ran longer than TimeoutSeconds or no heartbeat received
+  * States.TaskFailed: execution failure
+  * States.Permissions: insufficient privileges to execute code
+* The state may report is own errors
+
+### AWS Amplify
+
+* Set of tools to get started with creating *mobile and web applications*
+* “Elastic Beanstalk for mobile and web applications”
+* Must-have features such as data storage, authentication, storage, and machine-learning, all powered by AWS services
+* Front-end libraries with ready-to-use components for React.js, Vue, Javascript, iOS, Android, Flutter, etc…
+* Incorporates AWS best practices to for reliability, security, scalability
+* Build and deploy with the `Amplify CLI` or `Amplify Studio`
+
+#### Components
+
+* Amplify Studio - Visually build a full-stack app, both front-end UI and a backend
+* Amplify CLI - Configure an Amplify backend With a guided CLI workflow
+* Amplify Libraries - Connect your app to existing AWS Services (Cognito, S3 and more)
+* Amplify Hosting - Host secure, reliable, fast web apps or websites via the AWS content delivery network
 
 ### AWS Batch
 
@@ -2277,7 +2643,7 @@ analytics, ...
 * Batch jobs are defined as Docker images and run on ECS
 * Helpful for cost optimizations and focusing less on the infrastructure
 
-### Batch VS Lambda
+#### Batch VS Lambda
 
 * Lambda:
   * Time limit
@@ -2498,13 +2864,14 @@ The CLI will look for credentials in this order:
 
 #### Functions
 
-* `Ref`
+* `Fn::Ref`(!Ref)
 * `Fn::GetAtt`
 * `Fn::FindInMap`
 * `Fn::ImportValue`
 * `Fn::Join`
 * `Fn::Sub`
-* Condition Functions (Fn::If, Fn::Not, Fn::Equals, etc...)
+* Condition Functions (`Fn::If`, `Fn::Not`, `Fn::Equals`, `Fn::And`, `Fn::Or`)
+* ...
 
 #### CloudFormation Rollbacks
 
@@ -2538,7 +2905,7 @@ The CLI will look for credentials in this order:
 
 #### StackSets
 
-* Create, update, or delete stacks across multiple accounts and regions with a single operation
+* Create, update, or delete stacks across **multiple accounts and regions** with a single operation
 * Administrator account to create StackSets
 * Trusted accounts to create, update, delete stack instances from StackSets
 * When you update a stack set, all associated stack instances are updated throughout all accounts and regions
@@ -2572,29 +2939,31 @@ The CLI will look for credentials in this order:
 #### Deployment Options for Updates
 
 * All at once (deploy all in one go)
-  * fastest, but instances aren’t available to serve traffic for a bit (have downtime)
+  * Fastest, but instances aren’t available to serve traffic for a bit (have downtime)
   * Great for quick iterations in development environment
   * No additional cost
 * Rolling
-  * update a few instances at a time (bucket), and then move onto the next bucket once the first bucket is healthy
+  * Update a few instances at a time (bucket), and then move onto the next bucket once the first bucket is healthy
   * Application is running **below capacity**
   * Can set the bucket size
   * Application is running both versions simutaneously
   * No additional cost
   * Long deployment
 * Rolling with additional batches
-  * like rolling, but spins up new instances to move the batch (so that the old application is still available)
+  * Like rolling, but spins up new instances to move the batch (so that the old application is still available)
   * Application is running **at capacity**
   * Can set the bucket size
   * Application is running both versions simutaneously
+  * Small additional cost
+  * Additional batch is removed at the end of the deployment
   * Longer deployment
   * Good for prod
 * Immutable
-  * spins up new instances in a new ASG, deploys version to these instances, and then swaps all the instances when everything is healthy
+  * Spins up new instances in a new ASG, deploys version to these instances, and then swaps all the instances when everything is healthy
   * Zero downtime
   * High cost, double capacity
   * Longest deployment
-  * Quick rollback in case of failures
+  * Quick rollback in case of failures(just terminate new ASG)
   * Good for prod
 
 #### Deployment Blue / Green
@@ -2739,19 +3108,19 @@ The CLI will look for credentials in this order:
 
 #### Primary Components
 
-* Application – a unique name functions as a container (revision, deployment configuration, ...)
-* Compute Platform – EC2/On-Premises,AWSLambda,orAmazonECS
-* Deployment Configuration – a set of deployment rules for success/failure
+* **Application** – a unique name functions as a container (revision, deployment configuration, ...)
+* **Compute Platform** – EC2/On-Premises,AWSLambda,orAmazonECS
+* **Deployment Configuration** – a set of deployment rules for success/failure
   * EC2/On-premises – specify the minimum number of healthy instances for the deployment
   * AWS Lambda or Amazon ECS – specify how traffic is routed to your updated versions
-* Deployment Group - group of tagged EC2 instances (allows to deploy gradually, or dev, test, prod...)
-* Deployment Type – method used to deploy the application to a Deployment Group
+* **Deployment Group** - group of tagged EC2 instances (allows to deploy gradually, or dev, test, prod...)
+* **Deployment Type** – method used to deploy the application to a Deployment Group
   * In-place Deployment – supports EC2/On-Premises
   * Blue/Green Deployment – suppor ts EC2 instances only, AWS Lambda, and Amazon ECS
-* IAM Instance Profile – give EC2 instances the permissions to access both S3 / GitHub
-* Application Revision – application code + appspec.yml file
-* Service Role – an IAM Role for CodeDeploy to perform operations on EC2 instances, ASGs, ELBs...
-* Target Revision – the most recent revision that you want to deploy to a Deployment Group
+* **IAM Instance Profile** – give EC2 instances the permissions to access both S3 / GitHub
+* **Application Revision** – application code + `appspec.yml` file
+* **Service Role** – an IAM Role for CodeDeploy to perform operations on EC2 instances, ASGs, ELBs...
+* **Target Revision** – the most recent revision that you want to deploy to a Deployment Group
 
 #### appspec.yml
 
@@ -2766,6 +3135,9 @@ The CLI will look for credentials in this order:
   * AfterInstall
   * ApplicationStart
   * ValidateService <- important!!
+  * BeforeAllowTraffic
+  * AllowTraffic
+  * AfterAllowTraffic
 
 #### Deployment Configuration
 
@@ -2809,9 +3181,9 @@ The CLI will look for credentials in this order:
 ### AWS CodeArtifact
 
 * Software packages depend on each other to be built (also called code dependencies), and new ones are created
-* Storing and retrieving these dependencies is called artifact management
+* Storing and retrieving these dependencies is called **artifact management**
 * Traditionally you need to setup your own artifact management system
-* CodeArtifact is a secure, scalable, and cost-effective artifact management for software development
+* **CodeArtifact is a secure, scalable, and cost-effective artifact management for software development**
 * Works with common dependency management tools such as Maven, Gradle, npm, yarn, twine, pip, and NuGet
 * Developers and CodeBuild can then retrieve dependencies straight from CodeArtifact
 
@@ -2839,11 +3211,11 @@ The CLI will look for credentials in this order:
 
 #### Standard Queue
 
-* Oldest offering (over 10 years old)
-* Fully managed service, used to decouple applications
+> Oldest offering, Fully managed service, used to decouple applications
+
 * Attributes:
   * Unlimited throughput, unlimited number of messages in queue
-  * Default retention of messages: 4 days, maximum of 14 days
+  * Default retention of messages: 4 days; maximum of 14 days
   * Low latency (<10 ms on publish and receive)
   * Limitation of 256KB per message sent
 * Can have duplicate messages (at least once delivery, occasionally)
@@ -2851,13 +3223,9 @@ The CLI will look for credentials in this order:
 
 #### Producing Messages
 
-* Produced to SQS using the SDK (SendMessage API)
+* Produced to SQS using the SDK (`SendMessage` API)
 * The message is persisted in SQS until a consumer deletes it
 * Message retention: default 4 days, up to 14 days
-* Example: send an order to be processed
-  * Order id
-  * Customer id
-  * Any attributes you want
 * SQS standard: unlimited throughput
 
 #### Consuming Messages
@@ -2889,11 +3257,11 @@ The CLI will look for credentials in this order:
 #### Message Visibility Timeout
 
 * After a message is polled by a consumer, it becomes **invisible** to other consumers
-* By default, the “message visibility timeout” is **30 seconds**
-* That means the message has 30 seconds to be processed
+* By default, the “message visibility timeout” is **30 seconds** -> That means the message has 30 seconds to be processed
+* Min: 0 seconds; Max: 12 hours
 * After the message visibility timeout is over, the message is “visible” in SQS
-* If a message is not processed within the visibility timeout, it will be processed twice
-* A consumer could call the ChangeMessageVisibility API to get more time
+* *If a message is not processed within the visibility timeout, it will be processed twice*
+* A consumer could call the `ChangeMessageVisibility` API to get more time
 * If visibility timeout is high (hours), and consumer crashes, re-processing will take time
 * If visibility timeout is too low (seconds), we may get duplicates
 
@@ -2902,27 +3270,33 @@ The CLI will look for credentials in this order:
 * If a consumer fails to process a message within the Visibility Timeout... the message goes back to the queue!
 * We can set a threshold of how many times a message can go back to the queue
 * After the MaximumReceives threshold is exceeded, the message goes into a dead letter queue (DLQ)
+* Useful for debugging!
+* **DLQ of a FIFO queue must also be a FIFO queue**
+* **DLQ of a Standard queue must also be a Standard queue**
+* Make sure to process the messages in the DLQ before they expire: Good to set a retention of 14 days in the DLQ
 
 #### Delay Queue
 
 * Delay a message (consumers don’t see it immediately) up to 15 minutes
 * Default is 0 seconds (message is available right away)
 * Can set a default at queue level
-* Can override the default on send using the DelaySeconds parameter
+* Can override the default on send using the `DelaySeconds` parameter
 
 #### Long Polling
 
 * When a consumer requests messages from the queue, it can optionally “wait” for messages to arrive if there are none in the queue -> This is called Long Polling
-* LongPolling decreases the number of API calls made to SQS while increasing the efficiency and latency of your application.
+* **LongPolling decreases the number of API calls made to SQS while increasing the efficiency and latency of your application**
 * The wait time can be between 1 sec to 20 sec (20 sec preferable)
 * Long Polling is preferable to Short Polling
-* Long polling can be enabled at the queue level or at the API level using WaitTimeSeconds
+* Long polling can be enabled at the queue level or at the API level using `WaitTimeSeconds`
 
 #### Extended Client
 
-Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the SQS Extended Client (Java Library)
+* Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the SQS Extended Client (Java Library)
+* Producer send small metadata message to SQS Queue, at the meantime send large message to S3
+* Consumer retrieve small metadata message from SQS Quese, and retrieve large message from S3
 
-#### APIs
+#### Useful APIs
 
 * CreateQueue (MessageRetentionPeriod), DeleteQueue
 * PurgeQueue: delete all the messages in queue
@@ -2936,15 +3310,16 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
 > FIFO: First In First Out (ordering of messages in the queue)
 
 * Limited throughput: 300 msg/s without batching, 3000 msg/s with
-* Exactly-once send capability (by removing duplicates)
+* *Exactly-once send capability (by removing duplicates)*
 * Messages are processed in order by the consumer
+* You can have as many consumers as `MessageGroupID` for you FIFO queues
 
 #### FIFO – Deduplication
 
 * De-duplication interval is 5 minutes
 * Two de-duplication methods:
   * Content-based deduplication: will do a SHA-256 hash of the message body
-  * Explicitly provide a Message Deduplication ID
+  * Explicitly provide a `MessageDeduplicationID`
 
 ### Amazon Kinesis
 
@@ -2952,15 +3327,16 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
 
 #### Overview
 
-* Managed service to collect, process, and analyze real-time streaming data at any scale
+* Managed service to **collect, process, and analyze real-time streaming data at any scale**
+* Ingest real-time data such as: Application logs, Metrics, Website clickstreams, IoT telemetry data…
 * `Kinesis Data Streams`: capture, process, and store data streams
 * `Kinesis Data Firehose`: load data streams into AWS data stores
 * `Kinesis Data Analytics`: analyze data streams with SQL or Apache Flink
 * `Kinesis Video Streams`: capture, process, and store video streams
 
-#### Kinesis Data Streams
+#### Kinesis Data Streams - Overview
 
-* Retention between 1 day to 365 days
+* **Retention between 1 day to 365 days**
 * Ability to reprocess (replay) data
 * Once data is inserted in Kinesis, it can’t be deleted (immutability)
 * Data that shares the same partition goes to the same shard (ordering)
@@ -2968,6 +3344,53 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
 * Consumers:
   * Write your own: Kinesis Client Library (KCL), AWS SDK
   * Managed: AWS Lambda, Kinesis Data Firehose, Kinesis Data Analytics
+
+#### Kinesis Data Streams – Capacity Modes
+
+* Provisioned mode:
+  * You choose the number of shards provisioned, scale manually or using API
+  * Each shard gets 1MB/s in (or 1000 records per second)
+  * Each shard gets 2MB/s out (classic or enhanced fan-out consumer)
+  * You pay per shard provisioned per hour
+* On-demand mode:
+  * No need to provision or manage the capacity
+  * Default capacity provisioned (4 MB/s in or 4000 records per second)
+  * Scales automatically based on observed throughput peak during the last 30 days
+  * Pay per stream per hour & data in/out per GB
+
+#### Kinesis Data Streams - Security
+
+* Control access / authorization using IAM policies
+* Encryption in flight using HTTPS endpoints
+* Encryption at rest using KMS
+* You can implement encryption/decryption of data on client side
+* VPC Endpoints available for Kinesis to access within VPC
+* Monitor API calls using CloudTrail
+
+#### Kinesis Data Streams - Producers
+
+> Puts data records into data streams
+
+* Data record consists of:
+  * Sequence number (unique per partition-key within shard)
+  * Partition key (must specify while put records into stream)
+  * Data blob (up to 1 MB)
+* Producers:
+  * AWS SDK: simple producer
+  * Kinesis Producer Library (KPL): A Java library that helps read record from a Kinesis Data Stream with distributed applications sharing the read workload
+  * Kinesis Agent: monitor log files
+* Write throughput: 1 MB/sec or 1000 records/sec per shard
+* Use batching with PutRecords API to reduce costs & increase throughput
+
+#### Kinesis Data Streams Consumers
+
+> Get data records from data streams and process them
+
+* AWS Lambda
+* Kinesis Data Analytics
+* Kinesis Data Firehose
+* Custom Consumer (AWS SDK) – Classic or Enhanced Fan-Out
+* Kinesis Client Library (KCL): library to simplify reading from data stream
 
 #### Kinesis Data Firehose
 
@@ -2980,8 +3403,23 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
   * 60 seconds latency minimum for non full batches
   * Or minimum 1MB of data at a time
 * Supports many data formats, conversions, transformations, compression
-* Supports custom data transformations using AWS Lambda
+* **Supports custom data transformations using AWS Lambda**
 * Can send failed or all data to a backup S3 bucket
+
+#### Kinesis Data Analytics (SQL application)
+
+* Real-time analytics on Kinesis Data Streams & Firehose using SQL
+* Add reference data from Amazon S3 to enrich streaming data
+* Fully managed, no servers to provision
+* Automatic scaling
+* Pay for actual consumption rate
+* Output:
+  * Kinesis Data Streams: create streams out of the real-time analytics queries
+  * Kinesis Data Firehose: send analytics query results to destinations
+* Use cases:
+  * Time-series analytics
+  * Real-time dashboards
+  * Real-time metrics
 
 ### Amazon SNS
 
@@ -2994,7 +3432,7 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
 
 * Topic Publish (using the SDK)
   * Create a topic
-  * Create a subscription (or many)
+  * Create a/many subscription(s)
   * Publish to the topic
 * Direct Publish (for mobile apps SDK)
   * Create a platform application
@@ -3012,6 +3450,38 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
 * SNS Access Policies (similar to S3 bucket policies)
   * Useful for cross-account access to SNS topics
   * Useful for allowing other services ( S3...) to write to an SNS topic
+
+#### Message Filtering
+
+* JSON policy used to filter messages sent to SNS topic’s subscriptions
+* If a subscription doesn’t have a filter policy, it receives every message
+
+### SQS vs SNS vs Kinesis
+
+* SQS:
+  * Consumer “pull data”
+  * Data is deleted aQer being consumed
+  * Can have as many workers (consumers) as we want
+  * No need to provision throughput
+  * Ordering guarantees only on FIFO queues
+  * Individual message delay capability
+* SNS:
+  * Push data to many subscribers
+  * Up to 12,500,000 subscribers
+  * Data is not persisted (lost if not delivered)
+  * Pub/Sub
+  * Up to 100,000 topics
+  * No need to provision throughput
+  * Integrates with SQS for fan- out architecture pattern
+  * FIFO capability for SQS FIFO
+* Kinesis:
+  * Standard: pull data(2 MB per shard)
+  * Enhanced-fan out: push data(2 MB per shard per consumer)
+  * Possibility to replay data
+  * Meant for real-time big data, analytics and ETL
+  * Ordering at the shard level
+  * Data expires after X days
+  * Provisioned mode or ondemand capacity mode
 
 ### Amazon MQ
 
@@ -3113,7 +3583,7 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
 ### CloudWatch Alarms
 
 * Alarms are used to trigger notifications for any metric
-* Alarms actions:
+* Alarms targets:
   * Auto Scaling: increase or decrease EC2 instances “desired” count
   * EC2 Actions: stop, terminate, reboot or recover an EC2 instance
   * SNS notifications: send a notification into an SNS topic
@@ -3177,7 +3647,9 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
 * Enhanced visibility into your application health to reduce the time it will take you to troubleshoot and repair your applications
 * Findings and alerts are sent to Amazon EventBridge and SSM OpsCenter
 
-### Amazon EventBridge(formerly CloudWatch Events)
+### Amazon EventBridge
+
+> EventBridge is the next evolution of CloudWatch Events
 
 * `Default event bus`: generated by AWS services (CloudWatch Events)
 * `Partner event bus`: receive events from SaaS service or applications (Zendesk, DataDog, Segment, Auth0...)
@@ -3263,7 +3735,7 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
 * Annotations: Key Value pairs used to **index** traces and use with filters
 * Metadata: Key Value pairs, **not indexed**, not used for searching
 
-#### CloudTrail vs CloudWatch vs X-Ray
+### CloudTrail vs CloudWatch vs X-Ray
 
 * CloudTrail:
   * Audit API calls made by users / services / AWS console
@@ -3322,11 +3794,35 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
   * Size constraints, geo-match (block countries)
   * Rate-based rules (to count occurrences of events) – for DDoS protection
 
+### Why encryption?
+
+* Encryption in flight (SSL)
+  * Data is encrypted before sending and decrypted after receiving
+  * SSL certificates help with encryption (HTTPS)
+  * Encryption in flight ensures no MITM (man in the middle attack) can happen
+* Server side encryption at rest
+  * Data is encrypted after being received by the server
+  * Data is decrypted before being sent
+  * It is stored in an encrypted form thanks to a key (usually a data key)
+  * The encryption / decryption keys must be managed somewhere and the server must have access to it
+* Client side encryption
+  * Data is encrypted by the client and never decrypted by the server
+  * Data will be decrypted by a receiving client
+  * The server should not be able to decrypt the data
+  * Could leverage Envelope Encryption
+
 ### AWS KMS (Key Management Service)
 
 > KMS = AWS manages the encryption keys for us
 
-* Anytime you hear “encryption” for an AWS service, it’s most likely KMS
+* Fully integrated with IAM for authorization
+* Easy way to control access to your data
+* Able to audit KMS Key usage using CloudTrail
+* Seamlessly integrated into most AWS services (EBS, S3, RDS, SSM…)
+* Never ever store your secrets in plaintext, especially in your code!
+  * KMS Key Encryption also available through API calls (SDK, CLI)
+  * Encrypted secrets can be stored in the code / environment variables
+
 * Encryption Opt-in:
   * EBS volumes: encrypt volumes
   * S3 buckets: Server-side encryption of objects
@@ -3363,6 +3859,34 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
   * Customer-managed KMS Key: (must be enabled) automatic every 1 year
   * Imported KMS Key: only manual rotation possible using alias
 
+#### KMS Key Policies
+
+* Control access to KMS keys, “similar” to S3 bucket policies
+* Difference: you cannot control access without them
+* Default KMS Key Policy:
+  * Created if you don’t provide a specific KMS Key Policy
+  * Complete access to the key to the root user = entire AWS account
+* Custom KMS Key Policy:
+  * Define users, roles that can access the KMS key
+  * Define who can administer the key
+  * Useful for cross-account access of your KMS key
+
+#### Envelope Encryption
+
+* KMS Encrypt API call has a limit of 4 KB
+* If you want to encrypt >4 KB, we need to use Envelope Encryption
+* The main API that will help us is the `GenerateDataKey` API
+
+#### Encryption SDK
+
+* The AWS Encryption SDK implemented Envelope Encryption for us
+* The Encryption SDK also exists as a CLI tool we can install
+* Implementations for Java, Python, C, JavaScript
+* Feature - Data Key Caching:
+  * re-use data keys instead of creating new ones for each encryption
+  * Helps with reducing the number of calls to KMS with a security trade-off
+  * Use LocalCryptoMaterialsCache (max age, max bytes, max number of messages)
+
 ### CloudHSM
 
 > KMS => AWS manages the software for encryption  
@@ -3384,6 +3908,16 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
   * CloudFront Distributions
   * APIs on API Gateway
 
+### SSM Parameter Store
+
+* Secure storage for configuration and secrets
+* Optional Seamless Encryption using KMS
+* Serverless, scalable, durable, easy SDK
+* Version tracking of configurations / secrets
+* Security through IAM
+* Notifications with Amazon EventBridge
+* Integration with CloudFormation
+
 ### AWS Secrets Manager
 
 * Newer service, meant for storing secrets
@@ -3391,6 +3925,20 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
 * Automate generation of secrets on rotation (uses Lambda)
 * Integration with Amazon RDS (MySQL, PostgreSQL, Aurora)
 * Secrets are encrypted using KMS
+
+### SSM Parameter Store vs Secrets Manager
+
+* Secrets Manager ($$$):
+  * Automatic rotation of secrets with AWS Lambda
+  * Lambda function is provided for RDS, Redshift, DocumentDB
+  * KMS encryption is mandatory
+  * Can integration with CloudFormation
+* SSM Parameter Store ($):
+  * Simple API
+  * No secret rotation (can enable rotation using Lambda triggered by CW Events)
+  * KMS encryption is optional
+  * Can integration with CloudFormation
+  * Can pull a Secrets Manager secret using the SSM Parameter Store API
 
 ### Amazon Inspector
 
@@ -3647,17 +4195,6 @@ Message size limit is 256KB, how to send large messages, e.g. 1GB? => Using the 
 * Monitoring against costs plans:
   * Billing Alarms
   * Budgets
-
-### Amazon Cognito
-
-* Give users an identity to interact with our web or mobile application
-* Cognito User Pools:
-  * Sign in functionality for app users
-  * Integrate with API Gateway & Application Load Balancer
-* Cognito Identity Pools (Federated Identity):
-  * Provide AWS credentials to users so they can access AWS resources directly
-  * Integrate with Cognito User Pools as an identity provider
-* Cognito vs IAM: “hundreds of users”, ”mobile users”,“authenticate with SAML”
 
 ## Disaster Recovery
 
