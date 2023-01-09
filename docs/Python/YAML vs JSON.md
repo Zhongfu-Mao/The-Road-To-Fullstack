@@ -1,8 +1,87 @@
-# YAMLとJSON
+# 設定ファイル
 
-## [JSON](https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/JSON)
+## iniファイル
 
-JSON (JavaScript Object Notation) は値とオブジェクトを表現する一般的な形式である
+> INIファイルは、ソフトウェアの設定などを記録するために用いられるファイル形式の一つ
+
+### 基本文法
+
+* セクション
+  * INIファイルは、セクションで区切られています
+  * セクションは、`[セクション名]`という書式で表されます
+* キー/値
+  * セクション内には、キー/値の組み合わせで設定値が記述されます
+  * キー/値の組み合わせは、「キー=値」という書式で表されます
+* コメント
+  * `;`や`#`で始まる行をコメントとして扱います
+
+```ini
+; これはコメントです
+# これもコメントです
+
+[section1]
+; コメントも書けます
+key1=value1
+# コメントも書けます
+key2=value2
+```
+
+### Pythonで処理する
+
+一例として、下記のようなiniファイルがある
+
+```ini
+[SECTION1]
+VALUE1 = old value
+VALUE2 = some value
+
+[SECTION2]
+VALUE3 = another value
+```
+
+下記のように、Pythonで読み込み、書き込みなどの操作を行う
+
+```python
+import configparser
+
+# Open the file
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+# Read the values from the file
+value1 = config['SECTION1']['VALUE1']
+value2 = config['SECTION1']['VALUE2']
+value3 = config['SECTION2']['VALUE3']
+
+# Change a value and write the file
+config['SECTION1']['VALUE1'] = 'new value'
+with open('config.ini', 'w') as configfile:
+    config.write(configfile)
+```
+
+### デメリット
+
+すべて文字列型、複雑な機能はない（リストが使えない！）
+
+```ini
+[section1]
+foo = [1, 2, 3]
+```
+
+```python
+>>> import configparser
+
+>>> config = configparser.ConfigParser()
+>>> config.read('example.ini')
+>>> type(config['section1']['foo'])
+str
+```
+
+[🔗JSON, YAML, ini, TOML ざっくり比較](https://gist.github.com/miyakogi/e8631ce5f7c956db2313)
+
+## JSON
+
+> [🔗JSON (JavaScript Object Notation)](https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/JSON)は値とオブジェクトを表現する一般的な形式である
 
 ### 文法(syntax)
 
@@ -34,7 +113,11 @@ JavaScriptは次のメソッドを提供しています:
 
 PythonでJSONを処理するならstandard libraryにある`json`を利用すればいい
 
+[🔗【Python】JSONデータの読み書きの基本（jsonモジュールの使い方）](https://hibiki-press.tech/python/json/1633)
+
 ### 可視化
+
+[🔗JSON Heroセットアップ手順](https://github.com/triggerdotdev/jsonhero-web#developing)
 
 ## YAML
 
@@ -77,9 +160,9 @@ Info:
   name: Zhongfu Mao
   job: Developer
   skills: 
-  	- Python
-  	- JavaScript
-  	- Java
+   - Python
+   - JavaScript
+   - Java
   
 # Literal Style 保留换行符
 - script: |
@@ -139,10 +222,10 @@ str: 'labor''s day'
 : The Dragon
 # 转化后
 {
-	(0, 1): 'Treasure', 
-	(1, 0): 'Treasure', 
-	(0, 0): 'The Hero', 
-	(1, 1): 'The Dragon'
+ (0, 1): 'Treasure', 
+ (1, 0): 'Treasure', 
+ (0, 0): 'The Hero', 
+ (1, 1): 'The Dragon'
 }
 
 
@@ -178,11 +261,9 @@ test:
 ... # 可选,标注文档尾
 ```
 
-
-
 ### PyYAML
 
-> **It is not safe to call `yaml.load` with any data received from an untrusted source! `yaml.load` is as powerful as `pickle.load` and so may call any Python function.** 
+> **It is not safe to call `yaml.load` with any data received from an untrusted source! `yaml.load` is as powerful as `pickle.load` and so may call any Python function.**
 
 | YAML tag                              | Python type         |
 | ------------------------------------- | ------------------- |
@@ -215,3 +296,9 @@ test:
 | !!python/object/new:module.Class      | Module.cls instance |
 | !!python/object/apply:module.function | value of f(...)     |
 
+## TOML
+
+* [🔗TOML官方文档](https://toml.io/cn/v1.0.0)
+* [🔗TOML教程](https://github.com/LongTengDao/TOML/wiki)
+
+## Class
