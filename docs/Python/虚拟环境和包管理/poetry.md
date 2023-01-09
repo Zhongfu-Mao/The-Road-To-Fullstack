@@ -211,3 +211,17 @@ poetry config virtualenvs.create false
 ## pyproject.toml
 
 [🔗文档](https://python-poetry.org/docs/master/pyproject/)
+
+`pyproject.toml` defines:
+
+* Dependencies to build you package(PEP 518)
+* What tool is used to build it(PEP 517)
+* Configs of project-related tools(PEP 518 section: tool table)
+* Project metadata(PEP 621)
+
+### How it works with pip
+
+* If no `pyproject.toml`, execute the `setup.py`, no build isolation
+* If no `[build-system]` in it, assume defaults, enable build isolation
+* If no `build-backend` in it, error
+* Otherwise, execute existing configuration, enable build isolation
