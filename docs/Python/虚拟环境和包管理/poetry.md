@@ -138,6 +138,24 @@ cd pre-existing-project
 poetry init
 ```
 
+### 在项目中创建虚拟环境
+
+```zsh
+poetry config virtualenvs.in-project true
+```
+
+### 激活虚拟环境
+
+```zsh
+poetry shell
+```
+
+### 退出虚拟环境
+
+```zsh
+exit
+```
+
 ### 添加依赖
 
 ```zsh
