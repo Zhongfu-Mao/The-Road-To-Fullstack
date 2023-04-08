@@ -1,3 +1,5 @@
+# textwrap
+
 ```python
 import textwrap
 
@@ -11,7 +13,6 @@ sample_text = '''
 
 ## fill()
 
-
 ```python
 print(textwrap.fill(sample_text, width=50))
 ```
@@ -22,9 +23,7 @@ print(textwrap.fill(sample_text, width=50))
     functionality similar to the paragraph wrapping
     or filling features found in many text editors.
 
-
 ## dedent()
-
 
 ```python
 dedented_text = textwrap.dedent(sample_text)
@@ -39,11 +38,8 @@ print(dedented_text)
     situations where pretty-printing is desired.  It offers
     programmatic functionality similar to the paragraph wrapping
     or filling features found in many text editors.
-    
-
 
 ## fill()とdedent()を結合する
-
 
 ```python
 dedented_text = textwrap.dedent(sample_text).strip()
@@ -68,11 +64,8 @@ for width in [45, 60]:
     situations where pretty-printing is desired.  It offers
     programmatic functionality similar to the paragraph wrapping
     or filling features found in many text editors.
-    
-
 
 ## indent()
-
 
 ```python
 dedented_text = textwrap.dedent(sample_text)
@@ -93,8 +86,6 @@ print(final)
     > features found in many text editors.
     
     > Second paragraph after a blank line.
-
-
 
 ```python
 def should_indent(line):
@@ -125,8 +116,6 @@ print(final)
     EVEN similar to the paragraph wrapping or filling
     EVEN features found in many text editors.
 
-
-
 ```python
 dedented_text = textwrap.dedent(sample_text).strip()
 print(textwrap.fill(dedented_text,
@@ -142,9 +131,7 @@ print(textwrap.fill(dedented_text,
         similar to the paragraph wrapping or filling
         features found in many text editors.
 
-
 ## shorten()
-
 
 ```python
 dedented_text = textwrap.dedent(sample_text)
@@ -172,9 +159,3 @@ print(shortened_wrapped)
     
     The textwrap module can be used to format text for
     output in situations where pretty-printing [...]
-
-
-
-```python
-
-```
