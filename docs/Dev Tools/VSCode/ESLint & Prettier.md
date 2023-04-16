@@ -62,11 +62,14 @@ test/*.*
    ```bash
    npm install eslint-plugin-import \
                eslint-import-resolver-typescript \
-               @typescript-eslint/eslint-plugin \
-               @typescript-eslint/parser \
-               prettier prettier-eslint \
-               eslint-plugin-prettier eslint-config-prettier \
-               eslint-plugin-node eslint-config-node \
+               @typescript-eslint/eslint-plugin \ # rules specific to TypeScript
+               @typescript-eslint/parser \ # the ESLint parser for TypeScript
+               prettier \
+               prettier-eslint \
+               eslint-plugin-prettier \ # exposes Prettier-specific options as ESLint rules
+               eslint-config-prettier \ # turns off some conflicting ESLint rules
+               eslint-plugin-react \ # rules specific to React and JSX
+               eslint-plugin-react-hooks # ESLint rules to enforce the rules of hooks
                --save-dev
    ```
 
@@ -127,7 +130,6 @@ test/*.*
       import/resolver:
         typescript:
           projects: "./tsconfig.json"
-
    ```
 
 5. 编辑`.vscode/settings.json`

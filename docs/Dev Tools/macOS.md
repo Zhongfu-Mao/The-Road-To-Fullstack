@@ -25,3 +25,7 @@
 ```bash
 sudo spctl --master-disable # Enable app install from any source
 ```
+
+## Links
+
+* [解决Mac安装软件的“已损坏，无法打开。 您应该将它移到废纸篓”问题](https://zhuanlan.zhihu.com/p/135948430)

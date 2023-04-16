@@ -1,4 +1,4 @@
-# HTTP
+# HTTP(S)
 
 ## MIME
 
@@ -21,7 +21,7 @@
 ### 语法
 
 ```http
-<scheme>://<user>:<password>@<host>:<port>/<path>;<params>?<query>#<frag>
+<schema>://<user>:<password>@<host>:<port>/<path>;<params>?<query>#<frag>
 ```
 
 * 方案:
@@ -131,3 +131,8 @@
 * [HTTP3检测](https://www.http3check.net)
 * [HTTP3的占有率](https://w3techs.com/technologies/breakdown/ce-http3/ranking)
 * [HTTP3 is fast](https://requestmetrics.com/web-performance/http3-is-fast)
+
+## Links
+
+* [What is CORS](https://simplelocalize.io/blog/posts/what-is-cors/)
+* [How HTTPS works](https://howhttps.works/)
