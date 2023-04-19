@@ -1,6 +1,10 @@
-# AWS Certified Solution Architect & Developer
+# AWS Certified Solution Architect & Developer & SysOps Administrator Associate
 
-[🔗Udemy Course](https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c03/?couponCode=NOV_22_GET_STARTED)
+## Links
+
+* [🔗Udemy Course(SAA-C03)](https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c03/?couponCode=NOV_22_GET_STARTED)
+* [🔗Glossary](https://learning.oreilly.com/library/view/aws-certified-sysops/9780137509591/gloss.xhtml)
+* [🔗SysOps Exam Cram](https://learning.oreilly.com/library/view/aws-certified-sysops/9780137509591/tearcard.xhtml)
 
 ![2021 Magic Quadrant for Cloud Infrastructure and Platform Services](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2021/08/02/2021-CIPS-MQ.png)
 
@@ -42,7 +46,7 @@
   * `Sid`: an identifier for the statement(optional)
   * `Effect`: whether the statement allows or denies access (Allow, Deny)
   * `Principal`: *account | user | role* to which this policy applied to
-  * `Action`: list of actions(exp. `["ec2:TerminateInstances"]`)
+  * `Action`: list of actions(List, Read, Permissions Management, Write, and Tagging)
   * `Resource`: list of resources to which the actions applied to
   * `Condition`: conditions for when this policy is in effect (optional)
 
@@ -851,6 +855,24 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 * Can be disabled (set value to 0)
 * Set to a low value if your requests are short
 
+#### ELB Access Logs
+
+> ELB access logs are an optional feature that can be used to troubleshoot traffic patterns and issues with traffic as it hits the ELB.
+
+* ELB access logs capture details of requests sent to your load balancer such as:
+  * The time of the request
+  * The client IP
+  * Latency
+  * Server responses
+* Access logs are stored in an S3 bucket. Log files are published every five minutes, and multiple logs can be published for the same five-minute period.
+* ELB access logs also include HTTP response codes from the target.
+
+!!! note
+
+    * The S3 bucket must be in the **same region** as the ELB.
+    * The bucket policy must be configured to allow access logs to write to the bucket.
+    * You can use tools such as Amazon Athena, Loggly, Splunk, or Sumo Logic to analyze the contents of ELB access logs.
+
 ### Auto Scaling Group
 
 * In real-life, the load on your websites and application can change
@@ -1002,6 +1024,10 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 * Network cost
   * In AWS there’s a network cost when data goes from one AZ to another
   * For RDS Read Replicas within the same region, you don’t pay that fee
+
+!!! tip
+
+    Read replicas can be used where the reads are frequently distributed across the majority of the data in the database
 
 #### RDS Multi AZ (Disaster Recovery)
 
@@ -1523,6 +1549,7 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
     * Headers can be used to control the cache:
       * `Cache-Control max-age=(seconds)` - specify how long before CloudFront gets the object again from the origin server
       * `Expires` – specify an expiration date and time
+    * When the TTL on a file expires, CloudFront forwards the next incoming request to the origin server. If CloudFront has the latest version, the origin returns the status code `304 Not Modified`.
 
 #### CloudFront Signed URL vs S3 Pre-Signed URL
 
@@ -1654,9 +1681,9 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 
 !!! note
 
-    * CIDR block size can be between /16 and /28
+    * CIDR block size can be **between /16 and /28**
     * The CIDR block must not overlap with any existing CIDR block that's associated with the VPC
-    * You cannot increase or decrease the size of an existing CIDR block
+    * You cannot increase or decrease the size of an existing CIDR block, but you can add a secondary CIDR block to an existing VPC
 
 ### Subnet(IPv4)
 
@@ -1760,7 +1787,7 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 
 ### VPC Flow Logs
 
-* Capture information about IP traffic going into your interfaces:
+* Capture information about the IP traffic flowing in or out of network interfaces in a VPC:
   * VPC Flow Logs
   * Subnet Flow Logs
   * Elastic Network Interface Flow Logs
@@ -1770,11 +1797,15 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
   * Subnets to subnets
   * Internet to subnets
 * Captures network information from AWS managed interfaces too: Elastic Load Balancers, ElastiCache, RDS, Aurora, etc...
-* VPC Flow logs data can go to S3 / CloudWatch Logs
+* VPC Flow logs data can go to S3 bucket / CloudWatch Logs
 * Flow logs can be created at the following levels:
   * VPC
   * Subnet
   * Network interface
+
+!!! tip
+
+    Flow logs do not provide the ability to view a real-time stream of traffic. Logs are published every 10 minutes by default but can be configured for faster delivery.
 
 ### VPC Peering
 
@@ -1792,7 +1823,7 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 
 ### VPC Endpoints
 
-* VPC Endpoints (powered by AWS PrivateLink)  allow you to connect to AWS Services **using a private network** instead of the public www network
+* VPC Endpoints (powered by AWS PrivateLink)  allow resources inside a VPC to connect to other AWS Services outside the VPC **using a private network** instead of the public www network
 * This gives you enhanced security and lower latency to access AWS services
 * They’re redundant and scale horizontally
 * They remove the need of IGW, NATGW, ... to access AWS Services
@@ -1803,6 +1834,7 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 #### Types of Endpoints
 
 * Interface Endpoints (powered by PrivateLink)
+  * An ENI within an AWS VPC that has a private IP address within the VPC subnet of the resources that are consuming the service
   * Provisions an ENI (private IP address) as an entry point (must attach a Security Group)
   * Uses DNS entries to redirect traffic
   * Supports most AWS services(API Gateway, CloudFormation, CloudWatch etc.)
@@ -1811,7 +1843,7 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 * Gateway Endpoints
   * Provisions a gateway and must be used as a target in a route table (does not use security groups)
   * Uses prefix lists in the route table to redirect traffic
-  * Supports both S3 and DynamoDB
+  * Supports both **S3 and DynamoDB**
   * Security: VPC Endpoint Policies
   * Free
 
@@ -1826,7 +1858,7 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
   * A VGW(Virtual Private Gateway) is deployed on the AWS site
   * A CGW(Customer Gateway) is deployed on the customer side
 * Direct Connect (DX)
-  * DX is a physical fibre connection between on-premises and AWS running at 1Gbps or 10Gbps
+  * DX is a physical fibre connection between on-premises and AWS running at 1Gbps or 10Gbps or 100Gbps
   * A cross-connect between the AWS DX router and the customer/partner DX router
   * A DX port (1000-Base-LX or 10GBASE-LR) must be allocated in a DX location
   * The customer router is connected to the DX router in the DX location
@@ -1834,7 +1866,6 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
   * Goes over a **private** network
   * Takes at least a month to establish
   * Speeds from 50Mbps to 500Mbps can also be accessed via an APN partner
-  * 100 Gbps is now featuring in select locations
   * **DX Connections are NOT encrypted!**
   * Use an `IPSec S2S VPN` connection over a VIF to add encryption in transit
 
@@ -1866,6 +1897,20 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 * One single Gateway to provide this functionality
 * TGWs can be attached to VPNs, Direct Connect Gateways, 3rd party appliances and TGWs in other Regions/accounts
 
+!!! note
+
+    Connections supported by a transit gateway:
+
+    * VPN to a physical datacenter
+    * Direct Connect Gateway
+    * Transitive connections between multiple VPCs
+
+!!! tip
+
+    * VPC Peering does not have an aggregate bandwidth limitation.
+    * Transit gateway connections to a VPC provide up to 50 Gbps of bandwidth.
+    * A VPN connection provides a maximum throughput of 1.25 Gbps.
+
 ### IPv6 in VPC
 
 * **IPv4 cannot be disabled for your VPC and subnets**
@@ -1879,6 +1924,11 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 * **Used for IPv6 only(similar to a NAT Gateway but for IPv6)**
 * Allows instances in your VPC outbound connections over IPv6 while preventing the internet to initiate an IPv6 connection to your instances
 * You must update the Route Tables
+
+### AWS Network Firewall
+
+* The AWS Network Firewall supports outbound traffic control using HTTPS (SNI)/HTTP protocol URL filtering, access control lists (ACLs), DNS queries, and protocol detection.
+* AWS Network Firewall rules can be based on domain, port, protocol, IP addresses, and pattern matching.
 
 ## Gateway
 
@@ -2321,9 +2371,15 @@ Methods:
 
 !!! note
 
-    * An ECS Task is a running container created from a Task Definition
-    * ECS Services are used to maintain(long running) a desired count of tasks
-    * An Amazon ECS Cluster is a logical grouping of tasks or services
+    ECS Key Concepts:
+
+    * Task Definition: Templates for your tasks. This is where you sepcify your Docker image, Memory, CPU, Ports, Volumes, Environment Variables, etc.
+    * Task: A running instance of a Task Definition
+    * Container(EC2 only): Virtualized Instance that run your Tasks
+    * Cluster
+      * EC2 Launch Type: A cluster of EC2 instances that run your Tasks
+      * Fargate Launch Type: A cluster of Fargate Tasks
+    * Service: A Task management system that ensures X amount of tasks are up and running at all times
 
 #### EC2 Launch Type
 
@@ -3689,6 +3745,12 @@ The CLI will look for credentials in this order:
 * New instances are migrated from the temporary to the original ASG
 * Old application version is then terminated
 
+!!! tip
+
+    Miners would take a canary into the mines with them to determine if the air held dangerous levels of toxic gases.
+    The idea was that the bird had a faster breathing rate than humans and would show signs of the presence of toxic gases sooner than humans would.
+    If the canary died, the miners would know that they needed to evacuate the mine.
+
 #### Extensions
 
 * A zip file containing our code must be deployed to Elastic Beanstalk
@@ -4236,6 +4298,16 @@ The CLI will look for credentials in this order:
 
 ## Cloud Monitoring, Logging, and Auditing
 
+!!! tip
+
+    Amazon's five phases of the monitoring process:
+
+    * Generation
+    * Aggregation
+    * Real-time processing and alarming
+    * Storage
+    * Analysis
+
 ### CloudWatch Metrics
 
 * CloudWatch provides metrics for every services in AWS
@@ -4266,6 +4338,19 @@ The CLI will look for credentials in this order:
   * High Resolution: 1/5/10/30 second(s) – Higher cost
 * Important: Accepts metric data points two weeks in the past and two hours in the future
 
+#### Retention Periods
+
+CloudWatch metrics are retained for *15 months* with the following retention periods:
+
+* Custom, subminute metrics are aggregated to minute metrics after 3 hours.
+* One-minute metrics are aggregated to 5-minute metrics after 15 days.
+* Five-minute metrics are aggregated to hourly metrics after 63 days.
+* Hourly metrics aggregates are discarded after 15 months.
+
+!!! note
+
+    While the default metrics retention period is 15 months, the retention of logs in CloudWatch is **indefinite**. 
+
 ### CloudWatch Logs
 
 * Log groups: arbitrary name, usually representing an application
@@ -4288,6 +4373,13 @@ The CLI will look for credentials in this order:
 * API Gateway
 * CloudTrail based on filter
 * Route53: Log DNS queries
+
+#### Namespaces and Dimensions
+
+* All data in CloudWatch is recorded with a specific namespace format.
+* Default metrics are formatted as Service:Metric. For example, EC2:CPUUtilization.
+* Dimensions are `key:value` pairs assigned to metrics to allow for a more granular analysis of those metrics within a specific namespace.
+* CloudWatch allows you to create **10** dimensions for each metric.
 
 #### Metric Filter & Insights
 
@@ -4319,7 +4411,7 @@ The CLI will look for credentials in this order:
   * Collect logs to send to CloudWatch Logs
   * Centralized configuration using SSM Parameter Store
 
-### CloudWatch Alarms
+### CloudWatch Alarms(deprecated)
 
 * Alarms are used to trigger notifications for any metric
 * Alarms targets:
@@ -4342,7 +4434,7 @@ The CLI will look for credentials in this order:
 ### CloudWatch Events
 
 * Event Pattern: Intercept events from AWS services (Sources)
-  * Example sources: EC2 Instance Start, CodeBuild Failure, S3,Trusted Advisor
+  * Example sources: EC2 Instance Start, CodeBuild Failure, S3, Trusted Advisor
   * Can intercept any API call with CloudTrail integration
 * Schedule or Cron (example: create an event every 4 hours)
 * A JSON payload is created from the event and passed to a target...
@@ -4415,6 +4507,15 @@ The CLI will look for credentials in this order:
 * A CloudTrail Trail logs any events to S3 for indefinite retention
 * Trail can be within Region or all Regions
 
+!!! tip
+
+    CloudTrail logs record information about:
+    
+    * Who requested the action?
+    * Where did the request originate from and when?
+    * What was requested?
+    * The full API response
+
 #### CloudTrail Events
 
 * `Management Events`:
@@ -4449,7 +4550,7 @@ The CLI will look for credentials in this order:
 
 #### CloudTrail Events Retention
 
-* Events are stored for 90 days in CloudTrail
+* Events are stored for **90 days** in CloudTrail
 * To keep events beyond this period, log them to S3 and use Athena
 
 ### AWS X-Ray
@@ -4557,12 +4658,20 @@ The CLI will look for credentials in this order:
 ### AWS WAF – Web Application Firewall
 
 * Protects your web applications from common web exploits (Layer 7)
-* Deploy on Application Load Balancer, API Gateway, CloudFront
+* Deploy on:
+  * Application Load Balancer
+  * API Gateway REST API
+  * CloudFront
+  * AppSync
 * `Web ACLs` – You use a web access control list (ACL) to protect a set of AWS resources
-* `Rules` – Each rule contains a statement that defines the inspection criteria, and an action to take if a web request meets the criteria
+* `Rules` – Each rule contains a statement that defines the inspection criteria, and an action to take if a web request meets the criteria. Can be created based on conditions like HTTP headers, HTTP body, URI strings, SQL injection, and cross-site scripting
 * `Rule groups` – You can use rules individually or in reusable rule groups
 * `IP Sets` - An IP set provides a collection of IP addresses and IP address ranges that you want to use together in a rule statement
 * `Regex Pattern Set` - A regex pattern set provides a collection of regular expressions that you want to use together in a rule statement
+
+!!! tip
+
+    You are charged for each web ACL configured on AWS WAF.
 
 #### Define Web ACL (Web Access Control List)
 
@@ -4570,6 +4679,11 @@ The CLI will look for credentials in this order:
 * Protects from common attack - SQL injection and Cross-Site Scripting (XSS)
 * Size constraints, geo-match (block countries)
 * Rate-based rules (to count occurrences of events) – for DDoS protection
+
+!!! tip
+
+    * A web ACL can allow or deny traffic based on the source IP address, country of origin of the request, string match or regular expression (regex) match, or the detection of malicious SQL code or scripting.
+    * You can also use the logs that are generated to examine the number of requests, the nature of those requests, and where they originate from.
 
 #### Rule Action
 
@@ -4585,8 +4699,14 @@ The CLI will look for credentials in this order:
 * Safeguards web application running on AWS with always-on detection and automatic inline mitigations
 * Helps to minimize application downtime and latency
 * Two tiers
-  * Standard – no cost
-  * Advanced - $3k USD per month and 1 year commitment
+  * Standard
+    * Automatically enabled free of charge for all AWS customers
+    * Defends against frequently occurring network and transport layer DDoS attacks
+    * Incoming traffic is inspected for malicious patterns in real time
+  * Advanced
+    * Provides mitigations against large and sophisticated DDoS attacks and near real-time visibility into attacks
+    * AWS Shield Advanced also provides integration with AWS Web Application Firewall
+    * Protects resources on EC2, Elastic Load Balancing, CloudFront, AWS Global Accelerator, and Route 53
 * Integrated with Amazon CloudFront (standard included by default)
 
 ### Why encryption?
@@ -4711,9 +4831,11 @@ The CLI will look for credentials in this order:
 * Integrates with several AWS services including:
   * Elastic Load Balancers
   * Amazon CloudFront Distributions
+  * AWS API Gateway
   * AWS Elastic Beanstalk
   * AWS Nitro Enclaves
   * AWS CloudFormation
+  * AWS App Runner
 * Public certificates are signed by the AWS public Certificate Authority
 * You can also create a Private CA with ACM
 * Can then issue private certificates
@@ -4786,6 +4908,7 @@ The CLI will look for credentials in this order:
 ### AWS GuardDuty
 
 * Intelligent threat detection service
+* Not turned on by default
 * Detects account compromise, instance compromise, malicious reconnaissance, and bucket compromise
 * Continuous monitoring for events across:
   * AWS CloudTrail Management Events
@@ -4793,23 +4916,35 @@ The CLI will look for credentials in this order:
   * Amazon VPC Flow Logs
   * DNS Logs
 
+!!! note
+
+    Key features:
+
+    * Account-level threat detection to determine whether AWS accounts may have been compromised
+    * The ability to create automated threat response actions
+    * Monitoring of potential reconnaissance attempts
+    * Monitoring of possible EC2 instance compromises
+    * Monitoring of possible S3 bucket compromises
+
 ### AWS Config
 
 * Helps with auditing and recording compliance of your AWS resources
 * Helps record configurations and changes over time
-* Get a snapshot of the current configurations of resources that are associated with your AWS account
-* Possibility of storing the configuration data into S3 (analyzed by Athena)
-* Questions that can be solved by AWS Config:
-  * Is there unrestricted SSH access to my security groups?
-  * Do my buckets have any public access?
-  * How has my ALB configuration changed over time?
-* You can receive alerts (SNS notifications) for any changes(whenever a resource is created, modified, or deleted)
-* AWS Config is a per-region service
-* Can be aggregated across regions and accounts
-* Possibility of storing the configuration data into S3 (analyzed by Athena)
+* Get a *snapshot* of the current configurations of resources that are associated with your AWS account
 * Retrieve configurations of resources that exist in your account
 * Retrieve historical configurations of one or more resources
 * View relationships between resources
+* Possibility of storing the configuration data into S3 (analyzed by Athena)
+
+!!! tip
+
+    * Questions that can be solved by AWS Config:
+      * Is there unrestricted SSH access to my security groups?
+      * Do my buckets have any public access?
+      * How has my ALB configuration changed over time?
+    * You can receive alerts (SNS notifications) for any changes(whenever a resource is created, modified, or deleted)
+    * AWS Config is a per-region service
+    * Can be aggregated across regions and accounts
 
 ### AWS Resource Access Manager (RAM)
 
@@ -4928,6 +5063,29 @@ The CLI will look for credentials in this order:
 * Can track license usage including when licensed based on virtual cores (vCPUs), sockets, or number of machines
 * Distribute, activate, and track software licenses across accounts and throughout an organization
 * Enforce limits across multiple Regions
+
+### AWS Trusted Advisor
+
+AWS Trusted Advisor is a tool that performs checks on five different categories:
+
+* Cost optimization
+* Performance
+* Security
+* Fault tolerance
+* Service limits
+
+### AWS Security Hub
+
+> The AWS Security Hub allows you to execute security checks across your AWS environment automatically.
+
+It also allows you to gather alerts from the following security policies into a central view:
+
+* Amazon GuardDuty
+* Amazon Inspector
+* IAM Access Analyzer
+* Amazon Macie
+* IAM Firewall Manager
+* Amazon System Manager
 
 ## Machine Learning
 
@@ -5188,6 +5346,15 @@ train, and deploy high-quality machine learning models
   * AWS Lambda functions for customized automations
 * Chaos
   * Netflix has a "simian-army" randomly terminating EC2
+
+### Backup Strategies
+
+There are four general ways to set up the backup of your environment that will also support *full* disaster recovery:
+
+* Backup and restore (RPO/RTO: Hours)
+* Pilot light (RPO/RTO: 10s of minutes)
+* Warm standby (RPO/RTO: Minutes)
+* Multisite active-active (RPO/RTO: Real-time)
 
 ### RPO and RTO
 
