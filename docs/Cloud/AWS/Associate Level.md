@@ -23,7 +23,7 @@
 
 ### Policy
 
-* Policies are documents that define permissions and are written in JSON
+* Policies are documents that define permissions and are written in *JSON*
 * Identity-based policies can be applied to *users*, *groups*, and *roles*
 * **All permissions are implicitly denied by default**
 * In AWS you apply the least privilege principle: don’t give more permissions than a user needs
@@ -31,8 +31,8 @@
 #### Types of Policy
 
 * **Identity-based policies**
-  * attached to users, groups, or roles
-  * control **what actions an identity can perform, on which resources, and under what conditions**
+  * Attached to users, groups, or roles
+  * Control **what actions an identity can perform, on which resources, and under what conditions**
 * **Resource-based policies** – attached to a resource; define permissions for a principal accessing the resource
 * **IAM permissions boundaries** – set the maximum permissions an identity-based policy can grant an IAM entity
 * **AWS Organizations service control policies (SCP)** – specify the maximum permissions for an organization or OU
@@ -58,7 +58,7 @@
   * Updated in case of new services / new APIs
 * Customer Managed Policy
   * Best Practice, re-usable, can be applied to many principals
-  * Version Controlled + rollback, central change management
+  * **Version Controlled + rollback, central change management**
 * Inline
   * *Strict one-to-one relationship between policy and principal*
   * Policy is deleted if you delete the IAM principal
@@ -209,7 +209,7 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 
 ### Security Groups
 
-* Security groups **only contain allow** rules
+* Security groups **only contain allow rules**
 * Security groups rules can reference by IP or by security group
 * Security groups are acting as a "firewall" on EC2 instances
 * They regulate:
@@ -225,7 +225,7 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 * If your application is not accessible (time out), then it’s a security group issue
 * If your application gives a "connection refused" error, then it’s an application error or it’s not launched
 * All inbound traffic is **blocked** by default
-* All outbound traffic is **authorised** by default
+* All outbound traffic is **authorized** by default
 
 ### Instances Purchasing Options
 
@@ -254,7 +254,7 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 * Compute Savings Plan
   * 1 or 3-year
   * hourly commitment to usage of **Fargate, Lambda, and EC2**
-  * Any Region, family, size, tenancy, and OS
+  * Any **Region, family**, size, tenancy, and OS
 * EC2 Savings Plan
   * 1 or 3-year
   * hourly commitment to usage of **EC2 within a selected Region and Instance Family**
@@ -279,11 +279,11 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 #### Dedicated Hosts
 
 * A physical server with EC2 instance capacity fully dedicated to your use
-* Allows you address **compliance requirements** and **use your existing server-bound software licenses** (per-socket, per-core, pe—VM software licenses)
+* Allows you address **compliance requirements** and **use your existing server-bound software licenses** (per-socket, per-core, per—VM software licenses)
 * The **most expensive** option
 * Purchasing Options:
   * On-demand – pay per second for active Dedicated Host
-  * Reserved - 1 or 3 years (No Upfront,Partial Upfront,All Upfront)
+  * Reserved - 1 or 3 years (No Upfront, Partial Upfront, All Upfront)
 * Useful for software that have complicated licensing model (BYOL – Bring Your Own License) Or for companies that have strong regulatory or compliance needs
 
 #### Dedicated Instances
@@ -335,6 +335,14 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
   * One or more **EBS snapshots** OR for instance-store-backed AMIs -  a **template** for the root volume of the instance
   * **Launch permissions** that control which AWS accounts can use the AMI to launch instances
   * A **block device mapping** that specifies the volumes to attach to the instance when it's launched
+
+!!! tip
+
+    It's not possible to move an existing instance to another subnet, Availability Zone, or VPC. 
+
+    Instead, you can manually migrate the instance by creating a new Amazon Machine Image (AMI) from the source instance. 
+    Then, launch a new instance using the new AMI in the desired subnet, Availability Zone, or VPC. 
+    Finally, you can reassign any Elastic IP addresses from the source instance to the new instance.
 
 ### EC2 Image Builder
 
@@ -435,7 +443,7 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
   * Used in Public and Private Subnets
 * Elastic IP Address:
   * Static Public IP address
-  * You are charged if not used
+  * *You are charged if not used*
   * Associated with a private IP address on the instance
   * Can be moved between instances and Elastic Network Adapters
 
@@ -530,6 +538,13 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
   * *By default, any other attached EBS volume is not deleted (attribute disabled)*
   * This can be controlled by the AWS console / AWS CLI
 
+#### Resizing EBS Volumes
+
+After you increase the size of an EBS volume, use the *Windows Disk Management utility* or *PowerShell* to extend the disk size to the new size of the volume.
+You can begin resizing the file system as soon as the volume enters the optimizing state.
+
+[🔗Official Reference](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/recognize-expanded-volume-windows.html)
+
 #### EBS Snapshots
 
 * Make a backup (snapshot) of your EBS volume at a point in time
@@ -549,6 +564,18 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
     * Force full initialization of snapshot to have no latency on the first use($$$)
     * Fast Snapshot restore (FSR) needs to be enabled *per Availability Zone*
     * *This can be enabled on both existing as well as new Snapshots*
+
+!!! tip
+
+    Amazon EBS direct APIs can be used to create EBS snapshots, write data directly to snapshots, read data from snapshots, and identify the difference between two snapshots.
+
+!!! note
+
+    There can be an initial performance hit when an Amazon EBS volume is created from snapshots.
+    This can be avoided by either of the following:
+
+    * Force the immediate initialization of the entire volume.
+    * Enable fast snapshot to restore on a snapshot to ensure that the EBS volumes are fully initialized.
 
 #### EBS Volume Types
 
@@ -630,8 +657,8 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 * Can connect instances from *other VPCs* and *on-premises computers*
 * EFS works with **Linux** EC2 instances in multi-AZ
   * POSIX file system that has a standard file API
-* Encryption at rest using KMS
-* Encryption during transit can be enabled when mounting the file system using the `Amazon EFS mount helper`. The mount helper uses TLS version 1.2 to communicate with the file system.
+* *Encryption at rest* using KMS can be enabled when creating the file system
+* *Encryption during transit* can be enabled when mounting the file system using the `Amazon EFS mount helper`. The mount helper uses TLS version 1.2 to communicate with the file system.
 * Highly available, scalable, expensive (3x gp2), pay per use, no capacity planning
 * EFS Infrequent Access (EFS-IA): Storage class that is cost-optimized for files not accessed every day
 * Use cases:
@@ -639,6 +666,11 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
   * web serving
   * data sharing
   * Wordpress
+
+!!! tip
+
+    Once you create an EFS file system, you cannot change its encryption setting.
+    This means that you cannot modify an unencrypted file system to make it encrypted. Instead, you need to create a new, encrypted file system.
 
 #### EFS Performance
 
@@ -660,6 +692,18 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 * Availability and durability
   * Standard: Multi-AZ, great for prod
   * One Zone: One-AZ, great for dev, backup enabled by default, compatible with IA (EFS One Zone-IA)
+
+!!! tip
+
+    Amazon `EFS Standard-IA` storage class can be used to store data that is infrequently accessed but requires high availability and durability.
+    With Amazon `EFS Standard-IA` storage class, data is stored redundantly *across multiple AZ*.
+
+#### Mount Targets
+
+* A mount target provides an *IP address* for an NFSv4 endpoint at which you can mount an Amazon EFS file system.
+* You mount your file system using its Domain Name Service (DNS) name, which resolves to the IP address of the EFS mount target in the same Availability Zone as your EC2 instance.
+* *You can create one mount target in each Availability Zone in an AWS Region.*
+* If there are multiple subnets in an Availability Zone in your VPC, you create a mount target in one of the subnets. Then all EC2 instances in that Availability Zone share that mount target.
 
 ### Amazon FSx
 
@@ -689,6 +733,12 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 !!! tip
 
     The name Lustre is derived from "Linux" and "cluster"
+
+!!! note
+
+    *With Multi-AZ deployment, active and standby servers are placed in separate AZ*. Data written to an active server is synchronously replicated to standby servers.
+    With Synchronous replication, data is written to active and standby servers simultaneously, while with asynchronous replication, there might be a lag between data written to active servers and standby servers.
+    Synchronous Replication is advantageous during failover where standby servers are in sync with active servers.
 
 ## ELB & ASG
 
@@ -1119,6 +1169,11 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 * Enforce IAM Authentication for DB, and securely store credentials in AWS Secrets Manager
 * RDS Proxy is never publicly accessible (must be accessed from VPC)
 
+#### RDS Performance Insights
+
+* Amazon RDS Performance Insights is a database *performance tuning and monitoring* feature that helps you quickly assess the load on your database, and determine when and where to take action.
+* Performance Insights allows non-experts to detect performance problems with an easy-to-understand dashboard that visualizes database load.
+
 ### Amazon Aurora
 
 * Aurora is a proprietary technology from AWS (not open sourced)
@@ -1348,13 +1403,13 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
   * TTL – amount of time the record cached at DNS Resolvers
 * Route 53 supports the following DNS record types:
   * (must know)A /AAAA / CNAME / NS
-    * A – maps a hostname to IPv4
-    * AAAA – maps a hostname to IPv6
-    * CNAME – maps a hostname to another hostname
+    * `A` – maps a hostname to IPv4
+    * `AAAA` – maps a hostname to IPv6
+    * `CNAME` – maps a hostname to another hostname
       * The target is a domain name which must have an A or AAAA record
-      * Can’t create a CNAME record for the top node of a DNS namespace(Zone Apex)
+      * Can’t create a CNAME record for the top node of a DNS namespace(*Zone Apex*) -> use `Alias` instead
       * Example: you can’t create for example.com, but you can create for www.example.com
-    * NS – Name Servers for the Hosted Zone
+    * `NS` – Name Servers for the Hosted Zone
       * Control how traffic is routed for a domain
   * (advanced)CAA/DS/MX/NAPTR/PTR/SOA/TXT/SPF/SRV
 
@@ -1393,6 +1448,7 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 
 * CNAME:
   * Points a hostname to any other hostname. (app.mydomain.com => blabla.anything.com)
+  * Can redirect DNS queries to any DNS record
   * ONLY FOR NON ROOT DOMAIN (aka. something.mydomain.com)
 * Alias:
   * Points a hostname to an AWS Resource (app.mydomain.com => blabla.amazonaws.com)
@@ -1447,11 +1503,12 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
     * Can be associated with Health Checks (has a failover capability)
   * Geolocation
     * Different from Latency-based!
-    * This routing is **based on user geographic location**
+    * This routing is based on **user geographic location**
     * Specify location by Continent, Country or by US State (if there’s overlapping, most precise location selected)
     * Should create a "Default" record (in case there’s no match on location)
     * Use cases: website localization, restrict content distribution, load balancing, ...
     * Can be associated with Health Checks
+    * You can use geolocation routing to create records in a private hosted zone
   * Multi-Value Answer
     * Use when routing traffic to multiple resources
     * Returns several IP addresses and functions as a basic load balancer
@@ -1539,7 +1596,7 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 * The cache lives at each CloudFront Edge Location
 * You want to maximize the cache hit rate to minimize requests on the origin
 * Control the TTL (0 seconds to 1 year), can be set by the origin using the Cache-Control header, Expires header...
-* You can invalidate part of the cache using the CreateInvalidation API
+* You can *invalidate* part of the cache using the CreateInvalidation API
 
 !!! tip
 
@@ -1735,11 +1792,15 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 
 * AWS-managed NAT, higher bandwidth, high availability, no administration
 * Pay per hour for usage and bandwidth
-* NATGW is created in a specific Availability Zone, uses an Elastic IP
+* *NATGW is created in a specific Availability Zone, uses an Elastic IP*
 * **Can’t be used by EC2 instance in the same subnet (only from other subnets)**
 * Requires an IGW (Private Subnet => NATGW => IGW)
 * 5 Gbps of bandwidth with automatic scaling up to 45 Gbps
 * No Security Groups to manage / required
+
+!!! tip
+
+    Ensure that your connection is using a TCP, UDP, or ICMP protocol only.
 
 ### Network Access Control List(NACL)
 
@@ -1819,7 +1880,9 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 !!! tip
 
     * You can create VPC Peering connection between VPCs in *different AWS accounts/regions*
-    * You can reference a security group in a peeredVPC (works cross accounts – same region)
+    * You **can** reference a security group in a peeredVPC (works cross accounts – **same region**)
+    * You **cannot** reference the security group of a peer VPC that's in a **different Region**. Instead, use the CIDR block of the peer VPC
+    * BGP protocol uses TCP port 179 for establishing a peering connection. While establishing AWS VPN connectivity using BGP protocol, it needs to be checked that TCP port 179 is not blocked in the network
 
 ### VPC Endpoints
 
@@ -1934,12 +1997,23 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 
 ### AWS Storage Gateway
 
+!!! tip
+
+    To use the HA feature of Storage Gateway, the VMware environment must provide the following:
+
+    * A cluster with vSphere HA enabled
+    * A shared datastore
+
 #### File Gateway
 
 * File gateway provides a **virtual on-premises file server**
 * Store and retrieve files as objects in Amazon S3
 * Use with on-premises applications, and EC2-based applications that need file storage in S3 for object-based workloads
 * File gateway offers SMB or NFS-based access to data in Amazon S3 with local caching
+
+!!! tip
+
+    CachePercentDirty is an Amazon CloudWatch metric for Amazon S3 File Gateway which provides a percentage of the data not uploaded to AWS from local Cache. This metric value should be near to zero to ensure all cache data is properly uploaded to AWS.
 
 #### Volume Gateway
 
@@ -2013,6 +2087,18 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 * It is recommended for objects of 100 MB or larger
 * Can be used for objects from 5 MB up to 5 TB
 * Must be used for objects larger than **5 GB**
+
+!!! tip
+
+    It's a best practice to use aws `s3 commands` (such as aws s3 cp) for multipart uploads and downloads, because these *aws s3 commands automatically perform multipart uploading and downloading based on the file size*.
+
+    By comparison, aws s3api commands, such as aws s3api create-multipart-upload, *should be used only when aws s3 commands don't support a specific upload need*.
+    Such as when the multipart upload involves multiple servers, a multipart upload is manually stopped and resumed later, or when the aws s3 command doesn't support a required request parameter.
+
+!!! note
+
+    `Content-MD5` header is an optional header in the Amazon S3 REST requests, which can be used to check the integrity of the data and ensure data is not corrupt during transit.
+    When data is uploaded using `PutObject` having Content-MD5 as a request header, Amazon S3 checks the data against the Content-MD5 value. If the value is not matched, an error is generated.
 
 ### Versioning
 
@@ -3663,6 +3749,10 @@ The CLI will look for credentials in this order:
 * Trusted accounts to create, update, delete stack instances from StackSets
 * When you update a stack set, all associated stack instances are updated throughout all accounts and regions
 
+!!! tip
+
+    [🔗TroubleShooting](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-troubleshooting.html)
+
 #### CloudFormation Drift
 
 * CloudFormation allows you to create infrastructure
@@ -3698,7 +3788,7 @@ The CLI will look for credentials in this order:
 #### Deployment Options for Updates
 
 * All at once (deploy all in one go)
-  * Fastest, but instances aren’t available to serve traffic for a bit (have downtime)
+  * Fastest, but instances aren’t available to serve traffic for a bit (**have downtime**)
   * Great for quick iterations in development environment
   * No additional cost
 * Rolling
@@ -3719,7 +3809,7 @@ The CLI will look for credentials in this order:
   * Good for prod
 * Immutable
   * Spins up new instances in a new ASG, deploys version to these instances, and then swaps all the instances when everything is healthy
-  * Zero downtime
+  * **Zero downtime**
   * High cost, double capacity
   * Longest deployment
   * Quick rollback in case of failures(just terminate new ASG)
@@ -4318,6 +4408,10 @@ The CLI will look for credentials in this order:
 * Metrics have *timestamps*
 * Can create CloudWatch dashboards of metrics
 
+!!! tip
+
+    The [procstat](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-procstat-process-metrics.html) plugin enables you to collect metrics from individual processes.
+
 #### EC2 Detailed monitoring
 
 * EC2 instance metrics have metrics "every **5** minutes"
@@ -4337,6 +4431,23 @@ The CLI will look for credentials in this order:
   * Standard: 1 minute (60 seconds)
   * High Resolution: 1/5/10/30 second(s) – Higher cost
 * Important: Accepts metric data points two weeks in the past and two hours in the future
+
+!!! example
+
+    Example of CloudWatch agent configuration file:
+
+    ```json
+    "append_dimensions" : {
+        "ImageId" : "${aws:ImageId}"
+        "InstanceId" : "${aws:InstanceId}"
+    }
+    ```
+
+!!! tip
+
+    In custom metrics, the `--dimensions` parameter is common.
+    A dimension further clarifies what the metric is and what data it stores.
+    You can have up to **30** dimensions assigned to one metric, and each dimension is defined by a name and value pair.
 
 #### Retention Periods
 
@@ -4385,7 +4496,7 @@ CloudWatch metrics are retained for *15 months* with the following retention per
 
 * CloudWatch Logs can use filter expressions
 * Metric filters can be used to trigger CloudWatch alarms
-* CloudWatch Logs Insights can be used to query logs and add queries to CloudWatch Dashboards
+* `CloudWatch Logs Insights` can be used to query logs and add queries to CloudWatch Dashboards
 
 #### S3 Export
 
@@ -4473,7 +4584,7 @@ CloudWatch metrics are retained for *15 months* with the following retention per
 
 ### CloudWatch Application Insights
 
-* Provides automated dashboards that show potential problems with monitored applications, to help isolate ongoing issues
+* Provides **automated dashboards** that show potential problems with monitored applications, to help isolate ongoing issues
 * Your applications run on Amazon EC2 Instances with select technologies only (Java, .NET, Microsoft IIS Web Server, databases...)
 * And you can use other AWS resources such as Amazon EBS, RDS, ELB, ASG, Lambda, SQS, DynamoDB, S3 bucket, ECS, EKS, SNS, API Gateway...
 * Powered by SageMaker
@@ -4516,6 +4627,12 @@ CloudWatch metrics are retained for *15 months* with the following retention per
     * What was requested?
     * The full API response
 
+!!! tip
+
+    CloudTrail Trails can be configured as *multi-region trails* which will log events from **all regions**.
+    These logs can be delivered to a single Amazon S3 bucket.
+    CloudTrail should have **write permission** on this Amazon S3 bucket to deliver logs.
+
 #### CloudTrail Events
 
 * `Management Events`:
@@ -4531,7 +4648,8 @@ CloudWatch metrics are retained for *15 months* with the following retention per
   * Amazon S3 object-level activity (ex: GetObject, DeleteObject, PutObject): can separate Read and Write Events
   * AWS Lambda function execution activity (the Invoke API)
 * `Insights Events`:
-  * Identify and respond to unusual activity associated with write API calls by continuously analyzing CloudTrail management events  
+  * Identify and respond to unusual activity associated with **write** API calls by continuously analyzing CloudTrail management events
+  * These events are generated only when there are significant variations from normal usage patterns.
 * CloudWatch Events can triggered based on API calls in CloudTrail
 * Events can be streamed to CloudWatch Logs
 
@@ -4552,6 +4670,17 @@ CloudWatch metrics are retained for *15 months* with the following retention per
 
 * Events are stored for **90 days** in CloudTrail
 * To keep events beyond this period, log them to S3 and use Athena
+
+#### Validate CloudTrail Log File Integrity
+
+* To determine whether a log file was modified, deleted, or unchanged after CloudTrail delivered it, you can use CloudTrail log file integrity validation.
+* When you enable log file integrity validation, CloudTrail creates a hash for every log file that it delivers.
+* Every hour, CloudTrail also creates and delivers a file that references the log files for the last hour and contains a hash of each. This file is called a *digest file*. Validated log files are invaluable in security and forensic investigations
+
+!!! tip
+
+    Digest file is delivered in the **same Amazon S3 bucket** but in a **separate folder** as that of CloudTrail Log files. 
+    Separate security policies can be implemented on a folder consisting of digest files.
 
 ### AWS X-Ray
 
@@ -4606,6 +4735,15 @@ CloudWatch metrics are retained for *15 months* with the following retention per
   * Latency, Errors and Fault analysis
   * Request tracking across distributed systems
 
+### ServiceLens
+
+> ServiceLens can be used to enhance application health monitoring by integrating traces, metrics, logs, alarms, and other resource health information into one place. ServiceLens integrates with X-Ray to provide an end-to-end view of the application.
+
+ServiceLens can be deployed with the following 2 steps:
+
+* Deploy X-Ray
+* Deploy the CloudWatch agent and the X-Ray daemon
+
 ### AWS Status - Service Health Dashboard
 
 * Shows all regions, all services health
@@ -4614,8 +4752,8 @@ CloudWatch metrics are retained for *15 months* with the following retention per
 
 ### AWS Personal Health Dashboard
 
-* AWS Personal Health Dashboard provides alerts and remediation guidance when AWS is experiencing events that may impact you.
-* While the Service Health Dashboard displays the general status of AWS services, Personal Health Dashboard gives you a personalized view into the performance and availability of the AWS services underlying your AWS resources.
+* AWS Personal Health Dashboard provides **alerts and remediation guidance when AWS is experiencing events that may impact you**.
+* While the Service Health Dashboard displays the general status of AWS services, Personal Health Dashboard gives you a personalized view into the performance and availability of the AWS services underlying *your AWS resources*.
 * The dashboard displays relevant and timely information to help you manage events in progress and provides proactive notification to help you plan for scheduled activities.
 
 ### Amazon Managed Service for Prometheus
@@ -4774,6 +4912,10 @@ CloudWatch metrics are retained for *15 months* with the following retention per
   * Customer-managed KMS Key: (must be enabled) automatic every 1 year
   * Imported KMS Key: only manual rotation possible using alias
 
+!!! tip
+
+    If you choose to import keys to AWS KMS or asymmetric keys or use a custom key store, you can manually rotate them by creating a new KMS key and mapping an existing key alias from the old KMS key to the new KMS key.
+
 #### KMS Key Policies
 
 * Control access to KMS keys, "similar" to S3 bucket policies
@@ -4863,6 +5005,15 @@ CloudWatch metrics are retained for *15 months* with the following retention per
 * Built-in Integration with Amazon RDS (MySQL, PostgreSQL, Aurora), Amazon Redshift, Amazon DocumentDB
 * Secrets are encrypted using KMS
 
+!!! tip
+
+    AWS Secrets Manager can be configured to *replicate secrets across multiple regions*. With this feature, multi-region applications like Amazon RDS can retrieve secrets locally within the region instead of retrieving secrets across the regions.
+
+    Following are features when AWS Secrets Manager is configured to replicate secrets in multiple regions:
+
+    * Replicated Secrets will have a common name across all regions.
+    * Secrets Manager replicates all encrypted secrets and metadata.
+
 ### SSM Parameter Store vs Secrets Manager
 
 * Secrets Manager ($$$):
@@ -4893,6 +5044,22 @@ CloudWatch metrics are retained for *15 months* with the following retention per
 * Agent must be installed on EC2 for host assessments
 * Network assessments do not require an agent
 
+!!! tip
+
+    An assessment template for Amazon Inspector consists of the following parameters:
+
+    * Name
+    * Target Name
+    * Rules Package
+    * Duration
+    
+    Optional Parameters are:
+
+    * SNS Topics
+    * Tag
+    * Attributes added to findings
+    * Assessment Schedule
+
 #### Network Assessments
 
 * Assessments: Network configuration analysis to check forports reachable from outside the VPC
@@ -4915,6 +5082,8 @@ CloudWatch metrics are retained for *15 months* with the following retention per
   * AWS CloudTrail S3 Data Events
   * Amazon VPC Flow Logs
   * DNS Logs
+* For an automated preventive action based upon Amazon GuardDuty findings, `Amazon CloudWatch Events` and `Amazon Lambda` function can be used.
+* Amazon GuardDuty findings are sent to Amazon CloudWatch events based upon match criteria, triggers an AWS Lambda function which will modify VPC NACLs based upon Amazon GuardDuty findings.
 
 !!! note
 
@@ -4925,6 +5094,12 @@ CloudWatch metrics are retained for *15 months* with the following retention per
     * Monitoring of potential reconnaissance attempts
     * Monitoring of possible EC2 instance compromises
     * Monitoring of possible S3 bucket compromises
+
+!!! tip
+
+    Amazon GuardDuty creates an event for Amazon CloudWatch Events when any change in findings occurs. For each of the findings, a finding ID is assigned.
+    For newly generated findings with unique finding ID, notifications are sent within **5 minutes** of the findings.
+    But all subsequent findings are aggregated to a single event, and notifications are sent **every 6 hours**.
 
 ### AWS Config
 
@@ -4945,6 +5120,15 @@ CloudWatch metrics are retained for *15 months* with the following retention per
     * You can receive alerts (SNS notifications) for any changes(whenever a resource is created, modified, or deleted)
     * AWS Config is a per-region service
     * Can be aggregated across regions and accounts
+    * AWS Config Dashboard provides an overview of resources, config rules and compliance status of both resources and rules. The dashboard displays details of the resources and rules only **specific to a region and an account**.
+
+#### Aggregators
+
+* To aggregate compliance data from multiple accounts & multiple regions into a single account, Multi-Account Multi-Region Data Aggregation can be used.
+* For this, an Aggregator needs to be created in a region where aggregated AWS Config configuration and compliance data are required.
+* Aggregator collects compliance data from multiple source accounts and from multiple regions. Source Accounts that are part of AWS Organizations **do not** require to provide any authorization.
+* *Source accounts that are not part of AWS Organizations require authorization which permits Aggregator to collect AWS Config configuration and compliance data.*
+* An aggregator dashboard can be used to view the total number of resources and the non-compliance resources for multiple accounts and regions
 
 ### AWS Resource Access Manager (RAM)
 
@@ -4977,7 +5161,7 @@ CloudWatch metrics are retained for *15 months* with the following retention per
 ### Amazon Macie
 
 * Macie is a fully managed data security and data privacy service
-* Uses machine learning and pattern matching to discover, monitor, and help you protect your sensitive data on Amazon S3
+* Uses machine learning and pattern matching to discover, monitor, and help you protect your sensitive data on Amazon S3 by *creating and running sensitive data discovery jobs*
 * Macie enables security compliance and preventive security as follows:
   * Identify a variety of data types, including PII, Protected Health Information (PHI), regulatory documents, API keys, and secret keys
   * Identify changes to policy and access control lists
@@ -5074,6 +5258,12 @@ AWS Trusted Advisor is a tool that performs checks on five different categories:
 * Fault tolerance
 * Service limits
 
+!!! tip
+
+    The *quantity* of available Trusted Advisor checks is affected by the `AWS Support plan`. 
+    The AWS Support plan determines which Trusted Advisor checks are available for an account.
+    If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, you have access to all Trusted Advisor checks. 
+
 ### AWS Security Hub
 
 > The AWS Security Hub allows you to execute security checks across your AWS environment automatically.
@@ -5086,6 +5276,17 @@ It also allows you to gather alerts from the following security policies into a 
 * Amazon Macie
 * IAM Firewall Manager
 * Amazon System Manager
+
+### AWS Systems Manager
+
+> AWS Systems Manager is the operations hub for your AWS applications and resources and a secure end-to-end management solution for hybrid and multicloud environments that enables secure operations at scale.
+
+#### Systems Manager Session Manager
+
+* Session Manager is a fully managed AWS Systems Manager capability that lets you manage your Amazon EC2 instances through an interactive one-click browser-based shell or through the AWS CLI.
+* Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys.
+* Session Manager also makes it easy to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one-click cross-platform access to their instances.
+* Session Manager is offered at no additional cost.
 
 ## Machine Learning
 
@@ -5259,8 +5460,9 @@ train, and deploy high-quality machine learning models
 
 ### AWS Organizations
 
+> A management service that enables you to consolidate multiple AWS accounts into an organization that you create and centrally manage
+
 * Global service
-* Allows to manage multiple AWS accounts
 * The main account is the management account
 * Other accounts are member accounts
   * Member accounts can only be part of one organization
