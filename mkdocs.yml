@@ -25,9 +25,6 @@ nav:
       - Cloud/IBM Cloud/IBM Cloud Essentials.md
       - Cloud/IBM Cloud/IBM Cloud Technical Advocate.md
     - Cloud/Introduction to Cloud.md
-  - C# & .NET:
-    - C# & .NET/C#.md
-    - C# & .NET/dotNET.md
   - DataBase:
     - MongoDB:
       - MongoDB University:
@@ -127,11 +124,15 @@ nav:
     - Network/HTTP.md
     - Network/MQTT.md
     - Network/TCP IP.md
-  - PowerShell:
-    - PowerShell/Basic&New Features.md
-    - PowerShell/Shell.md
-    - PowerShell/Script.md
-    - PowerShell/Windows Forms.md
+  - PowerShell & C#:
+    - C#:
+      - PowerShell & C#/C# & .NET/C#.md
+      - PowerShell & C#/C# & .NET/dotNET.md
+    - PowerShell:
+      - PowerShell & C#/PowerShell/Basic&New Features.md
+      - PowerShell & C#/PowerShell/Shell.md
+      - PowerShell & C#/PowerShell/Script.md
+      - PowerShell & C#/PowerShell/Windows Forms.md
   - Python:
     - 并发:
       - Python/并发/并发编程.md
