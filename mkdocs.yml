@@ -43,6 +43,8 @@ nav:
       - DataScience/Jupyter/MagicCommands.md
     - Fundamental:
       - DataScience/Fundamental/Data Science Tools.md
+    - AI:
+      - DataScience/AI/ChatGPT.md
   - Dev Tools:
     - Git:
       - Dev Tools/Git/参考资料.md
