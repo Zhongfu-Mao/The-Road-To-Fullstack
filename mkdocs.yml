@@ -11,8 +11,8 @@ nav:
       - Automation/Test/UnitTest.md
   - Cloud:
     - AWS:
-      - Cloud/AWS/Certified Cloud Practitioner.md
-      - Cloud/AWS/Associate Level.md
+      - Fundamental Level: Cloud/AWS/Certified Cloud Practitioner.md
+      - Associate Level: Cloud/AWS/Associate Level.md
     - Azure:
       - Cloud/Azure/DP-900.md
       - Cloud/Azure/AI-900.md
