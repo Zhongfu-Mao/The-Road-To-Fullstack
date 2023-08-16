@@ -1,236 +1,239 @@
 site_name: The Road to Fullstack
 edit_uri: ''
 nav:
-  - Automation:
-    - Office:
-      - Automation/OFFICE/Python+Excel.md
-    - Test:
-      - Automation/Test/Playwright.md
-      - Automation/Test/pytest.md
-      - Automation/Test/Selenium.md
-      - Automation/Test/UnitTest.md
-  - Cloud:
-    - AWS:
-      - Fundamental Level: Cloud/AWS/Certified Cloud Practitioner.md
-      - Associate Level: Cloud/AWS/Associate Level.md
-    - Azure:
-      - Cloud/Azure/DP-900.md
-      - Cloud/Azure/AI-900.md
-      - Cloud/Azure/MS-900.md
-      - Cloud/Azure/AZ-104.md
-      - Cloud/Azure/AZ-204.md
-    - GCP:
-      - Cloud/GCP/Professional Cloud Developer.md
-    - IBM Cloud:
-      - Cloud/IBM Cloud/IBM Cloud Essentials.md
-      - Cloud/IBM Cloud/IBM Cloud Technical Advocate.md
-    - Cloud/Introduction to Cloud.md
-  - DataBase:
-    - MongoDB:
-      - MongoDB University:
-        - DataBase/MongoDB/MongoDB University/Administration.md
-        - DataBase/MongoDB/MongoDB University/Aggregation.md
-        - DataBase/MongoDB/MongoDB University/Basics.md
-        - DataBase/MongoDB/MongoDB University/M320-Data Modeling.md
-        - DataBase/MongoDB/MongoDB University/MongoDB VS SQL.md
-      - DataBase/MongoDB/pymongo & motor.md
-    - MySQL:
-      - DataBase/MySQL/基础.md
-  - DataScience:
-    - Jupyter:
-      - DataScience/Jupyter/Anaconda.md
-      - DataScience/Jupyter/IPython＆Notebook.md
-      - DataScience/Jupyter/MagicCommands.md
-    - Fundamental:
-      - DataScience/Fundamental/Data Science Tools.md
-    - AI:
-      - DataScience/AI/ChatGPT.md
-  - Dev Tools:
-    - Git:
-      - Dev Tools/Git/参考资料.md
-      - Dev Tools/Git/基础知识.md
-      - Dev Tools/Git/设置.md
-      - Dev Tools/Git/深入理解.md
-      - Dev Tools/Git/CLI.md
-      - Dev Tools/Git/gitattribute.md
-      - Dev Tools/Git/gitignore.md
-    - VSCode:
-      - Dev Tools/VSCode/ESLint & Prettier.md
-      - Dev Tools/VSCode/Jest.md
-      - Dev Tools/VSCode/launch.json.md
-      - Dev Tools/VSCode/setting.md
-      - Dev Tools/VSCode/snippets.md
-    - Dev Tools/Chrome & Edge.md
-    - Dev Tools/cURL.md
-    - Dev Tools/Docker.md
-    - Dev Tools/GitHub.md
-    - Dev Tools/Homebrew.md
-    - Dev Tools/macOS.md
-    - Dev Tools/Makefile.md
-    - Dev Tools/Markdown.md
-    - Dev Tools/MkDocs.md
-    - Dev Tools/Nginx.md
-    - Dev Tools/Oh My Posh.md
-    - Dev Tools/Open Source.md
-    - Dev Tools/Redmine.md
-    - Dev Tools/Slack.md
-    - Dev Tools/zsh.md
-  - FrontEnd:
-    - HTML:
-      - FrontEnd/HTML/HTML.md
-    - CSS:
-      - FrontEnd/CSS/Bootstrap.md
-      - FrontEnd/CSS/CSS.md
-      - FrontEnd/CSS/SCSS.md
-    - Javascript:
-      - ECMAScript:
-        - FrontEnd/JavaScript/ECMAScript/ECMA2015.md
-        - FrontEnd/JavaScript/ECMAScript/ECMA2016.md
-        - FrontEnd/JavaScript/ECMAScript/ECMA2017.md
-        - FrontEnd/JavaScript/ECMAScript/ECMA2018.md
-        - FrontEnd/JavaScript/ECMAScript/ECMA2019.md
-        - FrontEnd/JavaScript/ECMAScript/ECMA2020.md
-        - FrontEnd/JavaScript/ECMAScript/ECMA2021.md
-      - FrontEnd/JavaScript/DOM&BOM.md
-    - TypeScript:
-      - FrontEnd/TypeScript/TypeScript基础.md
-      - FrontEnd/TypeScript/TypeScript类型声明文件.md
-      - FrontEnd/TypeScript/TypeScript中的函数.md
-      - FrontEnd/TypeScript/TypeScript中的类.md
-      - FrontEnd/TypeScript/TypeScript中的装饰器.md
-      - FrontEnd/TypeScript/TypeScript中的类型.md
-      - FrontEnd/TypeScript/TypeScript中的泛型.md
-    - Node.js:
-      - FrontEnd/Node.js/基础.md
-      - FrontEnd/Node.js/模块.md
-      - FrontEnd/Node.js/apiDoc.md
-      - FrontEnd/Node.js/Express.md
-      - FrontEnd/Node.js/JSDoc.md
-      - FrontEnd/Node.js/nodemon.md
-      - FrontEnd/Node.js/NodeRED.md
-      - FrontEnd/Node.js/npm&yarn.md
-    - React:
-      - FrontEnd/React/JSX.md
-    - Vue:
-      - FrontEnd/Vue/基础语法.md
-      - FrontEnd/Vue/组件化开发.md
-    - FrontEnd/参考サイト.md
-    - FrontEnd/Angular.md
-    - FrontEnd/axios.md
-    - FrontEnd/Emmet.md
-  - Linux & C:
-    - Linux & C/Command Cheatsheet.md
-    - Linux & C/Linux.md
-    - Linux & C/Shell.md
-  - Network:
-    - Network/HTTP.md
-    - Network/MQTT.md
-    - Network/TCP IP.md
-  - PowerShell & C#:
-    - C#:
-      - PowerShell & C#/C# & .NET/C#.md
-      - PowerShell & C#/C# & .NET/dotNET.md
-    - PowerShell:
-      - PowerShell & C#/PowerShell/Basic&New Features.md
-      - PowerShell & C#/PowerShell/Shell.md
-      - PowerShell & C#/PowerShell/Script.md
-      - PowerShell & C#/PowerShell/Windows Forms.md
-  - Python:
-    - 并发:
-      - Python/并发/并发编程.md
-      - Python/并发/subprocess.md
-    - 代码检查与美化:
-      - Python/代码检查与美化/flake8.md
-    - 函数式编程:
-      - Python/函数式编程/itertools.md
-    - 时间 日期 日历:
-      - Python/时间 日期 日历/calendar.md
-      - Python/时间 日期 日历/datetime.md
-      - Python/时间 日期 日历/dateutil.md
-      - Python/时间 日期 日历/time.md
-    - 文件与路径:
-      - Python/文件与路径/os.path&pathlib.md
-      - Python/文件与路径/shutil.md
-      - Python/文件与路径/命令行相关.md
-      - Python/文件与路径/tarfile & zipfile.md
-    - 虚拟环境和包管理:
-      - Python/虚拟环境和包管理/conda.md
-      - Python/虚拟环境和包管理/pip-tools.md
-      - Python/虚拟环境和包管理/pip.md
-      - Python/虚拟环境和包管理/pyenv.md
-      - Python/虚拟环境和包管理/poetry.md
-    - 运行时:
-      - Python/运行时/os.md
-      - Python/运行时/sys.md
-    - 字符串处理:
-      - Python/字符串处理/manipulating strings.md
-      - Python/字符串处理/re.md
-      - Python/字符串处理/string.md
-      - Python/字符串处理/textwrap.md
-    - Python/豆知识.md
-    - Python/YAML vs JSON.md
+    - Automation:
+        - Office:
+            - Automation/OFFICE/Python+Excel.md
+        - Test:
+            - Automation/Test/Playwright.md
+            - Automation/Test/pytest.md
+            - Automation/Test/Selenium.md
+            - Automation/Test/UnitTest.md
+    - Cloud:
+        - AWS:
+            - Fundamental Level: Cloud/AWS/Certified Cloud Practitioner.md
+            - Associate Level: Cloud/AWS/Associate Level.md
+        - Azure:
+            - Cloud/Azure/DP-900.md
+            - Cloud/Azure/AI-900.md
+            - Cloud/Azure/MS-900.md
+            - AZ-104: Cloud/Azure/AZ-104.md
+            - Cloud/Azure/AZ-204.md
+        - GCP:
+            - Cloud/GCP/Professional Cloud Developer.md
+        - IBM Cloud:
+            - Cloud/IBM Cloud/IBM Cloud Essentials.md
+            - Cloud/IBM Cloud/IBM Cloud Technical Advocate.md
+        - Cloud/Introduction to Cloud.md
+    - DataBase:
+        - MongoDB:
+            - MongoDB University:
+                - DataBase/MongoDB/MongoDB University/Administration.md
+                - DataBase/MongoDB/MongoDB University/Aggregation.md
+                - DataBase/MongoDB/MongoDB University/Basics.md
+                - DataBase/MongoDB/MongoDB University/M320-Data Modeling.md
+                - DataBase/MongoDB/MongoDB University/MongoDB VS SQL.md
+            - DataBase/MongoDB/pymongo & motor.md
+        - MySQL:
+            - DataBase/MySQL/基础.md
+    - DataScience:
+        - Jupyter:
+            - DataScience/Jupyter/Anaconda.md
+            - DataScience/Jupyter/IPython＆Notebook.md
+            - DataScience/Jupyter/MagicCommands.md
+        - Fundamental:
+            - DataScience/Fundamental/Data Science Tools.md
+        - AI:
+            - DataScience/AI/ChatGPT.md
+    - Dev Tools:
+        - Git:
+            - Dev Tools/Git/参考资料.md
+            - Dev Tools/Git/基础知识.md
+            - Dev Tools/Git/设置.md
+            - Dev Tools/Git/深入理解.md
+            - Dev Tools/Git/CLI.md
+            - Dev Tools/Git/gitattribute.md
+            - Dev Tools/Git/gitignore.md
+        - VSCode:
+            - Dev Tools/VSCode/ESLint & Prettier.md
+            - Dev Tools/VSCode/Jest.md
+            - Dev Tools/VSCode/launch.json.md
+            - Dev Tools/VSCode/setting.md
+            - Dev Tools/VSCode/snippets.md
+        - Dev Tools/Chrome & Edge.md
+        - Dev Tools/cURL.md
+        - Dev Tools/Docker.md
+        - Dev Tools/GitHub.md
+        - Dev Tools/Homebrew.md
+        - Dev Tools/macOS.md
+        - Dev Tools/Makefile.md
+        - Dev Tools/Markdown.md
+        - Dev Tools/MkDocs.md
+        - Dev Tools/Nginx.md
+        - Dev Tools/Oh My Posh.md
+        - Dev Tools/Open Source.md
+        - Dev Tools/Redmine.md
+        - Dev Tools/Slack.md
+        - Dev Tools/zsh.md
+    - FrontEnd:
+        - HTML:
+            - FrontEnd/HTML/HTML.md
+        - CSS:
+            - FrontEnd/CSS/Bootstrap.md
+            - FrontEnd/CSS/CSS.md
+            - FrontEnd/CSS/SCSS.md
+        - Javascript:
+            - ECMAScript:
+                - FrontEnd/JavaScript/ECMAScript/ECMA2015.md
+                - FrontEnd/JavaScript/ECMAScript/ECMA2016.md
+                - FrontEnd/JavaScript/ECMAScript/ECMA2017.md
+                - FrontEnd/JavaScript/ECMAScript/ECMA2018.md
+                - FrontEnd/JavaScript/ECMAScript/ECMA2019.md
+                - FrontEnd/JavaScript/ECMAScript/ECMA2020.md
+                - FrontEnd/JavaScript/ECMAScript/ECMA2021.md
+            - FrontEnd/JavaScript/DOM&BOM.md
+        - TypeScript:
+            - FrontEnd/TypeScript/TypeScript基础.md
+            - FrontEnd/TypeScript/TypeScript类型声明文件.md
+            - FrontEnd/TypeScript/TypeScript中的函数.md
+            - FrontEnd/TypeScript/TypeScript中的类.md
+            - FrontEnd/TypeScript/TypeScript中的装饰器.md
+            - FrontEnd/TypeScript/TypeScript中的类型.md
+            - FrontEnd/TypeScript/TypeScript中的泛型.md
+        - Node.js:
+            - FrontEnd/Node.js/基础.md
+            - FrontEnd/Node.js/模块.md
+            - FrontEnd/Node.js/apiDoc.md
+            - FrontEnd/Node.js/Express.md
+            - FrontEnd/Node.js/JSDoc.md
+            - FrontEnd/Node.js/nodemon.md
+            - FrontEnd/Node.js/NodeRED.md
+            - FrontEnd/Node.js/npm&yarn.md
+        - React:
+            - FrontEnd/React/JSX.md
+        - Vue:
+            - FrontEnd/Vue/基础语法.md
+            - FrontEnd/Vue/组件化开发.md
+        - FrontEnd/参考サイト.md
+        - FrontEnd/Angular.md
+        - FrontEnd/axios.md
+        - FrontEnd/Emmet.md
+    - Linux & C:
+        - Linux & C/Command Cheatsheet.md
+        - Linux & C/Linux.md
+        - Linux & C/Shell.md
+    - Network:
+        - Network/HTTP.md
+        - Network/MQTT.md
+        - Network/TCP IP.md
+    - PowerShell & C#:
+        - C#:
+            - PowerShell & C#/C# & .NET/C#.md
+            - PowerShell & C#/C# & .NET/dotNET.md
+        - PowerShell:
+            - PowerShell & C#/PowerShell/Basic&New Features.md
+            - PowerShell & C#/PowerShell/Shell.md
+            - PowerShell & C#/PowerShell/Script.md
+            - PowerShell & C#/PowerShell/Windows Forms.md
+    - Python:
+        - 并发:
+            - Python/并发/并发编程.md
+            - Python/并发/subprocess.md
+        - 代码检查与美化:
+            - Python/代码检查与美化/flake8.md
+        - 函数式编程:
+            - Python/函数式编程/itertools.md
+        - 时间 日期 日历:
+            - Python/时间 日期 日历/calendar.md
+            - Python/时间 日期 日历/datetime.md
+            - Python/时间 日期 日历/dateutil.md
+            - Python/时间 日期 日历/time.md
+        - 文件与路径:
+            - Python/文件与路径/os.path&pathlib.md
+            - Python/文件与路径/shutil.md
+            - Python/文件与路径/命令行相关.md
+            - Python/文件与路径/tarfile & zipfile.md
+        - 虚拟环境和包管理:
+            - Python/虚拟环境和包管理/conda.md
+            - Python/虚拟环境和包管理/pip-tools.md
+            - Python/虚拟环境和包管理/pip.md
+            - Python/虚拟环境和包管理/pyenv.md
+            - Python/虚拟环境和包管理/poetry.md
+        - 运行时:
+            - Python/运行时/os.md
+            - Python/运行时/sys.md
+        - 字符串处理:
+            - Python/字符串处理/manipulating strings.md
+            - Python/字符串处理/re.md
+            - Python/字符串处理/string.md
+            - Python/字符串处理/textwrap.md
+        - Python/豆知识.md
+        - Python/YAML vs JSON.md
 theme:
-  name: material
-  palette:
-  - scheme: default
-    primary: teal
-    accent: amber
-    toggle:
-      icon: material/lightbulb
-      name: Switch to light mode
-  - scheme: slate
-    primary: teal
-    accent: amber
-    toggle:
-      icon: material/lightbulb-outline
-      name: Switch to dark mode
-  features:
-  - content.code.annotate
-  - content.code.copy
-  - navigation.indexes
-  - navigation.top
-  - search.highlight
-  - search.suggest
+    name: material
+    palette:
+        -
+            scheme: default
+            primary: teal
+            accent: amber
+            toggle:
+                icon: material/lightbulb
+                name: Switch to light mode
+        -
+            scheme: slate
+            primary: teal
+            accent: amber
+            toggle:
+                icon: material/lightbulb-outline
+                name: Switch to dark mode
+    features:
+        - content.code.annotate
+        - content.code.copy
+        - navigation.indexes
+        - navigation.top
+        - search.highlight
+        - search.suggest
 plugins:
-  - mermaid2
-  - search:
-      lang:
-        - ja
-        - en
-  - tooltips
+    - mermaid2
+    - search:
+        lang:
+            - ja
+            - en
+    - tooltips
 markdown_extensions:
-  - admonition
-  - attr_list
-  - def_list
-  - md_in_html
-  - pymdownx.caret
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.keys
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.mark
-  - pymdownx.snippets
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:
-      alternate_style: true 
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
-  - tables
+    - admonition
+    - attr_list
+    - def_list
+    - md_in_html
+    - pymdownx.caret
+    - pymdownx.critic
+    - pymdownx.details
+    - pymdownx.keys
+    - pymdownx.highlight:
+        anchor_linenums: true
+        line_spans: __span
+        pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.mark
+    - pymdownx.snippets
+    - pymdownx.superfences:
+        custom_fences:
+            -
+                name: mermaid
+                class: mermaid
+                format: !!python/name:pymdownx.superfences.fence_code_format
+    - pymdownx.tabbed:
+        alternate_style: true
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.tilde
+    - tables
 extra_css:
-  - css/hint.min.css
-  - css/termynal.css
-  - css/custom.css
+    - css/hint.min.css
+    - css/termynal.css
+    - css/custom.css
 extra_javascript:
-  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
-  - javascripts/tablesort.js
-  - javascripts/termynal.js
-  - javascripts/custom.js
+    - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+    - javascripts/tablesort.js
+    - javascripts/termynal.js
+    - javascripts/custom.js
