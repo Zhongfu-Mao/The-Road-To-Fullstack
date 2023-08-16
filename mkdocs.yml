@@ -41,6 +41,7 @@ nav:
             - DataScience/Jupyter/Anaconda.md
             - DataScience/Jupyter/IPython＆Notebook.md
             - DataScience/Jupyter/MagicCommands.md
+            - DataScience/Jupyter/IPython.ipynb
         - Fundamental:
             - DataScience/Fundamental/Data Science Tools.md
         - AI:
@@ -194,6 +195,7 @@ theme:
         - search.highlight
         - search.suggest
 plugins:
+    - mkdocs-jupyter
     - mermaid2
     - search:
         lang:
