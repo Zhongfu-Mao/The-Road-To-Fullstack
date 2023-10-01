@@ -24,6 +24,8 @@ nav:
         - IBM Cloud:
             - Cloud/IBM Cloud/IBM Cloud Essentials.md
             - Cloud/IBM Cloud/IBM Cloud Technical Advocate.md
+        - Oracle Cloud Infrastructure:
+            - Cloud/Oracle Cloud Infrastructure/OCI Foundations Associate.md
         - Cloud/Introduction to Cloud.md
     - DataBase:
         - MongoDB:
