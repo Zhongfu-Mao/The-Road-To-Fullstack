@@ -117,7 +117,6 @@ nav:
         - Vue:
             - FrontEnd/Vue/基础语法.md
             - FrontEnd/Vue/组件化开发.md
-        - FrontEnd/参考サイト.md
         - FrontEnd/Angular.md
         - FrontEnd/axios.md
         - FrontEnd/Emmet.md
