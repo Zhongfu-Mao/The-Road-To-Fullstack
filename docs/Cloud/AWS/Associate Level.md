@@ -466,7 +466,9 @@ Some AWS service will need to perform actions on your behalf -> To do so, we wil
 
 ### Placement Groups
 
-control over the EC2 Instance placement strategy
+> Control over the EC2 Instance placement strategy
+
+[Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
 
 ![EC2 Placement Groups](https://user-images.githubusercontent.com/29729545/162229203-a79a5752-25cf-41d8-a72d-abfa92d74e02.png)
 
@@ -508,6 +510,7 @@ control over the EC2 Instance placement strategy
 
 #### Rules and Limitations
 
+* ==Placement groups can't cross regions==
 * An instance can be launched in one placement group at a time; it cannot span multiple placement groups
 * You can't merge placement groups
 * A cluster placement group can't span multiple Availability Zones
@@ -625,6 +628,8 @@ You can begin resizing the file system as soon as the volume enters the optimizi
 [🔗Official Reference](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/recognize-expanded-volume-windows.html)
 
 #### EBS Snapshots
+
+[Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html#how_snapshots_work)
 
 * Make a backup (snapshot) of your EBS volume at a point in time
 * Not necessary to detach volume to do snapshot, but recommended
@@ -792,7 +797,7 @@ You can begin resizing the file system as soon as the volume enters the optimizi
 
 * A mount target provides an *IP address* for an NFSv4 endpoint at which you can mount an Amazon EFS file system.
 * You mount your file system using its Domain Name Service (DNS) name, which resolves to the IP address of the EFS mount target in the same Availability Zone as your EC2 instance.
-* *^^You can create one mount target in each Availability Zone in an AWS Region^^*
+* ==You can create one mount target in each Availability Zone in an AWS Region==
 * If there are multiple subnets in an Availability Zone in your VPC, you create a mount target in one of the subnets. Then all EC2 instances in that Availability Zone share that mount target.
 
 ### Amazon FSx
@@ -1031,6 +1036,10 @@ You can begin resizing the file system as soon as the volume enters the optimizi
     * Amazon DynamoDB – increase provisioned RCUs/WCUs
     * Amazon Aurora – Adjust the number of Read Replicas
 
+!!! tip
+
+    ASG is region bound, you can’t span them across regions
+
 #### Configuration of an Auto Scaling Group
 
 * A Launch Template specifies the EC2 instance configuration:
@@ -1082,6 +1091,10 @@ You can begin resizing the file system as soon as the volume enters the optimizi
         * Anticipate a scaling based on known usage patterns
         * Example: increase the min capacity to 10 at 5 pm on Fridays
 * Predictive Scaling: Uses Machine Learning to predict future traffic ahead of time
+
+!!! tip
+
+    Target tracking is only for unpredictable workloads
 
 #### Additional Scaling Settings
 
@@ -1156,6 +1169,10 @@ You can begin resizing the file system as soon as the volume enters the optimizi
     * Exp. application1.`company.internal`
 * You pay $0.50 per month per hosted zone
 
+!!! note
+
+    When you create a hosted zone, Route 53 automatically creates a name server (NS) record and a start of authority (SOA) record for the zone.
+
 #### Migration to/from Route 53
 
 * You can migrate from **another DNS provider** and can import records
@@ -1183,7 +1200,7 @@ You can begin resizing the file system as soon as the volume enters the optimizi
 
 === "CNAME"
 
-    * Points a hostname to ==any other hostname== (app.mydomain.com => blabla.anything.com)
+    * Points a hostname to ==any other hostname== (acme.example.com to zenith.example.com or to acme.example.org)
     * Can redirect DNS queries to any DNS record
     * ONLY FOR NON ROOT DOMAIN (aka. something.mydomain.com)
 
@@ -1316,6 +1333,18 @@ Route 53 Supports the following Routing Policies:
     * EC2 instance
     * S3 website (must first enable the bucket as a static S3 website)
     * Any HTTP backend you want
+
+!!! tip
+
+    The uses cases for origin custom headers are:
+
+    * Identifying requests from CloudFront
+    * Determining which requests come from a particular distribution
+    * Enabling cross-origin resource sharing (CORS)
+    * Controlling access to content
+
+    > If the header names and values that you specify are not already present in the viewer request, CloudFront adds them to the origin request.  
+    > If a header is present, CloudFront overwrites the header value before forwarding the request to the origin.
 
 #### Geo Restriction
 
@@ -1561,6 +1590,8 @@ Route 53 Supports the following Routing Policies:
 !!! tip
 
     Internet Gateways on their own do not allow Internet access... -> Route tables must also be edited!
+    IPv6 only (egress) : Internet Gateway
+    IPv4 only (ingress) : NAT Gateway
 
 ### Bastion Hosts
 
@@ -1673,6 +1704,10 @@ Route 53 Supports the following Routing Policies:
 !!! tip
 
     Flow logs do not provide the ability to view a real-time stream of traffic. Logs are published every 10 minutes by default but can be configured for faster delivery.
+
+!!! warning
+
+    After you create a flow log, you CANNOT change its configuration or the flow log record format
 
 ### VPC to VPC Connectivity Options
 
@@ -1836,6 +1871,8 @@ Route 53 Supports the following Routing Policies:
 
 ### AWS Storage Gateway
 
+> AWS Storage Gateway is a service that connects an on-premises data center to the cloud. It provides block-based storage that is compatible with the Portable Operating System Interface (POSIX) and can be used as a target for data backups
+
 !!! tip
 
     To use the HA feature of Storage Gateway, the VMware environment must provide the following:
@@ -1843,7 +1880,7 @@ Route 53 Supports the following Routing Policies:
     * A cluster with vSphere HA enabled
     * A shared datastore
 
-#### File Gateway
+### File Gateway
 
 * File gateway provides a **virtual on-premises file server**
 * Store and retrieve files as objects in Amazon S3
@@ -1856,14 +1893,14 @@ Route 53 Supports the following Routing Policies:
 
     CachePercentDirty is an Amazon CloudWatch metric for Amazon S3 File Gateway which provides a percentage of the data not uploaded to AWS from local Cache. This metric value should be near to zero to ensure all cache data is properly uploaded to AWS.
 
-#### Volume Gateway
+### Volume Gateway
 
 * The volume gateway supports block-based volumes
 * Block storage – iSCSI protocol
 * **Cached Volume mode** – the entire dataset is stored on S3 and a cache of the most frequently accessed data is cached on-site
 * **Stored Volume mode** – the entire dataset is stored on-site and is asynchronously backed up to S3 (EBS point-in-time snapshots). Snapshots are incremental and compressed
 
-#### Tape Gateway
+### Tape Gateway
 
 * Used for backup with popular backup software
 * Each gateway is preconfigured with a media changer and tape drives. Supported by NetBackup, Backup Exec, Veeam etc.
@@ -2274,8 +2311,8 @@ Methods:
         * Some users have special permissions to change the retention or delete the object
     * Retention Period: protect the object for a fixed period, it can be extended
     * Legal Hold:
-        * protect the object indefinitely, independent from retention period
-        * can be freely placed and removed using the s3:PutObjectLegalHold IAM permission
+        * Protect the object indefinitely, independent from retention period
+        * Can be freely placed and removed using the `s3:PutObjectLegalHold` IAM permission
 
 === "Glacier Vault Lock"
 
@@ -2283,6 +2320,16 @@ Methods:
     * Create a Vault Lock Policy
     * Lock the policy for future edits (can no longer be changed)
     * Helpful for compliance and data retention
+    * Locking a vault takes two steps:
+        * Initiate the lock by attaching a Vault Lock policy to your vault, which sets the lock to an in-progress state and returns a lock ID.
+            * While the policy is in the in-progress state, you have 24 hours to validate your Vault Lock policy before the lock ID expires.
+            * To prevent your vault from exiting the in-progress state, you must complete the Vault Lock process within these 24 hours. Otherwise, your Vault Lock policy will be deleted.
+        * Use the lock ID to complete the lock process. If the Vault Lock policy doesn't work as expected, you can stop the Vault Lock process and restart from the beginning.
+
+!!! warning
+
+    * After you enable Object Lock on a bucket, you **can't** disable Object Lock or suspend versioning for that bucket.
+    * S3 buckets with Object Lock **can't** be used as destination buckets for server access logs. 
 
 ### Access Points & Object Lambda
 
@@ -2801,7 +2848,6 @@ Questions to choose the right database based on your architecture:
 * Serverless, autoscaling, highly available (multi-AZ)
 * Reduced RDS & Aurora failover time by up 66%
 * Supports RDS (MySQL, PostgreSQL, MariaDB) and Aurora (MySQL, PostgreSQL)
-* No code changes required for most apps
 * Enforce IAM Authentication for DB, and securely store credentials in AWS Secrets Manager
 * RDS Proxy is never publicly accessible (must be accessed from VPC)
 
@@ -2809,6 +2855,8 @@ Questions to choose the right database based on your architecture:
 
 * Amazon RDS Performance Insights is a database *performance tuning and monitoring* feature that helps you quickly assess the load on your database, and determine when and where to take action.
 * Performance Insights allows non-experts to detect performance problems with an easy-to-understand dashboard that visualizes database load.
+* It displays the database load in an interactive graph, allowing you to analyze and troubleshoot the database workload.
+* The load is categorized by SQL, waits, hosts, users, and other dimensions, providing detailed information about the sources of the load.
 
 ### DocumentDB
 
@@ -3154,6 +3202,8 @@ Questions to choose the right database based on your architecture:
     * Typical cross-region replication takes less than 1 second
 
 #### Aurora Multi-Master
+
+> Multi-master clusters are best suited for segmented workloads, such as for multitenant applications.
 
 * All nodes allow reads/writes
 * **Available for MySQL only**
@@ -4069,6 +4119,13 @@ The CLI will look for credentials in this order:
     * `AWS::Lambda::Alias`
 * Use the UpdateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation
 
+#### Custom Resources
+
+> Custom resources enable you to write custom provisioning logic in templates that AWS CloudFormation runs anytime you create, update (if you changed the custom resource), or delete stacks
+
+* By creating a custom resource backed by an AWS Lambda function, you have the flexibility to define and orchestrate multiple AWS services as a single resource within your CloudFormation stack.
+* The custom Lambda function can handle the logic for creating and deleting the resources across multiple services in the desired order and configuration.
+
 #### Deploying CloudFormation templates
 
 * Manual way:
@@ -4158,6 +4215,7 @@ The CLI will look for credentials in this order:
 * An administrator account is the AWS account in which you create StackSets
 * A target account is the account into which you create, update, or delete one or more stacks in your stack set
 * When you update a stack set, all associated stack instances are updated throughout all accounts and regions
+* StackSets can be targeted to specific organizational units (OUs) within AWS Organizations
 
 !!! tip
 
@@ -4951,7 +5009,7 @@ CloudWatch metrics are retained for *15 months* with the following retention per
     * Collect internal system-level metrics from Amazon **EC2 instances** across operating systems
     * Collect system-level metrics from **on-premises servers**
     * Retrieve custom metrics from your applications or services using the StatsD and collectd protocols
-    * Collect logs from Amazon EC2 instances and on- premises servers (Windows / Linux)
+    * Collect logs from Amazon EC2 instances and on-premises servers (Windows / Linux)
 * Agent must be installed on the server
 * Can be installed on:
     * Amazon EC2 instances
@@ -4971,6 +5029,7 @@ CloudWatch metrics are retained for *15 months* with the following retention per
 
     * When starting the agent, you must attach the IAM role (EC2), or specify a named profile (on-premises)
     * You can optionally integrate with AWS Systems Manager
+    * The `procstat` plugin enables you to collect metrics from individual processes. It is supported on Linux servers and on servers running Windows Server 2012 or later
 
 ### CloudWatch Logs
 
@@ -5115,6 +5174,14 @@ CloudWatch Logs can send logs to:
 * Powered by SageMaker
 * Enhanced visibility into your application health to reduce the time it will take you to troubleshoot and repair your applications
 * Findings and alerts are sent to Amazon EventBridge and SSM OpsCenter
+
+### CloudWatch Synthetics
+
+> Amazon CloudWatch Synthetics allows you to create canaries that simulate customer behavior and monitor the availability
+
+* You can use Amazon CloudWatch Synthetics to create canaries, configurable scripts that run on a schedule, to monitor your endpoints and APIs.
+* Canaries follow the same routes and perform the same actions as a customer, which makes it possible for you to continually verify your customer experience even when you don't have any customer traffic on your applications.
+* By using canaries, you can discover issues before your customers do.
 
 ### Amazon EventBridge
 
@@ -5853,7 +5920,7 @@ GenerateDataKeyWithoutPlaintext (generate-data-key-without-plaintext):
     * `s3-bucket-versioning-enabled`: Checks whether versioning is enabled for your S3 buckets
     * `restricted-ssh`: Checks whether security groups allow unrestricted SSH access
     * `rds-instance-public-access-check`: Checks whether RDS instances are publicly accessible
-    * `cloudtrail-enabled`: Checks whether CloudTrail is enabled in your AWS account
+    * `cloudtrail-enabled`: ==Checks whether CloudTrail is enabled in your AWS account, If CloudTrail is turned off, this rule automatically re-enables it by using automatic remediation.==
     * `approved-amis-by-id`: Checks whether the AMIs used by your EC2 instances are approved
 
 #### Aggregators
@@ -5998,9 +6065,9 @@ Trusted Advisor provides real time guidance to help you provision your resources
 
 !!! tip
 
-    The *quantity* of available Trusted Advisor checks is affected by the `AWS Support plan`. 
-    The AWS Support plan determines which Trusted Advisor checks are available for an account.
-    If you have a Business, Enterprise On-Ramp, or Enterprise Support plan, you have access to all Trusted Advisor checks. 
+    * The *quantity* of available Trusted Advisor checks is affected by the `AWS Support plan`. 
+    * The AWS Support plan determines which Trusted Advisor checks are available for an account.
+    * Basic Support provides access to 7 core Trusted Advisor checks, Developer Support provides access to 29 core Trusted Advisor checks, while Business and Enterprise Support provide access to all Trusted Advisor checks and guidance.
 
 ### AWS Security Hub
 
@@ -6045,6 +6112,12 @@ It also allows you to gather alerts from the following security policies into a 
     * Session Manager
     * Parameter Store
 
+!!! note
+
+    By default, AWS Systems Manager doesn't have permission to perform actions on your instances.
+    Grant access by using an AWS Identity and Access Management (IAM) instance profile. An instance profile is a container that passes IAM role information to an Amazon Elastic Compute Cloud (Amazon EC2) instance at launch.
+    You can create an instance profile for Systems Manager by attaching one or more IAM policies that define the necessary permissions to a new role or to a role you already created.
+
 #### Systems Manager Patch Manager
 
 * Helps you select and deploy operating system and software patches automatically across large groups of Amazon EC2 or on-premises instances
@@ -6054,7 +6127,7 @@ It also allows you to gather alerts from the following security policies into a 
 * You can also schedule maintenance windows for your patches so that they are only applied during predefined times
 * Systems Manager helps ensure that your software is up-to-date and meets your compliance policies
 
-#### System Manager Compliance
+#### Systems Manager Compliance
 
 * AWS Systems Manager lets you scan your managed instances for patch compliance and configuration inconsistencies
 * You can collect and aggregate data from multiple AWS accounts and Regions, and then drill down into specific resources that aren’t compliant
