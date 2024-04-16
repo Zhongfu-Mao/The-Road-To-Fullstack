@@ -1,0 +1,6639 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../FrontEnd/Emmet/">
+      
+      
+        <link rel="next" href="../Linux/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Linux速查备忘 - The Road to Fullstack</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/hint.min.css">
+    
+      <link rel="stylesheet" href="../../css/termynal.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="The Road to Fullstack" class="md-header__button md-logo" aria-label="The Road to Fullstack" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The Road to Fullstack
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux速查备忘
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="The Road to Fullstack" class="md-nav__button md-logo" aria-label="The Road to Fullstack" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    The Road to Fullstack
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Automation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Automation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Office
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Office
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Automation/OFFICE/Python%2BExcel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python操纵Excel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Test
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Test
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Automation/Test/Playwright/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playwright
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Automation/Test/pytest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pytest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Automation/Test/Selenium/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Seleniumの基本
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Automation/Test/UnitTest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UnitTest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cloud/AWS/Certified%20Cloud%20Practitioner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fundamental Level
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cloud/AWS/Associate%20Level/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Associate Level
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Azure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Azure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cloud/Azure/DP-900/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DP-900
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cloud/Azure/AI-900/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI-900
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cloud/Azure/MS-900/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MS-900
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cloud/Azure/AZ-104/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AZ-104
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cloud/Azure/AZ-204/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AZ-204
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GCP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            GCP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cloud/GCP/Professional%20Cloud%20Developer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Professional Cloud Developer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    IBM Cloud
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            IBM Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cloud/IBM%20Cloud/IBM%20Cloud%20Essentials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM Cloud Essentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cloud/IBM%20Cloud/IBM%20Cloud%20Technical%20Advocate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM Cloud Technical Advocate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Oracle Cloud Infrastructure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Oracle Cloud Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cloud/Oracle%20Cloud%20Infrastructure/OCI%20Foundations%20Associate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OCI Foundations Associate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cloud/Introduction%20to%20Cloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Cloud
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DataBase
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            DataBase
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MongoDB
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            MongoDB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MongoDB University
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            MongoDB University
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataBase/MongoDB/MongoDB%20University/Administration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataBase/MongoDB/MongoDB%20University/Aggregation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Aggregation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataBase/MongoDB/MongoDB%20University/Basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MongoDB Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataBase/MongoDB/MongoDB%20University/M320-Data%20Modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M320 Data Modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataBase/MongoDB/MongoDB%20University/MongoDB%20VS%20SQL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MongoDB vs RDBMS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataBase/MongoDB/pymongo%20%26%20motor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pymongo & motor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MySQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            MySQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataBase/MySQL/%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MySQL基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DataScience
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            DataScience
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Jupyter
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Jupyter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataScience/Jupyter/Anaconda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Anaconda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataScience/Jupyter/IPython%EF%BC%86Notebook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPython & Notebook
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataScience/Jupyter/MagicCommands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MagicCommands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataScience/Jupyter/IPython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPython
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fundamental
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamental
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataScience/Fundamental/Data%20Science%20Tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Science Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataScience/AI/ChatGPT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChatGPT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dev Tools
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Dev Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Git/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    参考资料
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Git/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Git/%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Git/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深入理解Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Git/CLI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Git/gitattribute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    .gitattribute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Git/gitignore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    .gitignore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    VSCode
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            VSCode
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/VSCode/ESLint%20%26%20Prettier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ESLint + Prettier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/VSCode/Jest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VSCode中配置Jest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/VSCode/launch.json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    launch.json的配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/VSCode/setting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/VSCode/snippets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    snippets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Chrome%20%26%20Edge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chrome & Edge
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/cURL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cURL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/GitHub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Homebrew/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Homebrew
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/macOS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    macOS Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Makefile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Makefile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown语法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/MkDocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Material for MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Nginx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Oh%20My%20Posh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oh My Posh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Open%20Source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Source
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Redmine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redmine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/Slack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Slack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Dev%20Tools/zsh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zsh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FrontEnd
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            FrontEnd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    HTML
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            HTML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/HTML/HTML/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTML5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CSS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            CSS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/CSS/Bootstrap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bootstrap 4.x + 5.x
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/CSS/CSS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSS World
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/CSS/SCSS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SCSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Javascript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Javascript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3_1" id="__nav_6_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ECMAScript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            ECMAScript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/JavaScript/ECMAScript/ECMA2015/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2015
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/JavaScript/ECMAScript/ECMA2016/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2016
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/JavaScript/ECMAScript/ECMA2017/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2017
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/JavaScript/ECMAScript/ECMA2018/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2018
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/JavaScript/ECMAScript/ECMA2019/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2019
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/JavaScript/ECMAScript/ECMA2020/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2020
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/JavaScript/ECMAScript/ECMA2021/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2021
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/JavaScript/DOM%26BOM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOM & BOM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    TypeScript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            TypeScript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/TypeScript/TypeScript%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/TypeScript/TypeScript%E7%B1%BB%E5%9E%8B%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript类型声明文件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/TypeScript/TypeScript%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript中的函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/TypeScript/TypeScript%E4%B8%AD%E7%9A%84%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript中的类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/TypeScript/TypeScript%E4%B8%AD%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript中的装饰器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/TypeScript/TypeScript%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript中的类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/TypeScript/TypeScript%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript中的泛型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Node.js
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Node.js
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/Node.js/%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node.js 基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/Node.js/%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模块系统
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/Node.js/apiDoc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    apiDoc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/Node.js/Express/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Express
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/Node.js/JSDoc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSDoc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/Node.js/nodemon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    nodemon
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/Node.js/NodeRED/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NodeRED基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/Node.js/npm%26yarn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    npm & yarn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    React
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            React
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/React/JSX/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSX
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Vue
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            Vue
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/Vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vue实例中的Options
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/Vue/%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    组件化开发
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/Angular/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Angular
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/axios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    axios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FrontEnd/Emmet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Emmet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux & C
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Linux & C
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Linux速查备忘
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Linux速查备忘
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      关机/重启/注销
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统信息和性能查看
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁盘和分区
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      用户和用户组
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络与进程管理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见系统服务命令
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      文件和目录操作
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      文件查看和处理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      打包和解压
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      RPM包管理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yum" class="md-nav__link">
+    <span class="md-ellipsis">
+      YUM包管理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dpkg" class="md-nav__link">
+    <span class="md-ellipsis">
+      DPKG包管理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    <span class="md-ellipsis">
+      APT软件工具
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Network
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network/HTTP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP(S)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network/MQTT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MQTT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network/TCP%20IP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TCP/IP基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PowerShell & C#
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            PowerShell & C#
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    C#
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            C#
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerShell%20%26%20C%23/C%23%20%26%20.NET/C%23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C#基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerShell%20%26%20C%23/C%23%20%26%20.NET/dotNET/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dotNET基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PowerShell
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            PowerShell
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerShell%20%26%20C%23/PowerShell/Basic%26New%20Features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PowerShell: Basic and new features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerShell%20%26%20C%23/PowerShell/Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PowerShell: As a shell language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerShell%20%26%20C%23/PowerShell/Script/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PowerShell: As a Scripting Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PowerShell%20%26%20C%23/PowerShell/Windows%20Forms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows Forms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    并发
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            并发
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E5%B9%B6%E5%8F%91/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python并发编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E5%B9%B6%E5%8F%91/subprocess/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    subprocess
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_2" id="__nav_10_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    代码检查与美化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            代码检查与美化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E4%B8%8E%E7%BE%8E%E5%8C%96/flake8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    flake8的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    函数式编程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            函数式编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/itertools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    itertools模块的使用总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_4" id="__nav_10_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    时间 日期 日历
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            时间 日期 日历
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E6%97%B6%E9%97%B4%20%E6%97%A5%E6%9C%9F%20%E6%97%A5%E5%8E%86/calendar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Calendar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E6%97%B6%E9%97%B4%20%E6%97%A5%E6%9C%9F%20%E6%97%A5%E5%8E%86/datetime/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datetime
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E6%97%B6%E9%97%B4%20%E6%97%A5%E6%9C%9F%20%E6%97%A5%E5%8E%86/dateutil/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dateutil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E6%97%B6%E9%97%B4%20%E6%97%A5%E6%9C%9F%20%E6%97%A5%E5%8E%86/time/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Time
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_5" id="__nav_10_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    文件与路径
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            文件与路径
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E6%96%87%E4%BB%B6%E4%B8%8E%E8%B7%AF%E5%BE%84/os.path%26pathlib/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    os.path & pathlib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E6%96%87%E4%BB%B6%E4%B8%8E%E8%B7%AF%E5%BE%84/shutil/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    shutil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E6%96%87%E4%BB%B6%E4%B8%8E%E8%B7%AF%E5%BE%84/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    命令行(Python)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E6%96%87%E4%BB%B6%E4%B8%8E%E8%B7%AF%E5%BE%84/tarfile%20%26%20zipfile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tarfile & zipfile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_6" id="__nav_10_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    虚拟环境和包管理
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            虚拟环境和包管理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86/conda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86/pip-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pip-tools = pip-compile + pip-sync
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86/pip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pip
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86/pyenv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pyenv
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86/poetry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poetry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_7" id="__nav_10_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    运行时
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            运行时
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%BF%90%E8%A1%8C%E6%97%B6/os/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    os
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%BF%90%E8%A1%8C%E6%97%B6/sys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sys
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_8" id="__nav_10_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    字符串处理
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_8">
+            <span class="md-nav__icon md-icon"></span>
+            字符串处理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/manipulating%20strings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulating strings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/re/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Re
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/textwrap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    textwrap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%B1%86%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python豆知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/YAML%20vs%20JSON/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      关机/重启/注销
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统信息和性能查看
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁盘和分区
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      用户和用户组
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络与进程管理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见系统服务命令
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      文件和目录操作
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      文件查看和处理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      打包和解压
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      RPM包管理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yum" class="md-nav__link">
+    <span class="md-ellipsis">
+      YUM包管理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dpkg" class="md-nav__link">
+    <span class="md-ellipsis">
+      DPKG包管理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    <span class="md-ellipsis">
+      APT软件工具
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="linux">Linux速查备忘</h1>
+<h2 id="_1">关机/重启/注销</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常用命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>shutdown -h now</code></td>
+<td style="text-align: left;">立刻关机</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>shutdown -h 10</code></td>
+<td style="text-align: left;">10分钟后关机</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>shutdown -h 11:00</code></td>
+<td style="text-align: left;">11:00关机</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>shutdown -h +10</code></td>
+<td style="text-align: left;">预定时间关机（10分钟后）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>shutdown -c</code></td>
+<td style="text-align: left;">取消指定时间关机</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>shutdown -r now</code></td>
+<td style="text-align: left;">重启</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>shutdown -r 10</code></td>
+<td style="text-align: left;">10分钟后重启</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>shutdown -r 11:00</code></td>
+<td style="text-align: left;">定时重启</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>reboot</code></td>
+<td style="text-align: left;">重启</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>init 6</code></td>
+<td style="text-align: left;">重启</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>init 0</code></td>
+<td style="text-align: left;">立刻关机</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>telinit 0</code></td>
+<td style="text-align: left;">关机</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>poweroff</code></td>
+<td style="text-align: left;">立刻关机</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>halt</code></td>
+<td style="text-align: left;">关机</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sync</code></td>
+<td style="text-align: left;">buff数据同步到磁盘</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>logout</code></td>
+<td style="text-align: left;">退出登录Shell</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">系统信息和性能查看</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常用命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>uname -a</code></td>
+<td style="text-align: left;">查看内核/OS/CPU信息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>uname -r</code></td>
+<td style="text-align: left;">查看内核版本</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>uname -m</code></td>
+<td style="text-align: left;">查看处理器架构</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>arch</code></td>
+<td style="text-align: left;">查看处理器架构</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>hostname</code></td>
+<td style="text-align: left;">查看计算机名</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>who</code></td>
+<td style="text-align: left;">显示当前登录系统的用户</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>who am i</code></td>
+<td style="text-align: left;">显示登录时的用户名</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>whoami</code></td>
+<td style="text-align: left;">显示当前用户名</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cat/proc/version</code></td>
+<td style="text-align: left;">查看linux版本信息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cat/proc/cpuinfo</code></td>
+<td style="text-align: left;">查看CPU信息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cat/proc/interrupts</code></td>
+<td style="text-align: left;">查看中断</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cat/proc/loadavg</code></td>
+<td style="text-align: left;">查看系统负载</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>uptime</code></td>
+<td style="text-align: left;">查看系统运行时间、用户数、负载</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>env</code></td>
+<td style="text-align: left;">查看系统的环境变量</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>lsusb -tv</code></td>
+<td style="text-align: left;">查看系统USB设备信息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>lspci -tv</code></td>
+<td style="text-align: left;">查看系统PCI设备信息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>lsmod</code></td>
+<td style="text-align: left;">查看已加载的系统模块</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>uptime</code></td>
+<td style="text-align: left;">查看系统运行时间、用户数、负载</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>grep MemTotal/proc/meminfo</code></td>
+<td style="text-align: left;">查看内存总量</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>grep MemFree/proc/meminfo</code></td>
+<td style="text-align: left;">查看空闲内存量</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>free -m</code></td>
+<td style="text-align: left;">查看内存总量和交换区用量</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>date</code></td>
+<td style="text-align: left;">显示系统日期时间</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cal 2021</code></td>
+<td style="text-align: left;">显示2021日历</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>top</code></td>
+<td style="text-align: left;">动态显示cpu/内存/进程等情况</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vmstat 1 20</code></td>
+<td style="text-align: left;">每1秒采集一次系统状态，采20次</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>iostat</code></td>
+<td style="text-align: left;">查看io读写/cpu使用情况</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sar -u 1 10</code></td>
+<td style="text-align: left;">查询cpu使用情况（1秒1次，共10次）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sar -d 1 10</code></td>
+<td style="text-align: left;">查询磁盘性能（1秒1次，共10次）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">磁盘和分区</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常用命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>fdisk -l</code></td>
+<td style="text-align: left;">查看所有磁盘分区</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>swapon -s</code></td>
+<td style="text-align: left;">查看所有交换分区</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>df -h</code></td>
+<td style="text-align: left;">查看磁盘使用情况及挂载点</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>du -sh /dir</code></td>
+<td style="text-align: left;">查看指定目录大小</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>du -sk * ｜ sort -rn</code></td>
+<td style="text-align: left;">从高到低显示文件和目录大小</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>mount /dev/hda2 /mnt/had2</code></td>
+<td style="text-align: left;">挂载hda2盘</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>mount -t ntfs /dev/sdc1 /mnt/usbhd1</code></td>
+<td style="text-align: left;">指定文件系统类型挂载（如ntfs）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>mount -o loop xxx.iso /mnt/cdrom</code></td>
+<td style="text-align: left;">挂载ISO文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>mount /dev/sda1 /mnt/usbdisk</code></td>
+<td style="text-align: left;">挂载usb盘/闪存设备</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>umount -v /dev/sda1</code></td>
+<td style="text-align: left;">通过设备名卸载</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>umount -v /mnt/mymnt</code></td>
+<td style="text-align: left;">通过挂载点卸载</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>fuser -km /mnt/hda1</code></td>
+<td style="text-align: left;">强制卸载（慎用）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">用户和用户组</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常用命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>useradd xxx</code></td>
+<td style="text-align: left;">创建用户</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>userdel -r xxx</code></td>
+<td style="text-align: left;">删除用户</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>usermod -g group_name user_name</code></td>
+<td style="text-align: left;">修改用户所在组</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>usermod -aG group_name user_name</code></td>
+<td style="text-align: left;">将用户添加到组</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>usermod -s /bin/zsh -d /home/xxx -g dev user_name</code></td>
+<td style="text-align: left;">修改用户的登录shell、主目录以及用户组</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>groups test</code></td>
+<td style="text-align: left;">查看test用户所在组</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>groupadd group_name</code></td>
+<td style="text-align: left;">创建用户组</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>groupdel group_name</code></td>
+<td style="text-align: left;">删除用户组</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>groupmod -n new_name old_name</code></td>
+<td style="text-align: left;">重命名用户组</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>su - user_name</code></td>
+<td style="text-align: left;">完整切换到一个用户环境</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>passwd</code></td>
+<td style="text-align: left;">修改口令</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>passwd user_name</code></td>
+<td style="text-align: left;">查看指定用户的口令</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>w</code></td>
+<td style="text-align: left;">查看活动用户</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>id user_name</code></td>
+<td style="text-align: left;">查看指定用户信息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>last</code></td>
+<td style="text-align: left;">查看用户登录日志</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>crontab -l</code></td>
+<td style="text-align: left;">查看当前用户的计划任务</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cut -d: -f1 /etc/passwd</code></td>
+<td style="text-align: left;">查看系统所有用户</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cut -d: -f1 /ect/gropu</code></td>
+<td style="text-align: left;">查看系统所有组</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">网络与进程管理</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常用命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ifconfig</code></td>
+<td style="text-align: left;">查看网络接口属性</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ifconfig eth0</code></td>
+<td style="text-align: left;">查看某网卡的配置</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ifconfig eth0 ip_address netmask mask_address</code></td>
+<td style="text-align: left;">配置IP地址</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>route -n</code></td>
+<td style="text-align: left;">查看路由表</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>netstat -lntp</code></td>
+<td style="text-align: left;">查看所有监听端口</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>netstat -antp</code></td>
+<td style="text-align: left;">查看已经建立的TCP连接</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>netstat -lutp</code></td>
+<td style="text-align: left;">查看TCP/UDP的状态信息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ifup eth0</code></td>
+<td style="text-align: left;">启用eth0网络设备</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ifdown eth0</code></td>
+<td style="text-align: left;">禁用eth0网络设备</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>iptables -L</code></td>
+<td style="text-align: left;">查看iptables规则</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dhclient eth0</code></td>
+<td style="text-align: left;">以dhcp模式启用eth0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>route add -net 0/0 gw Gateway_IP</code></td>
+<td style="text-align: left;">配置默认网关</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>route add -net ip_address netmask mask_address gw Gateway_IP</code></td>
+<td style="text-align: left;">配置静态路由</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>route del 0/0 gw Gateway_IP</code></td>
+<td style="text-align: left;">删除静态路由</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>hostname</code></td>
+<td style="text-align: left;">查看主机名</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>host URL</code></td>
+<td style="text-align: left;">解析主机名</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>nslookup URL</code></td>
+<td style="text-align: left;">查询DNS记录，查看域名解析是否正常</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ps -ef</code></td>
+<td style="text-align: left;">查看所有进程</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ps -ef ｜ grep process_name</code></td>
+<td style="text-align: left;">过滤需要的进程</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>kill -s process_name</code></td>
+<td style="text-align: left;">kill指定名称的进程</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>kill -s pid</code></td>
+<td style="text-align: left;">kill指定pid的进程</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>top</code></td>
+<td style="text-align: left;">实时显示进程状态</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>vmstat 1 20</code></td>
+<td style="text-align: left;">每1秒采集一次系统状态，共采20次</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>iostat</code></td>
+<td style="text-align: left;">查看io读写/cpu使用情况</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sar -u 1 10</code></td>
+<td style="text-align: left;">查询cpu使用情况（1秒一次一共十次）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sar -d 1 10</code></td>
+<td style="text-align: left;">查询磁盘使用情况（1秒一次一共十次）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">常见系统服务命令</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常用命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>chkconfig --list</code></td>
+<td style="text-align: left;">列出系统服务</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>service &lt;service_name&gt; status</code></td>
+<td style="text-align: left;">查看某个服务</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>service &lt;service_name&gt; start</code></td>
+<td style="text-align: left;">启动某个服务</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>service &lt;service_name&gt; stop</code></td>
+<td style="text-align: left;">终止某个服务</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>service &lt;service_name&gt; restart</code></td>
+<td style="text-align: left;">重启某个服务</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>systemctl status &lt;service_name&gt;</code></td>
+<td style="text-align: left;">查看某个服务</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>systemctl start &lt;service_name&gt;</code></td>
+<td style="text-align: left;">启动某个服务</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>systemctl stop &lt;service_name&gt;</code></td>
+<td style="text-align: left;">终止某个服务</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>systemctl restart &lt;service_name&gt;</code></td>
+<td style="text-align: left;">重启某个服务</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>systemctl enable &lt;service_name&gt;</code></td>
+<td style="text-align: left;">开启自启动</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>systemctl disable &lt;service_name&gt;</code></td>
+<td style="text-align: left;">关闭自启动</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">文件和目录操作</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常用命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>cd &lt;directory&gt;</code></td>
+<td style="text-align: left;">进入某个目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cd ..</code></td>
+<td style="text-align: left;">进入上级目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cd ../..</code></td>
+<td style="text-align: left;">进入上两级目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cd</code></td>
+<td style="text-align: left;">进入个人主目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cd -</code></td>
+<td style="text-align: left;">返回上一步所在目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>pwd</code></td>
+<td style="text-align: left;">显示当前路径</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ls</code></td>
+<td style="text-align: left;">查看文件目录列表</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ls -F</code></td>
+<td style="text-align: left;">查看目录中的内容（显示是文件还是目录）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ls -l</code></td>
+<td style="text-align: left;">查看文件目录列表详情</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ls -a</code></td>
+<td style="text-align: left;">查看隐藏文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ls -lh</code></td>
+<td style="text-align: left;">查看文件目录列表详情（增强文件大小易读性）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ls -lSr</code></td>
+<td style="text-align: left;">查看文件目录列表（以文件大小升序查看）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tree</code></td>
+<td style="text-align: left;">查看文件目录树形结构</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>mkdir &lt;directory_name&gt;</code></td>
+<td style="text-align: left;">创建目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>mkdir dir1 dir2</code></td>
+<td style="text-align: left;">同时创建两个目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>mkdir -p /tmp/dir1/dir2</code></td>
+<td style="text-align: left;">创建目录树</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rm -f file_name</code></td>
+<td style="text-align: left;">删除文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rm -rf dir_name</code></td>
+<td style="text-align: left;">删除目录及子目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rmdir dir_name</code></td>
+<td style="text-align: left;">删除目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>mv old_dir new_dir</code></td>
+<td style="text-align: left;">重命名/移动目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cp file1 file2</code></td>
+<td style="text-align: left;">复制文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cp dir/*</code></td>
+<td style="text-align: left;">复制某目录下的所有文件到当前目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cp -a dir1 dir2</code></td>
+<td style="text-align: left;">复制目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cp -a /tmp/dir1</code></td>
+<td style="text-align: left;">复制一个目录到当前目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ln file1 link1</code></td>
+<td style="text-align: left;">创建指向文件/目录的物理链接</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ln -s file1 link1</code></td>
+<td style="text-align: left;">创建指向文件/目录的软链接</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>find / -name file1</code></td>
+<td style="text-align: left;">从根目录开始搜索文件/目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>find / -user user1</code></td>
+<td style="text-align: left;">搜索用户user1的文件/目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>find /dir -name *.bin</code></td>
+<td style="text-align: left;">在目录/dir中搜索有.bin后缀的文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>locate &lt;keyword&gt;</code></td>
+<td style="text-align: left;">快速定位文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>locate *.mp4</code></td>
+<td style="text-align: left;">寻找以.mp4结尾的文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>whereis &lt;keyword&gt;</code></td>
+<td style="text-align: left;">显示某二进制文件/可执行文件的路径</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>which &lt;keyword&gt;</code></td>
+<td style="text-align: left;">查找系统目录下某二进制文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>chmod ugo+rwx dir1</code></td>
+<td style="text-align: left;">设置目录所有者（u）、群组（g）、其他人（o）的读写执行权限</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>chmod go-rwx dir1</code></td>
+<td style="text-align: left;">移除群组（g）、其他人（o）的读写执行权限</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>chmod user1 file1</code></td>
+<td style="text-align: left;">改变文件的所有者属性</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>chmod -R user1 dir1</code></td>
+<td style="text-align: left;">递归改变目录的所有者属性</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>chgrp group1 file1</code></td>
+<td style="text-align: left;">改变文件群组</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>chgrp user1:group1 file1</code></td>
+<td style="text-align: left;">改变文件的所有人和群组</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_8">文件查看和处理</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常用命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>cat file_name</code></td>
+<td style="text-align: left;">查看文件内容</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>cat -n file_name</code></td>
+<td style="text-align: left;">查看文件内容并标识行数</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tac file_name</code></td>
+<td style="text-align: left;">从最后一行倒着查看文件内容</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>more file_name</code></td>
+<td style="text-align: left;">查看一个长文件的内容</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>less file_name</code></td>
+<td style="text-align: left;">类似more命令，但是允许反向操作</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>head -n file_name</code></td>
+<td style="text-align: left;">查看文件前n行</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tail -n file_name</code></td>
+<td style="text-align: left;">查看文件后n行</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tail -f /log/msg</code></td>
+<td style="text-align: left;">实时查看添加到文件中的内容</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>grep keyword file_name</code></td>
+<td style="text-align: left;">从文件中搜索关键词</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>grep ^keyword file_name</code></td>
+<td style="text-align: left;">从文件中搜索以关键词开头的内容</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>grep [0-9] file_name</code></td>
+<td style="text-align: left;">从文件中选择所有包含数字的行</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sed 's/s1/s2/g' file_name</code></td>
+<td style="text-align: left;">将文件中的s1替换为s2</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sed '/^$/d' file_name</code></td>
+<td style="text-align: left;">将文件中空白行删除</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sed '/*#/d;/^$/d' file_name</code></td>
+<td style="text-align: left;">将文件中空白行和注释删除</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sed -e '1d' file_name</code></td>
+<td style="text-align: left;">从文件中排除第一行</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sed -e 's/s1//g' file_name</code></td>
+<td style="text-align: left;">从文档中只删除关键词s1并保留其余全部</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sed -n '/s1/p' file_name</code></td>
+<td style="text-align: left;">查看只包含关键词s1的行</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sed -n '1,5p;5q' file_name</code></td>
+<td style="text-align: left;">查看第一行到第五行的内容</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sed -n '5p;5q' file_name</code></td>
+<td style="text-align: left;">查看第五行的内容</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>paste file1 file2</code></td>
+<td style="text-align: left;">合并两个文件或者两栏的内容</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>paste -d '+' file1 file2</code></td>
+<td style="text-align: left;">合并两个文件或者两栏的内容,中间用+区分</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sort file1 file2</code></td>
+<td style="text-align: left;">排序两个文件的内容</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>comm -1 file1 file2</code></td>
+<td style="text-align: left;">比较两个文件的内容（去除file1所含内容）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>comm -2 file1 file2</code></td>
+<td style="text-align: left;">比较两个文件的内容（去除file2所含内容）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>comm -3 file1 file2</code></td>
+<td style="text-align: left;">比较两个文件的内容（去除两文件共有内容）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_9">打包和解压</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常用命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>zip xxx.zip file</code></td>
+<td style="text-align: left;">压缩至zip包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>zip -r xxx.zip file1 file2 dir1</code></td>
+<td style="text-align: left;">将多个文件+目录压成zip包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>unzip xxx.zip</code></td>
+<td style="text-align: left;">解压缩</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tar -cvf xxx.tar file</code></td>
+<td style="text-align: left;">创建非压缩tar包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tar -cvf xxx.tar file1 file2 dir1</code></td>
+<td style="text-align: left;">将多个文件+目录打包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tar -tf xxx.tar</code></td>
+<td style="text-align: left;">查看tar包的内容</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tar -xvf xxx.tar</code></td>
+<td style="text-align: left;">解包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tar -xvf xxx.tar -C /dir</code></td>
+<td style="text-align: left;">解包至指定目录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tar -cvfj xxx.tar.bz2 dir</code></td>
+<td style="text-align: left;">创建bz2压缩包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tar -jxvf xxx.tar.bz2</code></td>
+<td style="text-align: left;">解压bz2压缩包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tar -cvfz xxx.tar.gz dir</code></td>
+<td style="text-align: left;">创建gzip压缩包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tar -zxvf xxx.tar.gz</code></td>
+<td style="text-align: left;">解压gzip压缩包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>bunzip2 xxx.bz2</code></td>
+<td style="text-align: left;">解压bz2压缩包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>bzip2 filename</code></td>
+<td style="text-align: left;">压缩文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>gunzip xxx.gz</code></td>
+<td style="text-align: left;">解压gzip压缩包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>gzip filename</code></td>
+<td style="text-align: left;">压缩文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>gzip -9 filename</code></td>
+<td style="text-align: left;">最大程度压缩文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rpm">RPM包管理</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常用命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>rpm -qa</code></td>
+<td style="text-align: left;">查看已安装的rpm包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -q pkg_name</code></td>
+<td style="text-align: left;">查询某个rpm包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -q --whatprovides xxx</code></td>
+<td style="text-align: left;">查询xxx功能是由哪个包提供的</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -q --whatrequires xxx</code></td>
+<td style="text-align: left;">查询xxx功能被哪个程序包依赖</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -q --changelog xxx</code></td>
+<td style="text-align: left;">查询xxx包的更改记录</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -qi pkg_name</code></td>
+<td style="text-align: left;">查询某个包的详细信息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -qd pkg_name</code></td>
+<td style="text-align: left;">查询某个包所提供的文档</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -qc pkg_name</code></td>
+<td style="text-align: left;">查询已安装包提供的配置文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -ql pkg_name</code></td>
+<td style="text-align: left;">查询某个包安装了哪些文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -qf pkg_name</code></td>
+<td style="text-align: left;">查询某个文件属于哪个包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -qR pkg_name</code></td>
+<td style="text-align: left;">查询某个包的依赖关系</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -ivh xxx.rpm</code></td>
+<td style="text-align: left;">安装包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -ivh --test xxx.rpm</code></td>
+<td style="text-align: left;">测试安装包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -ivh --nodeps xxx.rpm</code></td>
+<td style="text-align: left;">安装包时忽略依赖关系</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -e xxx</code></td>
+<td style="text-align: left;">卸载程序包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -Fvh pkg_name</code></td>
+<td style="text-align: left;">升级已安装的包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -Uvh pkg_name</code></td>
+<td style="text-align: left;">升级包（若未安装则安装）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rpm -V pkg_name</code></td>
+<td style="text-align: left;">包详细信息校验</td>
+</tr>
+</tbody>
+</table>
+<h2 id="yum">YUM包管理</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常用命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>yum repolist enabled</code></td>
+<td style="text-align: left;">显示可用的源仓库</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum search pkg_name</code></td>
+<td style="text-align: left;">搜索软件包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum install pkg_name</code></td>
+<td style="text-align: left;">下载并安装软件包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum install --downloadonly pkg_name</code></td>
+<td style="text-align: left;">只下载不安装</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum list</code></td>
+<td style="text-align: left;">显示所有程序包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum list installed</code></td>
+<td style="text-align: left;">查看当前系统已安装包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum list updates</code></td>
+<td style="text-align: left;">查看可以更新的包列表</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum check-update</code></td>
+<td style="text-align: left;">查看可以升级的包列表</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum update</code></td>
+<td style="text-align: left;">更新所有软件包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum update pkg_name</code></td>
+<td style="text-align: left;">升级指定软件包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum deplist pkg_name</code></td>
+<td style="text-align: left;">列出软件包的依赖关系</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum remove pkg_name</code></td>
+<td style="text-align: left;">删除软件包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum clean all</code></td>
+<td style="text-align: left;">清除缓存</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum clean packages</code></td>
+<td style="text-align: left;">清除缓存的软件包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>yum clean headers</code></td>
+<td style="text-align: left;">清除缓存的header</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dpkg">DPKG包管理</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常用命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>dpkg -c xxx.deb</code></td>
+<td style="text-align: left;">列出deb包的内容</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dpkg -i xxx.deb</code></td>
+<td style="text-align: left;">安装/更新deb包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dpkg -r pkg_name</code></td>
+<td style="text-align: left;">移除deb包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dpkg -P pkg_name</code></td>
+<td style="text-align: left;">移除deb包（不保留配置）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dpkg -l</code></td>
+<td style="text-align: left;">查看系统中已安装的deb包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dpkg -l pkg_name</code></td>
+<td style="text-align: left;">显示包内容</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dpkg -L pkg_name</code></td>
+<td style="text-align: left;">显示包安装的文件</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dpkg -s pkg_name</code></td>
+<td style="text-align: left;">查看包的详细信息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dpkg -unpack xxx.deb</code></td>
+<td style="text-align: left;">解开deb包的内容</td>
+</tr>
+</tbody>
+</table>
+<h2 id="apt">APT软件工具</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">常用命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>apt-cache search pkg_name</code></td>
+<td style="text-align: left;">搜索程序包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>apt-cache show pkg_name</code></td>
+<td style="text-align: left;">获取程序包的概览信息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>apt-get install pkg_name</code></td>
+<td style="text-align: left;">安装/升级软件包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>apt-get purge pkg_name</code></td>
+<td style="text-align: left;">卸载软件（包括配置）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>apt-get remove pkg_name</code></td>
+<td style="text-align: left;">卸载软件（不包括配置）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>apt-get update</code></td>
+<td style="text-align: left;">更新包索引信息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>apt-get upgrade</code></td>
+<td style="text-align: left;">更新已安装软件包</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>apt-get clean</code></td>
+<td style="text-align: left;">清理缓存</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "navigation.indexes", "navigation.top", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+        <script src="../../javascripts/tablesort.js"></script>
+      
+        <script src="../../javascripts/termynal.js"></script>
+      
+        <script src="../../javascripts/custom.js"></script>
+      
+    
+  </body>
+</html>

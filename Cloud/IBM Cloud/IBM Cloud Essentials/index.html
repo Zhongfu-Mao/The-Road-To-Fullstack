@@ -1,0 +1,7970 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../GCP/Professional%20Cloud%20Developer/">
+      
+      
+        <link rel="next" href="../IBM%20Cloud%20Technical%20Advocate/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>IBM Cloud Essentials - The Road to Fullstack</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/hint.min.css">
+    
+      <link rel="stylesheet" href="../../../css/termynal.css">
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ibm-cloud-essentials" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="The Road to Fullstack" class="md-header__button md-logo" aria-label="The Road to Fullstack" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The Road to Fullstack
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IBM Cloud Essentials
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="The Road to Fullstack" class="md-nav__button md-logo" aria-label="The Road to Fullstack" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    The Road to Fullstack
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Automation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Automation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Office
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Office
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Automation/OFFICE/Python%2BExcel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python操纵Excel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Test
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Test
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Automation/Test/Playwright/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playwright
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Automation/Test/pytest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pytest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Automation/Test/Selenium/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Seleniumの基本
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Automation/Test/UnitTest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UnitTest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AWS/Certified%20Cloud%20Practitioner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fundamental Level
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AWS/Associate%20Level/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Associate Level
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Azure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Azure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Azure/DP-900/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DP-900
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Azure/AI-900/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI-900
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Azure/MS-900/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MS-900
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Azure/AZ-104/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AZ-104
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Azure/AZ-204/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AZ-204
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GCP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            GCP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GCP/Professional%20Cloud%20Developer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Professional Cloud Developer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    IBM Cloud
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            IBM Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    IBM Cloud Essentials
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    IBM Cloud Essentials
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to IBM Cloud
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to IBM Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locations-and-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Locations and Regions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#account-types-and-support-plans" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account Types and Support Plans
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billing-and-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Billing and Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identity-and-access-managementiam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity and Access Management(IAM)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identity and Access Management(IAM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iam-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      IAM components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Policy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infrastructure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Infrastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtual-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Servers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-and-file-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block and File Storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Services
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloud-internet-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Internet Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-private-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Private Cloud
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtual Private Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-components-of-vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components of VPC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#differences-between-gen1-and-gen2-vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Differences between Gen1 and Gen2 VPC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmware-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      VMware Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VMware Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vmware-solution-dedicated" class="md-nav__link">
+    <span class="md-ellipsis">
+      VMware Solution Dedicated
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmware-solution-shared" class="md-nav__link">
+    <span class="md-ellipsis">
+      VMware Solution Shared
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-vmware-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits of VMware on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmware-on-ibm-cloud-optional-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      VMware on IBM Cloud: Optional Services
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#containers-and-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Containers and Kubernetes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Containers and Kubernetes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Containers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kubernetes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-cloud-kubernetes-serviceiks" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM Cloud Kubernetes Service(IKS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kubernetes on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenShift
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenShift">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#red-hat-openshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      Red Hat OpenShift
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openshift-vs-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenShift vs Kubernetes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-openshift-extend-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does OpenShift extend Kubernetes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#red-hat-openshift-on-ibm-cloudroks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Red Hat OpenShift on IBM Cloud(ROKS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roks-regions-and-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROKS Regions and Configurations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-new-in-openshift-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's new in OpenShift 4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ways-to-try-openshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ways to try OpenShift
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-foundry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Foundry
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud Foundry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-with-cloud-foundry-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy with Cloud Foundry on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-cloud-foundry-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits of Cloud Foundry on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-foundry-runtimes-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Foundry runtimes on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-serverless" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Serverless
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-compute-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing Compute Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-cloud-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM Cloud Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actions-triggers-and-sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions, Triggers, and Sequences
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-functions-runtimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Functions runtimes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Services on IBM Cloud
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Services on IBM Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Databases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Databases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dbaas" class="md-nav__link">
+    <span class="md-ellipsis">
+      DBaaS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relational-databases-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational databases on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document-databases-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document databases on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-value-databases-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key-value databases on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artifical-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Artifical Intelligence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Artifical Intelligence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Science
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-artificial-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Artificial Intelligence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Frameworks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-service-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI service on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analytics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-data-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Data Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics-service-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analytics service on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      DevOps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DevOps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is DevOps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-vs-delivery-vs-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration vs delivery vs deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-cloud-devops-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM Cloud DevOps services
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blockchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blockchain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Blockchain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-blockchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Blockchain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elements-of-a-blockchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elements of a blockchain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-hyperledger-fabric" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Hyperledger Fabric
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consensus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-of-blockchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Value of blockchain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-blockchain-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM Blockchain Platform
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internet-of-things" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internet of Things
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Internet of Things">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-iot" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is IoT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iot-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      IoT Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-cloud-internet-of-things-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM Cloud Internet of Things Platform
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-paks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Paks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud Paks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-cloud-paks" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are Cloud Paks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-pak-for-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Pak for Applications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-pak-for-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Pak for Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-pak-for-multicloud-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Pak for Multicloud Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-pak-for-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Pak for Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-pak-for-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Pak for Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-pak-for-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Pak for Automation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IBM%20Cloud%20Technical%20Advocate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IBM Cloud Technical Advocate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Oracle Cloud Infrastructure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Oracle Cloud Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Oracle%20Cloud%20Infrastructure/OCI%20Foundations%20Associate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OCI Foundations Associate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Introduction%20to%20Cloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Cloud
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DataBase
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            DataBase
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MongoDB
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            MongoDB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MongoDB University
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            MongoDB University
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataBase/MongoDB/MongoDB%20University/Administration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataBase/MongoDB/MongoDB%20University/Aggregation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Aggregation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataBase/MongoDB/MongoDB%20University/Basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MongoDB Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataBase/MongoDB/MongoDB%20University/M320-Data%20Modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M320 Data Modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataBase/MongoDB/MongoDB%20University/MongoDB%20VS%20SQL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MongoDB vs RDBMS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataBase/MongoDB/pymongo%20%26%20motor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pymongo & motor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MySQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            MySQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataBase/MySQL/%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MySQL基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DataScience
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            DataScience
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Jupyter
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Jupyter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataScience/Jupyter/Anaconda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Anaconda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataScience/Jupyter/IPython%EF%BC%86Notebook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPython & Notebook
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataScience/Jupyter/MagicCommands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MagicCommands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataScience/Jupyter/IPython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPython
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fundamental
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamental
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataScience/Fundamental/Data%20Science%20Tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Science Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataScience/AI/ChatGPT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChatGPT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dev Tools
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Dev Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Git/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    参考资料
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Git/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Git/%E8%AE%BE%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Git/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深入理解Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Git/CLI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Git/gitattribute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    .gitattribute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Git/gitignore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    .gitignore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    VSCode
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            VSCode
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/VSCode/ESLint%20%26%20Prettier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ESLint + Prettier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/VSCode/Jest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VSCode中配置Jest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/VSCode/launch.json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    launch.json的配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/VSCode/setting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/VSCode/snippets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    snippets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Chrome%20%26%20Edge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chrome & Edge
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/cURL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cURL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/GitHub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Homebrew/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Homebrew
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/macOS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    macOS Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Makefile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Makefile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown语法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/MkDocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Material for MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Nginx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Oh%20My%20Posh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oh My Posh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Open%20Source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Source
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Redmine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redmine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/Slack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Slack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Dev%20Tools/zsh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    zsh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FrontEnd
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            FrontEnd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    HTML
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            HTML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/HTML/HTML/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTML5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CSS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            CSS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/CSS/Bootstrap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bootstrap 4.x + 5.x
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/CSS/CSS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSS World
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/CSS/SCSS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SCSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Javascript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Javascript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3_1" id="__nav_6_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ECMAScript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            ECMAScript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/JavaScript/ECMAScript/ECMA2015/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2015
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/JavaScript/ECMAScript/ECMA2016/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2016
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/JavaScript/ECMAScript/ECMA2017/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2017
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/JavaScript/ECMAScript/ECMA2018/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2018
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/JavaScript/ECMAScript/ECMA2019/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2019
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/JavaScript/ECMAScript/ECMA2020/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2020
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/JavaScript/ECMAScript/ECMA2021/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECMAScript 2021
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/JavaScript/DOM%26BOM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOM & BOM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    TypeScript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            TypeScript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/TypeScript/TypeScript%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/TypeScript/TypeScript%E7%B1%BB%E5%9E%8B%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript类型声明文件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/TypeScript/TypeScript%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript中的函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/TypeScript/TypeScript%E4%B8%AD%E7%9A%84%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript中的类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/TypeScript/TypeScript%E4%B8%AD%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript中的装饰器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/TypeScript/TypeScript%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript中的类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/TypeScript/TypeScript%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeScript中的泛型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Node.js
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Node.js
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/Node.js/%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node.js 基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/Node.js/%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模块系统
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/Node.js/apiDoc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    apiDoc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/Node.js/Express/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Express
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/Node.js/JSDoc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSDoc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/Node.js/nodemon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    nodemon
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/Node.js/NodeRED/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NodeRED基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/Node.js/npm%26yarn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    npm & yarn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    React
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            React
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/React/JSX/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JSX
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Vue
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            Vue
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/Vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vue实例中的Options
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/Vue/%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    组件化开发
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/Angular/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Angular
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/axios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    axios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FrontEnd/Emmet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Emmet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux & C
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Linux & C
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux%20%26%20C/Command%20Cheatsheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux速查备忘
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux%20%26%20C/Linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux%20%26%20C/Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Network
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Network/HTTP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP(S)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Network/MQTT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MQTT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Network/TCP%20IP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TCP/IP基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PowerShell & C#
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            PowerShell & C#
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    C#
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            C#
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PowerShell%20%26%20C%23/C%23%20%26%20.NET/C%23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C#基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PowerShell%20%26%20C%23/C%23%20%26%20.NET/dotNET/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dotNET基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PowerShell
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            PowerShell
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PowerShell%20%26%20C%23/PowerShell/Basic%26New%20Features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PowerShell: Basic and new features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PowerShell%20%26%20C%23/PowerShell/Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PowerShell: As a shell language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PowerShell%20%26%20C%23/PowerShell/Script/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PowerShell: As a Scripting Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../PowerShell%20%26%20C%23/PowerShell/Windows%20Forms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows Forms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    并发
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            并发
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E5%B9%B6%E5%8F%91/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python并发编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E5%B9%B6%E5%8F%91/subprocess/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    subprocess
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_2" id="__nav_10_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    代码检查与美化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            代码检查与美化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E4%B8%8E%E7%BE%8E%E5%8C%96/flake8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    flake8的使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    函数式编程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            函数式编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/itertools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    itertools模块的使用总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_4" id="__nav_10_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    时间 日期 日历
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            时间 日期 日历
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E6%97%B6%E9%97%B4%20%E6%97%A5%E6%9C%9F%20%E6%97%A5%E5%8E%86/calendar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Calendar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E6%97%B6%E9%97%B4%20%E6%97%A5%E6%9C%9F%20%E6%97%A5%E5%8E%86/datetime/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datetime
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E6%97%B6%E9%97%B4%20%E6%97%A5%E6%9C%9F%20%E6%97%A5%E5%8E%86/dateutil/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dateutil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E6%97%B6%E9%97%B4%20%E6%97%A5%E6%9C%9F%20%E6%97%A5%E5%8E%86/time/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Time
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_5" id="__nav_10_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    文件与路径
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            文件与路径
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E6%96%87%E4%BB%B6%E4%B8%8E%E8%B7%AF%E5%BE%84/os.path%26pathlib/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    os.path & pathlib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E6%96%87%E4%BB%B6%E4%B8%8E%E8%B7%AF%E5%BE%84/shutil/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    shutil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E6%96%87%E4%BB%B6%E4%B8%8E%E8%B7%AF%E5%BE%84/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    命令行(Python)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E6%96%87%E4%BB%B6%E4%B8%8E%E8%B7%AF%E5%BE%84/tarfile%20%26%20zipfile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tarfile & zipfile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_6" id="__nav_10_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    虚拟环境和包管理
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            虚拟环境和包管理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86/conda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86/pip-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pip-tools = pip-compile + pip-sync
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86/pip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pip
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86/pyenv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pyenv
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86/poetry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poetry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_7" id="__nav_10_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    运行时
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            运行时
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E8%BF%90%E8%A1%8C%E6%97%B6/os/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    os
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E8%BF%90%E8%A1%8C%E6%97%B6/sys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sys
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_8" id="__nav_10_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    字符串处理
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_8">
+            <span class="md-nav__icon md-icon"></span>
+            字符串处理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/manipulating%20strings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulating strings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/re/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Re
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/textwrap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    textwrap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/%E8%B1%86%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python豆知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python/YAML%20vs%20JSON/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to IBM Cloud
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to IBM Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locations-and-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Locations and Regions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#account-types-and-support-plans" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account Types and Support Plans
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billing-and-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Billing and Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identity-and-access-managementiam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity and Access Management(IAM)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identity and Access Management(IAM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iam-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      IAM components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Policy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infrastructure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Infrastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtual-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Servers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-and-file-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block and File Storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Services
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloud-internet-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Internet Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-private-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Private Cloud
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtual Private Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-components-of-vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components of VPC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#differences-between-gen1-and-gen2-vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Differences between Gen1 and Gen2 VPC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmware-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      VMware Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VMware Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vmware-solution-dedicated" class="md-nav__link">
+    <span class="md-ellipsis">
+      VMware Solution Dedicated
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmware-solution-shared" class="md-nav__link">
+    <span class="md-ellipsis">
+      VMware Solution Shared
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-vmware-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits of VMware on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmware-on-ibm-cloud-optional-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      VMware on IBM Cloud: Optional Services
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#containers-and-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Containers and Kubernetes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Containers and Kubernetes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Containers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kubernetes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-cloud-kubernetes-serviceiks" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM Cloud Kubernetes Service(IKS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kubernetes on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenShift
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenShift">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#red-hat-openshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      Red Hat OpenShift
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openshift-vs-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenShift vs Kubernetes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-openshift-extend-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does OpenShift extend Kubernetes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#red-hat-openshift-on-ibm-cloudroks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Red Hat OpenShift on IBM Cloud(ROKS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roks-regions-and-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROKS Regions and Configurations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-new-in-openshift-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's new in OpenShift 4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ways-to-try-openshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ways to try OpenShift
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-foundry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Foundry
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud Foundry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-with-cloud-foundry-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy with Cloud Foundry on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-cloud-foundry-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits of Cloud Foundry on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-foundry-runtimes-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Foundry runtimes on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-serverless" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Serverless
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-compute-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing Compute Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-cloud-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM Cloud Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actions-triggers-and-sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions, Triggers, and Sequences
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-functions-runtimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Functions runtimes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Services on IBM Cloud
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Services on IBM Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Databases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Databases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dbaas" class="md-nav__link">
+    <span class="md-ellipsis">
+      DBaaS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relational-databases-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational databases on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document-databases-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document databases on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-value-databases-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key-value databases on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artifical-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Artifical Intelligence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Artifical Intelligence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Science
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-artificial-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Artificial Intelligence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Frameworks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-service-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI service on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analytics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-data-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Data Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics-service-on-ibm-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analytics service on IBM Cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      DevOps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DevOps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is DevOps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-vs-delivery-vs-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration vs delivery vs deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-cloud-devops-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM Cloud DevOps services
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blockchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blockchain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Blockchain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-blockchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Blockchain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elements-of-a-blockchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elements of a blockchain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-hyperledger-fabric" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Hyperledger Fabric
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consensus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-of-blockchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Value of blockchain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-blockchain-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM Blockchain Platform
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internet-of-things" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internet of Things
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Internet of Things">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-iot" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is IoT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iot-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      IoT Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-cloud-internet-of-things-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM Cloud Internet of Things Platform
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-paks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Paks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud Paks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-cloud-paks" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are Cloud Paks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-pak-for-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Pak for Applications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-pak-for-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Pak for Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-pak-for-multicloud-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Pak for Multicloud Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-pak-for-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Pak for Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-pak-for-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Pak for Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-pak-for-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Pak for Automation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="ibm-cloud-essentials">IBM Cloud Essentials</h1>
+<h2 id="introduction-to-ibm-cloud">Introduction to IBM Cloud</h2>
+<h3 id="locations-and-regions">Locations and Regions</h3>
+<ul>
+<li>6 regions</li>
+<li>Dallas(us-south)</li>
+<li>WashingtonDC(us-east)</li>
+<li>London(eu-gb)</li>
+<li>Frankfurt(eu-de)</li>
+<li>Tokyo(jp-tok)</li>
+<li>Sydney(au-syd)</li>
+<li>18 availablity zones</li>
+<li>
+<p>60 data centers</p>
+</li>
+<li>
+<p>Single Zone Cluster</p>
+</li>
+<li>Multizone regions(&gt;=3)</li>
+</ul>
+<p>Locations:</p>
+<ul>
+<li>North America West</li>
+<li>North America South</li>
+<li>North America East</li>
+<li>South America</li>
+<li>Europe</li>
+<li>Asia Pacific</li>
+</ul>
+<p>Locations organize: Geograph -&gt; Country -&gt; Metro -&gt; Data Center(Zone)</p>
+<h3 id="account-types-and-support-plans">Account Types and Support Plans</h3>
+<p>IBM Cloud has three types of accounts:</p>
+<ul>
+<li>Lite</li>
+<li>Access to over 40 Lite services</li>
+<li>No credit card required</li>
+<li>Never expires</li>
+<li>Pay-as-you-go</li>
+<li>Access to all IBM Cloud services</li>
+<li>IBM support</li>
+<li>Fit for production use cases</li>
+<li>Subscription</li>
+<li>Discounted pricing</li>
+<li>Available for enterprises</li>
+<li>Access to all IBM Cloud services</li>
+</ul>
+<p>Three support levels:</p>
+<ul>
+<li>Basic</li>
+<li>Advanced</li>
+<li>Premium</li>
+</ul>
+<h3 id="billing-and-usage">Billing and Usage</h3>
+<ul>
+<li>Monthly overview</li>
+<li>By service</li>
+<li>Export usage as a CSV</li>
+</ul>
+<h3 id="identity-and-access-managementiam">Identity and Access Management(IAM)</h3>
+<h4 id="iam-components">IAM components</h4>
+<p>In IBM Cloud IAM has four key components:</p>
+<ul>
+<li>Users</li>
+<li>Invited to join accounts</li>
+<li>API key support for authentication</li>
+<li>IAM roles and access are associated with a user</li>
+<li>Platform Roles:<ul>
+<li>Viewer</li>
+<li>Operator</li>
+<li>Editor</li>
+<li>Administrator</li>
+</ul>
+</li>
+<li>Access Groups</li>
+<li>Collection of users</li>
+<li>Allows for cleaner separation of control</li>
+<li>User can be part of multiple access groups</li>
+<li>Resources</li>
+<li>A service is an entity in the catalog while a resource is a provisioned service.</li>
+<li>Have an auto-generated service ID when created</li>
+<li>User can select a region to create the resource</li>
+<li>Service Roles dictate permissions for the service's APIs</li>
+<li>Service Roles:<ul>
+<li>Reader</li>
+<li>Writer</li>
+<li>Manager</li>
+</ul>
+</li>
+<li>Resource Groups</li>
+<li>Collection of resources</li>
+<li>Specified at service creation time</li>
+<li>No geographic restrictions</li>
+</ul>
+<h4 id="access-policy">Access Policy</h4>
+<blockquote>
+<p>The combination of a subject(Users and Access Groups), role(Service Roles), and target(Resources and Resource Groups)</p>
+</blockquote>
+<h2 id="infrastructure">Infrastructure</h2>
+<h3 id="virtual-servers">Virtual Servers</h3>
+<p>Virtual Server Offerings:</p>
+<ul>
+<li>Virtual Server</li>
+<li>Regions</li>
+<li>Types<ul>
+<li>Public</li>
+<li>Dedicated</li>
+<li>Transient</li>
+<li>Reserved</li>
+</ul>
+</li>
+<li>Images<ul>
+<li>CentOS</li>
+<li>Debian</li>
+<li>Microsoft Windows</li>
+<li>Red Hat Enterprise Linux</li>
+<li>Ubuntu</li>
+</ul>
+</li>
+<li>Up to 64 vCPUs, 2 GPUs, and 512GB of RAM</li>
+<li>Up to 1 Gbps network and 5 SAN volumes</li>
+<li>Bare metal</li>
+<li>Regions</li>
+<li>Billing<ul>
+<li>Hourly</li>
+<li>Monthly</li>
+<li>1-year contract</li>
+<li>3-year contract</li>
+</ul>
+</li>
+<li>Images<ul>
+<li>VMware</li>
+<li>Citrix</li>
+<li>Cloud Linux</li>
+<li>No OS</li>
+<li>Images from Virturl Server</li>
+</ul>
+</li>
+<li>VMware and SAP certified</li>
+<li>4 to 72 cores</li>
+<li>UP to 6 TB RAM and 36 drivers</li>
+<li>GPU support</li>
+<li>Power Systems</li>
+<li>Regions<ul>
+<li>Europe</li>
+<li>North America South</li>
+<li>North America East</li>
+</ul>
+</li>
+<li>Machine Types<ul>
+<li>e880</li>
+<li>s922</li>
+</ul>
+</li>
+<li>Images<ul>
+<li>AIX</li>
+<li>IBM i</li>
+<li>Bring your own Linux</li>
+</ul>
+</li>
+<li>Hyper Protect(Z)</li>
+<li>Regions<ul>
+<li>North America South</li>
+<li>Europe</li>
+<li>North America East</li>
+<li>Asia Pacific</li>
+</ul>
+</li>
+<li>Linux One</li>
+<li>Secure</li>
+<li>Easy to deploy</li>
+<li>No Z skills required</li>
+</ul>
+<h3 id="block-and-file-storage">Block and File Storage</h3>
+<p>Related services:</p>
+<ul>
+<li>Block storage</li>
+<li>File storage</li>
+<li>Cloud backup</li>
+<li>Customizable(daily/weekly, OS/directory)</li>
+<li>Management Portal - One click restores</li>
+<li>Plug-ins for MS-SQL, MS SharePoint, Oracle</li>
+<li>End-to-end Encryption</li>
+<li>Geo-redundancy</li>
+</ul>
+<p>Block and File storage common points:</p>
+<ul>
+<li>20GB to 12TB</li>
+<li>Encryption</li>
+<li>Up to 48k IOPs</li>
+<li>Global footprint</li>
+<li>Snapshot and replication</li>
+</ul>
+<h3 id="object-storage">Object Storage</h3>
+<blockquote>
+<p>A highly scalable cloud storage, designed for durablity, resiliency and security.</p>
+</blockquote>
+<ul>
+<li>Access Management</li>
+<li>Encryption</li>
+<li>SQL query support</li>
+<li>High-speed transfer</li>
+<li>SDKs and APIs</li>
+</ul>
+<h3 id="network-services">Network Services</h3>
+<h4 id="cloud-internet-services">Cloud Internet Services</h4>
+<blockquote>
+<p>IBM Cloud's Cloud Internet Services(CIS) uses Cloudflare for internet facing applications.</p>
+</blockquote>
+<ul>
+<li>Domain Name Service(DNS)</li>
+<li>Transport Layer Security(TLS)</li>
+<li>Global Load Balancing(GLB)</li>
+<li>Rate Limiting</li>
+<li>DDoS Protection</li>
+<li>Smart Routing</li>
+<li>Web Application Firewall(WAF)</li>
+<li>Caching</li>
+</ul>
+<h4 id="networking-infrastructure">Networking Infrastructure</h4>
+<ul>
+<li>Direct Link: Create a direct, private connection between remote networks and IBM Cloud</li>
+<li>Secure Connectivity</li>
+<li>Fully Integrated Hybrid Environment</li>
+<li>Speed(50Mbps-5Gbps)</li>
+<li>CDN: A highly-distributed platform of servers that helps minimize delays</li>
+<li>Based on Akamai</li>
+<li>Smarter Scaling</li>
+<li>Secure</li>
+<li>Optimize Dynamic Content</li>
+<li>Usage-based pricing</li>
+<li>Load Balancer: Distribute traffic between virtual machines</li>
+<li>Layer-4(TCP) and Layer-7(HTTP, HTTPS)</li>
+<li>Public and Private</li>
+<li>Server Health Checks</li>
+<li>SSL Offload</li>
+<li>Monitoring Metrics</li>
+<li>Gateway Appliance</li>
+<li>Firewall</li>
+<li>VPN</li>
+<li>Subnets &amp; IPs</li>
+<li>VLAN</li>
+</ul>
+<h3 id="virtual-private-cloud">Virtual Private Cloud</h3>
+<blockquote>
+<p>A secure, isolated private cloud hosted within a public cloud.</p>
+</blockquote>
+<ul>
+<li>Configurable pool of shared computing resources</li>
+<li>Isolation between users</li>
+<li>Authenticates users and controls access to resources</li>
+</ul>
+<h4 id="key-components-of-vpc">Key Components of VPC</h4>
+<ul>
+<li>Multizone Region(location)</li>
+<li>Multiple Subnets(IP Addresses)</li>
+<li>Security groups</li>
+<li>Virtual server instances</li>
+<li>Public &amp; VPN Gateway</li>
+<li>Block storage volumes</li>
+</ul>
+<h4 id="differences-between-gen1-and-gen2-vpc">Differences between Gen1 and Gen2 VPC</h4>
+<p>Gen 1:</p>
+<ul>
+<li>Available in 6 regions</li>
+<li>Up to 16 Gbps networking</li>
+<li>Provider managed security or BYOK</li>
+</ul>
+<p>Gen 2:</p>
+<ul>
+<li>Available in 5 regions</li>
+<li>Up to 80 Gbps networking</li>
+<li>Provider managed security only</li>
+</ul>
+<h3 id="vmware-solution">VMware Solution</h3>
+<p>Why use VMware on a cloud platform?</p>
+<ul>
+<li>Cloud economies</li>
+<li>Scalability &amp; elasticity</li>
+<li>Highly available</li>
+</ul>
+<h4 id="vmware-solution-dedicated">VMware Solution Dedicated</h4>
+<blockquote>
+<p>Bare metal solution with vCenter and vSphere options</p>
+</blockquote>
+<ul>
+<li>Customer has access to the hypervisor</li>
+<li>vCenter(fully automated, VMware based software defined data center)</li>
+<li>vSphere(manually configure networking, storage, and add-ons)</li>
+<li>Bring your own license(BYOL)</li>
+<li>Add-on services(Veeam, Zerto)</li>
+</ul>
+<h4 id="vmware-solution-shared">VMware Solution Shared</h4>
+<blockquote>
+<p>Managed deployment of vCloud Director</p>
+</blockquote>
+<ul>
+<li>IBM manages the hypervisor</li>
+<li>Cost-effective</li>
+<li>Perfect for temporary migration, burst</li>
+<li>Disaster Recovery</li>
+<li>Self-service</li>
+</ul>
+<h4 id="benefits-of-vmware-on-ibm-cloud">Benefits of VMware on IBM Cloud</h4>
+<ul>
+<li>Security(Encryption+Access Control)</li>
+<li>Compliance(Geo-fencing workloads)</li>
+<li>Expertise</li>
+<li>Repid set up</li>
+</ul>
+<h4 id="vmware-on-ibm-cloud-optional-services">VMware on IBM Cloud: Optional Services</h4>
+<ul>
+<li>Veeam</li>
+<li>Zerto</li>
+<li>F5 BIG IP</li>
+</ul>
+<h2 id="deploying-applications">Deploying Applications</h2>
+<h3 id="containers-and-kubernetes">Containers and Kubernetes</h3>
+<h4 id="containers">Containers</h4>
+<blockquote>
+<p>Packaging up code, runtimes, and dependencies</p>
+</blockquote>
+<ul>
+<li>Concept around since 80s</li>
+<li>Various runtimes</li>
+<li>OCI specification</li>
+<li>Image registry</li>
+</ul>
+<h4 id="kubernetes">Kubernetes</h4>
+<blockquote>
+<p>Open-source, container-based, distributed, and scalable container-orchestration system</p>
+</blockquote>
+<ul>
+<li>Open source</li>
+<li>Automated rollouts</li>
+<li>Automatic scaling of services</li>
+<li>Service health monitoring</li>
+<li>Deploy anywhere</li>
+</ul>
+<h4 id="ibm-cloud-kubernetes-serviceiks">IBM Cloud Kubernetes Service(IKS)</h4>
+<blockquote>
+<p>Production-grade container-orchestration system</p>
+</blockquote>
+<ul>
+<li>Fully managed environment with upgrades</li>
+<li>Secure clusters(PCI, HIPAA-ready, SOC1 and more)</li>
+<li>Single and multi-zone configurations</li>
+<li>Supported add-ons</li>
+<li>Logging and monitoring</li>
+</ul>
+<p>Regions and Configurations:</p>
+<ul>
+<li>Regions</li>
+<li>Types</li>
+<li>Virtual Shared</li>
+<li>Virtual Dedicated</li>
+<li>Bare metal</li>
+<li>Profiles</li>
+<li>2vCPU, 4GB RAM - 64vCPU, 512GB RAM</li>
+<li>2vCPU, 4GB RAM - 56vCPU, 242GB RAM</li>
+<li>4 Cores, 32GB RAM - 28 Cores, 512GB RAM</li>
+<li>Billing</li>
+<li>Hourly</li>
+<li>Monthly</li>
+<li>Free</li>
+</ul>
+<p>Container Related Services on IBM Cloud:</p>
+<ul>
+<li>Container Registry</li>
+<li>Highly available</li>
+<li>Public &amp; private</li>
+<li>Vulnerability advisor</li>
+<li>Helm Catalog</li>
+<li>Access IBM products</li>
+<li>Open source projects</li>
+<li>Multi-arch support</li>
+</ul>
+<h4 id="kubernetes-on-ibm-cloud">Kubernetes on IBM Cloud</h4>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ibmcloud<span class="w"> </span>login
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ibmcloud<span class="w"> </span>target<span class="w"> </span>-r<span class="w"> </span>&lt;name&gt;
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ibmcloud<span class="w"> </span>target<span class="w"> </span>-g<span class="w"> </span>&lt;rg-name&gt;
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>ibmcloud<span class="w"> </span>cr<span class="w"> </span>images
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>ibmcloud<span class="w"> </span>ks
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>kubectl
+</span></code></pre></div>
+<h3 id="openshift">OpenShift</h3>
+<h4 id="red-hat-openshift">Red Hat OpenShift</h4>
+<ul>
+<li>Open source(OKD)</li>
+<li>Extend Kubernetes</li>
+<li>Deployable on-premises or in a cloud</li>
+<li>Enhanced security from RHEL</li>
+</ul>
+<h4 id="openshift-vs-kubernetes">OpenShift vs Kubernetes</h4>
+<ul>
+<li>Kubernetes:</li>
+<li>quarterly minor releases</li>
+<li>core framework</li>
+<li>platform is responsible to integrate beyond core</li>
+<li>OpenShift:</li>
+<li>quarterly releases</li>
+<li>k8s core plus abstractions</li>
+<li>opinions and integration of common features</li>
+</ul>
+<h4 id="how-does-openshift-extend-kubernetes">How does OpenShift extend Kubernetes</h4>
+<ul>
+<li>Integrated container registry</li>
+<li>Powerful integrated console</li>
+<li>Access control and projects</li>
+<li>Easier developer flows with Source to Image and Routes</li>
+</ul>
+<h4 id="red-hat-openshift-on-ibm-cloudroks">Red Hat OpenShift on IBM Cloud(ROKS)</h4>
+<ul>
+<li>Automated upgrades and patching</li>
+<li>Secure clusters(PCI, HIPAA-ready, SOC1 and more)</li>
+<li>Single and multi-zone configurations</li>
+<li>Integrated with LogDNA and SysDig</li>
+</ul>
+<h4 id="roks-regions-and-configurations">ROKS Regions and Configurations</h4>
+<ul>
+<li>Regions</li>
+<li>Types</li>
+<li>Virtual Shared</li>
+<li>Virtual Dedicated</li>
+<li>Bare metal</li>
+<li>Profiles</li>
+<li>2vCPU, 4GB RAM - 64vCPU, 512GB RAM</li>
+<li>2vCPU, 4GB RAM - 56vCPU, 242GB RAM</li>
+<li>4 Cores, 32GB RAM - 28 Cores, 512GB RAM</li>
+<li>Billing</li>
+<li>Hourly</li>
+<li>Monthly</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>no free tier!</p>
+</div>
+<h4 id="whats-new-in-openshift-4">What's new in OpenShift 4</h4>
+<ul>
+<li>Operator Framework</li>
+<li>OpenShift Service Mesh</li>
+<li>OpenShift serverless computing</li>
+<li>OpenShift pipelines</li>
+<li>CodeReady Workspaces</li>
+</ul>
+<h4 id="ways-to-try-openshift">Ways to try OpenShift</h4>
+<ul>
+<li>IBM Cloud</li>
+<li>IBM Z</li>
+<li>IBM Power</li>
+<li>Amazon Web Services</li>
+<li>Microsoft Azure</li>
+<li>Google Cloud Platform</li>
+<li>Red Hat OpenStack</li>
+<li>Red Hat Virtualization</li>
+<li>OpenShift Playground</li>
+<li>CodeReady Containers</li>
+<li>VMware vSphere</li>
+<li>Bare metal</li>
+</ul>
+<h3 id="cloud-foundry">Cloud Foundry</h3>
+<blockquote>
+<p>Cloud Foundry is a PaaS that allows developers to build, deploy, and manage applications on the cloud.</p>
+</blockquote>
+<ul>
+<li>Open source</li>
+<li>Deployment automation</li>
+<li>Flexible infrastructure</li>
+<li>Commercial options</li>
+<li>Community support</li>
+</ul>
+<h4 id="deploy-with-cloud-foundry-on-ibm-cloud">Deploy with Cloud Foundry on IBM Cloud</h4>
+<ul>
+<li>Continuous delivery service</li>
+<li>Application level console</li>
+<li>Bind IBM Cloud Services</li>
+</ul>
+<h4 id="benefits-of-cloud-foundry-on-ibm-cloud">Benefits of Cloud Foundry on IBM Cloud</h4>
+<ul>
+<li>Access control</li>
+<li>Health management</li>
+<li>Automatic Routing</li>
+<li>Lite tier</li>
+</ul>
+<h4 id="cloud-foundry-runtimes-on-ibm-cloud">Cloud Foundry runtimes on IBM Cloud</h4>
+<ul>
+<li>Java</li>
+<li>Node.js</li>
+<li>Python</li>
+<li>Go</li>
+<li>Swift</li>
+<li>PHP</li>
+<li>ASP.NET Core</li>
+<li>Tomcat</li>
+<li>Ruby</li>
+</ul>
+<h3 id="cloud-functions">Cloud Functions</h3>
+<h4 id="what-is-serverless">What is Serverless</h4>
+<ul>
+<li>No server or resource management</li>
+<li>Focus on microservices</li>
+<li>Pay only for code execution</li>
+</ul>
+<h4 id="comparing-compute-options">Comparing Compute Options</h4>
+<p><code>Bare Metal(Best performance and control)</code> - <code>Virtual Server(Leverae existing languages &amp; tools)</code> - <code>Containers(Maximux protability)</code> - <code>PaaS(Mix of developer speed and control)</code> - <code>Serverless(Maximum developer speed)</code></p>
+<p>&lt;- control                                                                                          development speed-&gt;</p>
+<h4 id="ibm-cloud-functions">IBM Cloud Functions</h4>
+<blockquote>
+<p>IBM Cloud + Apache OpenWhisk</p>
+</blockquote>
+<ul>
+<li>Integrated API Gateway</li>
+<li>OpenAPI support(Swagger)</li>
+<li>Integrate with Watson APIs</li>
+<li>5M free executions per month</li>
+<li>Logging and monitoring</li>
+</ul>
+<h4 id="actions-triggers-and-sequences">Actions, Triggers, and Sequences</h4>
+<ul>
+<li>Actions contain code performing the work</li>
+<li>Triggers receive events and invoke actions</li>
+<li>Sequences invoke actions in a linear order</li>
+</ul>
+<h4 id="use-cases">Use cases</h4>
+<ul>
+<li>Serverless APIs</li>
+<li>Extract-Transform-Load(ETL)</li>
+<li>Alarm driven</li>
+</ul>
+<h4 id="cloud-functions-runtimes">Cloud Functions runtimes</h4>
+<ul>
+<li>Java</li>
+<li>Node.js</li>
+<li>Python</li>
+<li>Go</li>
+<li>Swift</li>
+<li>PHP</li>
+<li>ASP.NET Core</li>
+<li>Ruby</li>
+<li>Containers</li>
+</ul>
+<h2 id="services-on-ibm-cloud">Services on IBM Cloud</h2>
+<h3 id="databases">Databases</h3>
+<h4 id="dbaas">DBaaS</h4>
+<blockquote>
+<p>Database as a Service</p>
+</blockquote>
+<ul>
+<li>Cost-effective management</li>
+<li>Secure, available, and scalable</li>
+<li>Faster time to market</li>
+</ul>
+<h4 id="relational-databases-on-ibm-cloud">Relational databases on IBM Cloud</h4>
+<ul>
+<li>Db2</li>
+<li>Fully managed Db2</li>
+<li>Scalable and elastic</li>
+<li>Db2 Hosted</li>
+<li>Managed Db2, with admin access</li>
+<li>Mirror on-prem Db2</li>
+<li>Postgres</li>
+<li>Robust open source database</li>
+<li>Integrates with IBM services</li>
+</ul>
+<h4 id="document-databases-on-ibm-cloud">Document databases on IBM Cloud</h4>
+<ul>
+<li>MongoDB</li>
+<li>Flexible data model</li>
+<li>Compliance support</li>
+<li>Cloudant</li>
+<li>99.99% SLA</li>
+<li>Based on Apache CouchDB</li>
+<li>Elasticsearch</li>
+<li>full-text search capabilities</li>
+<li>Data encrypted at rest</li>
+</ul>
+<h4 id="key-value-databases-on-ibm-cloud">Key-value databases on IBM Cloud</h4>
+<ul>
+<li>Redis</li>
+<li>Open source in-memory data store</li>
+<li>Used as database, cache, message broker</li>
+<li>etcd</li>
+<li>Open source obect-relational database</li>
+<li>Emphasis on flexibility</li>
+</ul>
+<h3 id="integration">Integration</h3>
+<h4 id="what-is-integration">What is Integration</h4>
+<p>Provides:</p>
+<ul>
+<li>Connectivity</li>
+<li>Routing</li>
+<li>Transformation</li>
+</ul>
+<p>Enables:</p>
+<ul>
+<li>Sharing data</li>
+<li>Connecting applications</li>
+<li>Security</li>
+</ul>
+<h4 id="integration-on-ibm-cloud">Integration on IBM Cloud</h4>
+<ul>
+<li>API Connect</li>
+<li>Generate Swagger APIs</li>
+<li>Graphically assemble API</li>
+<li>Share APIs with self-service portal</li>
+<li>API analytics</li>
+<li>App Connect</li>
+<li>Automate your workflow</li>
+<li>Integrate with 75+ connectors</li>
+<li>Use templates to get started</li>
+<li>Expose flows as REST APIs</li>
+<li>Event Stream</li>
+<li>Fully managed Kafka Service</li>
+<li>Highly Available</li>
+<li>Intuitive User Experience</li>
+<li>Event-driven architecture</li>
+<li>MQ</li>
+<li>Fully managed Message service</li>
+<li>Extend messaging to the cloud</li>
+<li>IBM cloud and AWS compatibility</li>
+<li>Use MQ Explorer or Console</li>
+</ul>
+<h3 id="artifical-intelligence">Artifical Intelligence</h3>
+<h4 id="data-science">Data Science</h4>
+<blockquote>
+<p>A method for creating insights from data using anlytics and machine learning</p>
+</blockquote>
+<ul>
+<li>Many use cases from all industries</li>
+<li>80% of a data scientists' time finding, cleaning and organizing data</li>
+<li>Build models that can predict and forecast</li>
+</ul>
+<h4 id="what-is-artificial-intelligence">What is Artificial Intelligence</h4>
+<ul>
+<li>Machine learning</li>
+<li>Natural language processing</li>
+<li>Speech recognition</li>
+<li>Vision</li>
+<li>Robotics</li>
+<li>Planning &amp; Optimization</li>
+</ul>
+<h4 id="ai-frameworks">AI Frameworks</h4>
+<ul>
+<li>TensorFlow</li>
+<li>scikit-learn</li>
+<li>PyTorch</li>
+</ul>
+<h4 id="ai-service-on-ibm-cloud">AI service on IBM Cloud</h4>
+<ul>
+<li>Watson Studio: Build run and manage AI models</li>
+<li>Machine Learning: Run and deploy models</li>
+<li>Watson OpenScale: Monitor AI models</li>
+<li>Knowledge Catalog: Categorize and share data and models</li>
+<li>Natural Language Understanding</li>
+<li>Tone Analyzer</li>
+<li>Discovery</li>
+<li>Knowledge Studio</li>
+<li>Speech to Text</li>
+<li>Text to Speech</li>
+<li>Language Translator</li>
+<li>Watson Assistant</li>
+</ul>
+<h3 id="analytics">Analytics</h3>
+<h4 id="what-is-data-analytics">What is Data Analytics</h4>
+<blockquote>
+<p>The science of analyzing raw data in order to make conclusions about that information</p>
+</blockquote>
+<ul>
+<li>Planning</li>
+<li>Descriptive</li>
+<li>Diagnostic</li>
+<li>Predictive</li>
+<li>Prescriptive</li>
+</ul>
+<h4 id="analytics-service-on-ibm-cloud">Analytics service on IBM Cloud</h4>
+<ul>
+<li>Analytics Engine</li>
+<li>Spark and Hadoop</li>
+<li>Scalability</li>
+<li>HIPAA-ready</li>
+<li>Customizable Environment</li>
+<li>Streaming Analytics</li>
+<li>Support for text, video, audio...</li>
+<li>Real-time analysis</li>
+<li>Integrates with Spark and Hadoop</li>
+<li>Built-in domain analytics</li>
+<li>Db2 Warehouse</li>
+<li>Train ML models</li>
+<li>Highly scalable</li>
+<li>Secure</li>
+<li>Oracle compatible</li>
+<li>Cognos Dashboard</li>
+<li>Create visualizations</li>
+<li>Live connection to data</li>
+<li>Embed visualizations</li>
+<li>Explore data</li>
+<li>Information Server</li>
+<li>Extract, Transform, and Load with DataStage</li>
+<li>Data lineage with Information Gov. Catalog</li>
+<li>Data profiling with Information Analyzer</li>
+</ul>
+<h3 id="devops">DevOps</h3>
+<h4 id="what-is-devops">What is DevOps</h4>
+<blockquote>
+<p>A set of practice that combine software development and IT operations to shorten the development lifecycle and provide high quality software</p>
+</blockquote>
+<h4 id="integration-vs-delivery-vs-deployment">Integration vs delivery vs deployment</h4>
+<p><code>git push</code> -&gt; Continuous Integration(<code>Code Repo -&gt; Build -&gt; Test</code>) -&gt; Continus Delivery(<code>`Staging</code>) -&gt; Continuous Deployment(<code>Production</code>)</p>
+<h4 id="ibm-cloud-devops-services">IBM Cloud DevOps services</h4>
+<blockquote>
+<p>A set of tools that support development, deployment, delivery, and operations tasks</p>
+</blockquote>
+<ul>
+<li>Toolchain</li>
+<li>Code<ul>
+<li>GitLab CE</li>
+<li>GitHub</li>
+<li>Bitbucket</li>
+</ul>
+</li>
+<li>Deliver<ul>
+<li>Helm</li>
+<li>Razee</li>
+<li>Tekton</li>
+</ul>
+</li>
+<li>Run<ul>
+<li>Cloud Foundry</li>
+<li>Kubernetes</li>
+<li>Virtual Server</li>
+</ul>
+</li>
+<li>Learn<ul>
+<li>New Relic</li>
+<li>Google Analytics</li>
+<li>Sauce Labs</li>
+</ul>
+</li>
+<li>Culture<ul>
+<li>Slack</li>
+<li>PagerDuty</li>
+<li>Jira</li>
+</ul>
+</li>
+<li>Continuous Delivery</li>
+<li>Delivery Pipeline</li>
+</ul>
+<h3 id="blockchain">Blockchain</h3>
+<h4 id="what-is-blockchain">What is Blockchain</h4>
+<blockquote>
+<p>A permanent, growing list of records, called blocks, linked using cryptography</p>
+</blockquote>
+<h4 id="elements-of-a-blockchain">Elements of a blockchain</h4>
+<blockquote>
+<p>Blockchains are distributed, permanent, and record transaction between two parties</p>
+</blockquote>
+<ul>
+<li>Distributed</li>
+<li>Immutable</li>
+<li>Smart Contracts</li>
+</ul>
+<h4 id="what-is-hyperledger-fabric">What is Hyperledger Fabric</h4>
+<ul>
+<li>Framework to build blockchain apps</li>
+<li>Contracts, consensus, confidentiality, resiliency, scalability</li>
+<li>Supported by AWS, Azure, GCP, IBM, Oracle</li>
+<li>Open source, hosted by Linux Foundation</li>
+</ul>
+<h4 id="consensus">Consensus</h4>
+<blockquote>
+<p>How nodes agree on order of transaction</p>
+</blockquote>
+<ul>
+<li>Proof of work, proof of stake, Raft</li>
+<li>Fix any nodes in error, and malicious nodes</li>
+<li>Assumes majority of the nodes are trustworthy</li>
+</ul>
+<h4 id="value-of-blockchain">Value of blockchain</h4>
+<ul>
+<li>Shared source of truth</li>
+<li>Automated transactions with smart contracts</li>
+<li>Visibility into history of an asset</li>
+</ul>
+<h4 id="ibm-blockchain-platform">IBM Blockchain Platform</h4>
+<ul>
+<li>Advanced tooling</li>
+<li>Open technology</li>
+<li>Deploy anywhere</li>
+</ul>
+<h3 id="internet-of-things">Internet of Things</h3>
+<h4 id="what-is-iot">What is IoT</h4>
+<blockquote>
+<p>Internet of things(IoT) is a system of interrelated computing devices, that transfers data over a network without requiring human interaction</p>
+</blockquote>
+<h4 id="iot-use-cases">IoT Use Cases</h4>
+<ul>
+<li>Predictive Maintenance</li>
+<li>Asset Tracking</li>
+<li>Connected Vehicles</li>
+</ul>
+<h4 id="ibm-cloud-internet-of-things-platform">IBM Cloud Internet of Things Platform</h4>
+<ul>
+<li>Connect and register devices</li>
+<li>information management</li>
+<li>Real-time analysis</li>
+<li>Risk and security management</li>
+</ul>
+<h3 id="cloud-paks">Cloud Paks</h3>
+<h4 id="what-are-cloud-paks">What are Cloud Paks</h4>
+<blockquote>
+<p>Containerized software solutions built to run anywhere</p>
+</blockquote>
+<ul>
+<li>Modular Architecture</li>
+<li>Put AI To work</li>
+<li>Built on OpenShift</li>
+</ul>
+<h4 id="cloud-pak-for-applications">Cloud Pak for Applications</h4>
+<blockquote>
+<p>Tools to modernize existing applications and build new cloud native applications</p>
+</blockquote>
+<ul>
+<li>Cloud-native accelerators</li>
+<li>Modernization and transformation</li>
+<li>Java EE platform</li>
+<li>Mobile app development tools</li>
+</ul>
+<h4 id="cloud-pak-for-data">Cloud Pak for Data</h4>
+<ul>
+<li>Unified platform</li>
+<li>Databases</li>
+<li>Data Virtualization</li>
+<li>Data Governance</li>
+<li>AI services</li>
+<li>Model lifecycle</li>
+</ul>
+<h4 id="cloud-pak-for-multicloud-management">Cloud Pak for Multicloud Management</h4>
+<ul>
+<li>Dashboard</li>
+<li>Compliance</li>
+<li>SRE Tooling</li>
+<li>Partner integrations</li>
+</ul>
+<h4 id="cloud-pak-for-integration">Cloud Pak for Integration</h4>
+<blockquote>
+<p>Integration tools to connect your applications and data</p>
+</blockquote>
+<ul>
+<li>API Connect</li>
+<li>App Connect</li>
+<li>MQ and Event Streams</li>
+<li>High-speed data transfer</li>
+</ul>
+<h4 id="cloud-pak-for-security">Cloud Pak for Security</h4>
+<ul>
+<li>Security capabilities</li>
+<li>Core platform services</li>
+<li>Integration with existing tools and data</li>
+</ul>
+<h4 id="cloud-pak-for-automation">Cloud Pak for Automation</h4>
+<ul>
+<li>Low code tools to consume content</li>
+<li>Business automation workflow</li>
+<li>Automate business policies</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "navigation.indexes", "navigation.top", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+        <script src="../../../javascripts/tablesort.js"></script>
+      
+        <script src="../../../javascripts/termynal.js"></script>
+      
+        <script src="../../../javascripts/custom.js"></script>
+      
+    
+  </body>
+</html>
